@@ -1,0 +1,53 @@
+import { UserReview } from '../types';
+
+export const INITIAL_REVIEWS: UserReview[] = [
+  {
+    id: 'rev-1',
+    userName: 'Sophia & Alexander Wright',
+    userAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    userLocation: 'London, United Kingdom',
+    rating: 5,
+    date: 'October 24, 2026',
+    itemTitle: 'Amalfi Coast & Capri Yacht Odyssey',
+    category: 'Tour',
+    comment: 'The private Riva boat excursion to Capri and the cliffside dinner in Positano were pure cinematic magic. Having the Mediterranean Sunset Hamper delivered to our boat dock was such a thoughtful touch!',
+    verified: true,
+  },
+  {
+    id: 'rev-2',
+    userName: 'Marcus Chen',
+    userAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+    userLocation: 'San Francisco, CA',
+    rating: 5,
+    date: 'October 18, 2026',
+    itemTitle: 'Swiss Alps Glacier Express & Alpine Lakes',
+    category: 'Tour',
+    comment: 'The Excellence Class seats on the Glacier Express and the stay at Chedi Andermatt exceeded all expectations. Seamless logistics, incredible food, and breathtaking mountain views at every turn.',
+    verified: true,
+  },
+  {
+    id: 'rev-3',
+    userName: 'Elena Rostova',
+    userAvatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
+    userLocation: 'Zurich, Switzerland',
+    rating: 5,
+    date: 'November 2, 2026',
+    itemTitle: 'Four Seasons Resort Bali at Sayan',
+    category: 'Hotel',
+    comment: 'Waking up to the morning mist over the Ayung River was life-changing. The private pool villa and Balinese spa packages booked through AuraVoyage were flawless.',
+    verified: true,
+  },
+  {
+    id: 'rev-4',
+    userName: 'Tariq Al-Mansoor',
+    userAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+    userLocation: 'Doha, Qatar',
+    rating: 5,
+    date: 'September 29, 2026',
+    itemTitle: 'Kikunoi Roan Kaiseki Gion',
+    category: 'Dining',
+    comment: 'Securing a counter seat at Kikunoi Roan is notoriously difficult, but this platform made it seamless. Best culinary experience of my life.',
+    verified: true,
+  },
+];
+

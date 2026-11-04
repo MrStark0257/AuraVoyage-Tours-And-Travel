@@ -1,0 +1,138 @@
+import React, { useState, useMemo } from 'react';
+import { REFRESHMENTS_DATA } from '../../data/refreshmentsData';
+import { RefreshmentCard } from './RefreshmentCard';
+import { useTravel } from '../../context/TravelContext';
+import { SlidersHorizontal } from 'lucide-react';
+
+export const RefreshmentList: React.FC = () => {
+  const { searchQuery, selectedDestinationFilter } = useTravel();
+  const [filterType, setFilterType] = useState<'all' | 'packs' | 'stops'>('all');
+  const [sortBy, setSortBy] = useState<'featured' | 'rating' | 'priceAsc' | 'priceDesc'>('featured');
+
+  const filteredItems = useMemo(() => {
+    return REFRESHMENTS_DATA.filter((item) => {
+      if (filterType === 'packs' && !item.isPack) return false;
+      if (filterType === 'stops' && item.isPack) return false;
+
+      if (
+        selectedDestinationFilter &&
+        selectedDestinationFilter !== 'All' &&
+        selectedDestinationFilter !== 'All Destinations' &&
+        !item.destination.toLowerCase().includes(selectedDestinationFilter.toLowerCase()) &&
+        !item.country.toLowerCase().includes(selectedDestinationFilter.toLowerCase())
+      ) {
+        return false;
+      }
+
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        const matchesName = item.name.toLowerCase().includes(q);
+        const matchesDest = item.destination.toLowerCase().includes(q);
+        const matchesType = item.type.toLowerCase().includes(q);
+        if (!matchesName && !matchesDest && !matchesType) {
+          return false;
+        }
+      }
+
+      return true;
+    }).sort((a, b) => {
+      if (sortBy === 'rating') return b.rating - a.rating;
+      if (sortBy === 'priceAsc') return a.priceUSD - b.priceUSD;
+      if (sortBy === 'priceDesc') return b.priceUSD - a.priceUSD;
+      return 0;
+    });
+  }, [filterType, selectedDestinationFilter, searchQuery, sortBy]);
+
+  return (
+    <section id="refreshments" className="container mx-auto px-4 lg:px-8 py-10 border-t border-slate-200">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-3">
+        <div>
+          <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
+            Packs & Pit Stops
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+            Travel Refreshments & Cafes
+          </h2>
+          <p className="text-slate-500 text-xs sm:text-sm mt-0.5 max-w-xl">
+            Pre-ordered artisan picnic hampers delivered en-route and reserved highway pit-stop vouchers.
+          </p>
+        </div>
+
+        {/* Sort */}
+        <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-slate-200 text-xs text-slate-700">
+          <SlidersHorizontal className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-500">Sort:</span>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as any)}
+            className="bg-transparent text-slate-900 font-medium outline-none cursor-pointer"
+          >
+            <option value="featured">Featured</option>
+            <option value="rating">Top Rated</option>
+            <option value="priceAsc">Price: Low to High</option>
+            <option value="priceDesc">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Minimalist Tabs */}
+      <div className="flex flex-wrap items-center gap-1.5 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+        <button
+          onClick={() => setFilterType('all')}
+          className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
+            filterType === 'all'
+              ? 'bg-slate-900 text-white'
+              : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
+          }`}
+        >
+          All Items ({REFRESHMENTS_DATA.length})
+        </button>
+
+        <button
+          onClick={() => setFilterType('packs')}
+          className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
+            filterType === 'packs'
+              ? 'bg-slate-900 text-white'
+              : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
+          }`}
+        >
+          Curated Picnic Hampers
+        </button>
+
+        <button
+          onClick={() => setFilterType('stops')}
+          className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
+            filterType === 'stops'
+              ? 'bg-slate-900 text-white'
+              : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
+          }`}
+        >
+          Scenic Cafes & Stops
+        </button>
+      </div>
+
+      {/* Grid */}
+      {filteredItems.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {filteredItems.map((item) => (
+            <RefreshmentCard key={item.id} item={item} />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-12 bg-white rounded-xl border border-slate-200 p-6 max-w-md mx-auto">
+          <h3 className="text-sm font-semibold text-slate-800 mb-1">No refreshments match</h3>
+          <p className="text-xs text-slate-500 mb-3">
+            Try resetting your filters or search keywords.
+          </p>
+          <button
+            onClick={() => setFilterType('all')}
+            className="px-3.5 py-1.5 bg-slate-900 text-white text-xs font-medium rounded-lg hover:bg-slate-800 transition-colors"
+          >
+            Show All Refreshments
+          </button>
+        </div>
+      )}
+    </section>
+  );
+};
