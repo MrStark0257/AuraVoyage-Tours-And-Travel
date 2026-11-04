@@ -261,6 +261,24 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
+### [v1.2.0] - Comprehensive Mobile, Tablet & Desktop Responsive Polish
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Zero Horizontal Scroll & CSS Reset**: Unused legacy template styles removed from `App.css`. Root body configured with smooth touch scrolling and guaranteed zero horizontal overflow (`overflow-x: hidden`).
+  * **Mobile Navigation Optimization (320px – 768px)**:
+    * Top utility bar text truncated cleanly with a compact mobile promo variant (`sm:hidden`).
+    * Navigation icons (Wishlist, Bookings, Cart) scaled for touch targets without crowding logo or mobile hamburger trigger.
+    * Slide-out mobile menu enhanced with direct links to all travel categories and a 24/7 concierge phone hotline.
+  * **Responsive Search & Hero Matrix**:
+    * Search bar inputs now stack cleanly in a 1-column layout on mobile, 2-column layout on small tablets, and 4-column layout on desktops (`grid-cols-1 sm:grid-cols-2 md:grid-cols-4`).
+    * Hero typography scaled down responsively (`text-2xl sm:text-4xl md:text-5xl lg:text-6xl`) for perfect readability on all iPhone, Android, and iPad screens.
+  * **Adaptive Card Grids**:
+    * Tour packages, hotels, restaurants, and refreshments updated to responsive grid containers: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3/4`.
+    * Filter pill containers refactored to wrap naturally on smaller viewports without breaking layouts.
+  * **Mobile-Optimized Modals**:
+    * Day-by-day tour itineraries, hotel booking calculators, table reservations, and digital voucher slips optimized with compact responsive image headers (`h-44 sm:h-64`) and touch-friendly sticky bottom action bars.
+  * **Footer & Newsletter**: Full-width fluid responsive input stacking on mobile with balanced footer link columns.
+
 ### [v1.1.0] - Minimalist & Human-Crafted UI Overhaul (Buttons & Aesthetic Refinement)
 * **Date**: November 2026
 * **Changes & Key Highlights**:

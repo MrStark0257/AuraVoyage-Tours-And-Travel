@@ -82,14 +82,14 @@ export const HotelList: React.FC = () => {
   };
 
   return (
-    <section id="hotels" className="container mx-auto px-4 lg:px-8 py-10 border-t border-slate-200">
+    <section id="hotels" className="container mx-auto px-4 lg:px-8 py-8 sm:py-10 border-t border-slate-200">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 gap-3">
         <div>
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
+          <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
             Stays & Resorts
           </span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             Hotels, Resorts & Villas
           </h2>
           <p className="text-slate-500 text-xs sm:text-sm mt-0.5 max-w-xl">
@@ -98,7 +98,7 @@ export const HotelList: React.FC = () => {
         </div>
 
         {/* Sort Controls */}
-        <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-slate-200 text-xs text-slate-700">
+        <div className="flex items-center gap-2 bg-white px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-200 text-xs text-slate-700 self-start sm:self-auto">
           <SlidersHorizontal className="w-3.5 h-3.5 text-slate-400" />
           <span className="text-slate-500">Sort:</span>
           <select
@@ -115,13 +115,13 @@ export const HotelList: React.FC = () => {
       </div>
 
       {/* Property Type Filter Chips */}
-      <div className="flex flex-wrap items-center gap-1.5 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-        <span className="text-xs text-slate-500 mr-1.5 font-medium">Type:</span>
+      <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+        <span className="text-xs text-slate-500 mr-1 font-medium">Type:</span>
         {propertyTypes.map((type) => (
           <button
             key={type}
             onClick={() => setSelectedType(type)}
-            className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
+            className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
               selectedType === type
                 ? 'bg-slate-900 text-white'
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
@@ -134,7 +134,7 @@ export const HotelList: React.FC = () => {
 
       {/* Hotels Grid */}
       {filteredHotels.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredHotels.map((hotel) => (
             <HotelCard
               key={hotel.id}
@@ -144,7 +144,7 @@ export const HotelList: React.FC = () => {
           ))}
         </div>
       ) : (
-        <div className="text-center py-12 bg-white rounded-xl border border-slate-200 p-6 max-w-md mx-auto">
+        <div className="text-center py-10 bg-white rounded-xl border border-slate-200 p-5 max-w-md mx-auto">
           <h3 className="text-sm font-semibold text-slate-800 mb-1">No hotels match your filters</h3>
           <p className="text-xs text-slate-500 mb-3">
             Try adjusting your search criteria or resetting filters.

@@ -86,7 +86,7 @@ export const CustomPackageBuilder: React.FC = () => {
     .reduce((acc, curr) => acc + curr.priceUSD, 0);
 
   const subtotalUSD = hotelTotalUSD + restaurantTotalUSD + refreshmentsTotalUSD + addonsTotalUSD;
-  const bundleDiscountUSD = Math.round(subtotalUSD * 0.15); // 15% custom bundle perk
+  const bundleDiscountUSD = Math.round(subtotalUSD * 0.15);
   const finalPriceUSD = subtotalUSD - bundleDiscountUSD;
 
   const toggleRefreshment = (id: string) => {
@@ -124,13 +124,13 @@ export const CustomPackageBuilder: React.FC = () => {
   };
 
   return (
-    <section id="builder" className="container mx-auto px-4 lg:px-8 py-12 border-t border-slate-200">
+    <section id="builder" className="container mx-auto px-4 lg:px-8 py-8 sm:py-12 border-t border-slate-200">
       {/* Heading */}
-      <div className="text-left md:text-center max-w-2xl mx-auto mb-10">
-        <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
+      <div className="text-left md:text-center max-w-2xl mx-auto mb-6 sm:mb-10">
+        <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
           Custom Configurator
         </span>
-        <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+        <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
           Build Your Custom Package
         </h2>
         <p className="text-slate-500 text-xs sm:text-sm mt-1">
@@ -138,12 +138,12 @@ export const CustomPackageBuilder: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 items-start">
         {/* Left 2 Columns: Configurator Controls */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-4 sm:space-y-6">
           {/* Step 1: Destination & Logistics */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-3 flex items-center gap-2">
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
                 1
               </span>
@@ -162,7 +162,7 @@ export const CustomPackageBuilder: React.FC = () => {
                     );
                     if (matchingH) setSelectedHotelId(matchingH.id);
                   }}
-                  className={`py-1.5 px-2.5 rounded-lg text-xs font-medium border transition-colors ${
+                  className={`py-1.5 px-2 rounded-lg text-xs font-medium border transition-colors ${
                     selectedDest === dest
                       ? 'bg-slate-900 text-white border-slate-900'
                       : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'
@@ -174,7 +174,7 @@ export const CustomPackageBuilder: React.FC = () => {
             </div>
 
             {/* Logistics Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 bg-slate-50 p-2.5 sm:p-3 rounded-xl border border-slate-200">
               <div>
                 <label className="block text-[10px] font-semibold uppercase text-slate-500 mb-1">
                   Start Date
@@ -224,15 +224,15 @@ export const CustomPackageBuilder: React.FC = () => {
           </div>
 
           {/* Step 2: Choose Accommodation */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-3 flex items-center gap-2">
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
                 2
               </span>
               Select Accommodation ({nights} Nights)
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
               {(availableHotels.length > 0 ? availableHotels : HOTELS_DATA.slice(0, 2)).map(
                 (hotel) => {
                   const isSelected = selectedHotelId === hotel.id;
@@ -240,7 +240,7 @@ export const CustomPackageBuilder: React.FC = () => {
                     <div
                       key={hotel.id}
                       onClick={() => setSelectedHotelId(hotel.id)}
-                      className={`p-3 rounded-xl border cursor-pointer transition-colors flex gap-3 ${
+                      className={`p-3 rounded-xl border cursor-pointer transition-colors flex gap-2.5 sm:gap-3 ${
                         isSelected
                           ? 'border-slate-900 bg-slate-50'
                           : 'border-slate-200 hover:border-slate-300 bg-white'
@@ -249,7 +249,7 @@ export const CustomPackageBuilder: React.FC = () => {
                       <img
                         src={hotel.featuredImage}
                         alt={hotel.name}
-                        className="w-16 h-16 rounded-lg object-cover shrink-0"
+                        className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg object-cover shrink-0"
                       />
                       <div className="flex-1 flex flex-col justify-between">
                         <div>
@@ -275,15 +275,15 @@ export const CustomPackageBuilder: React.FC = () => {
           </div>
 
           {/* Step 3: Add Dining Experience */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-3 flex items-center gap-2">
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
                 3
               </span>
               Dining Reservation (Optional)
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
               {(availableRestaurants.length > 0 ? availableRestaurants : RESTAURANTS_DATA.slice(0, 2)).map(
                 (rest) => {
                   const isSelected = selectedRestaurantId === rest.id;
@@ -293,7 +293,7 @@ export const CustomPackageBuilder: React.FC = () => {
                       onClick={() =>
                         setSelectedRestaurantId(isSelected ? null : rest.id)
                       }
-                      className={`p-3 rounded-xl border cursor-pointer transition-colors flex gap-3 ${
+                      className={`p-3 rounded-xl border cursor-pointer transition-colors flex gap-2.5 sm:gap-3 ${
                         isSelected
                           ? 'border-slate-900 bg-slate-50'
                           : 'border-slate-200 hover:border-slate-300 bg-white'
@@ -302,7 +302,7 @@ export const CustomPackageBuilder: React.FC = () => {
                       <img
                         src={rest.featuredImage}
                         alt={rest.name}
-                        className="w-16 h-16 rounded-lg object-cover shrink-0"
+                        className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg object-cover shrink-0"
                       />
                       <div className="flex-1 flex flex-col justify-between">
                         <div>
@@ -328,15 +328,15 @@ export const CustomPackageBuilder: React.FC = () => {
           </div>
 
           {/* Step 4: Refreshments */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-3 flex items-center gap-2">
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
                 4
               </span>
               Refreshment Hampers & Pit Stops
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
               {REFRESHMENTS_DATA.slice(0, 4).map((refr) => {
                 const isSelected = selectedRefreshmentIds.includes(refr.id);
                 return (
@@ -349,14 +349,14 @@ export const CustomPackageBuilder: React.FC = () => {
                         : 'border-slate-200 hover:border-slate-300 bg-white'
                     }`}
                   >
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2.5 truncate">
                       <img
                         src={refr.featuredImage}
                         alt={refr.name}
                         className="w-10 h-10 rounded-lg object-cover shrink-0"
                       />
-                      <div>
-                        <h5 className="font-semibold text-xs text-slate-900 line-clamp-1">
+                      <div className="truncate">
+                        <h5 className="font-semibold text-xs text-slate-900 truncate">
                           {refr.name}
                         </h5>
                         <span className="text-[10px] text-slate-500">{refr.type}</span>
@@ -381,9 +381,9 @@ export const CustomPackageBuilder: React.FC = () => {
             </div>
           </div>
 
-          {/* Step 5: Guided Excursions & Add-ons */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-3 flex items-center gap-2">
+          {/* Step 5: Guided Excursions */}
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
                 5
               </span>
@@ -397,7 +397,7 @@ export const CustomPackageBuilder: React.FC = () => {
                   <div
                     key={addon.id}
                     onClick={() => toggleAddon(addon.id)}
-                    className={`p-3 rounded-xl border cursor-pointer transition-colors flex items-center justify-between gap-3 ${
+                    className={`p-2.5 sm:p-3 rounded-xl border cursor-pointer transition-colors flex items-center justify-between gap-3 ${
                       isSelected
                         ? 'border-slate-900 bg-slate-50'
                         : 'border-slate-200 hover:border-slate-300 bg-white'
@@ -429,22 +429,22 @@ export const CustomPackageBuilder: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Sticky Summary & Checkout Card */}
-        <div className="sticky top-24 bg-slate-900 text-white p-5 rounded-2xl border border-slate-800 space-y-5">
+        {/* Right Column: Summary & Checkout Card */}
+        <div className="lg:sticky lg:top-24 bg-slate-900 text-white p-4 sm:p-5 rounded-2xl border border-slate-800 space-y-4 sm:space-y-5">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <div>
               <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 block">
                 Custom Bundle
               </span>
-              <h4 className="text-lg font-bold">{selectedDest} Journey</h4>
+              <h4 className="text-base sm:text-lg font-bold">{selectedDest} Journey</h4>
             </div>
-            <span className="bg-slate-800 text-slate-300 text-[11px] font-medium px-2 py-0.5 rounded">
+            <span className="bg-slate-800 text-slate-300 text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded">
               {nights}N • {travelers} Guests
             </span>
           </div>
 
           {/* Breakdown Items */}
-          <div className="space-y-2.5 text-xs">
+          <div className="space-y-2 text-xs">
             <div className="flex justify-between items-start">
               <div>
                 <span className="font-medium text-slate-200 flex items-center gap-1.5">
@@ -518,16 +518,16 @@ export const CustomPackageBuilder: React.FC = () => {
             </div>
             <div className="flex justify-between text-base font-bold text-white pt-2 border-t border-slate-800">
               <span>Total Bundle:</span>
-              <span className="text-xl font-bold text-white">
+              <span className="text-lg sm:text-xl font-bold text-white">
                 {formatPrice(finalPriceUSD, currency)}
               </span>
             </div>
           </div>
 
-          {/* Minimalist Booking CTA Button */}
+          {/* Booking CTA Button */}
           <button
             onClick={handleBookCustomBundle}
-            className="w-full bg-white hover:bg-slate-100 text-slate-900 font-semibold text-xs sm:text-sm py-3 rounded-xl transition-colors flex items-center justify-center gap-1.5"
+            className="w-full bg-white hover:bg-slate-100 text-slate-900 font-semibold text-xs sm:text-sm py-3 rounded-xl transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <ShoppingBag className="w-4 h-4" />
             <span>Book Custom Bundle</span>
