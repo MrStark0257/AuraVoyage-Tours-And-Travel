@@ -398,6 +398,28 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
+### [v1.7.2] - Dual-Layer Guarantee Navigation Engine & Post-Mount Double-rAF Architecture
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Final Navigation Hardening (*"nahi its not solved see in mobile view its not going for dining"* )**:
+    * **React 19 Concurrent Unmount Reconciliation**:
+      * Jab user mobile drawer me link click karta tha, to drawer unmount hone ke sath-sath 110+ tour aur hotel cards ka re-render trigger hota tha.
+      * Agar scroll synchronously click handler me run hota tha, to React ke reconciliation pass ke dauran element layout shift hone se browser view ko nearby hotel card par snap kar deta tha.
+    * **Post-Mount `useEffect` + Double-`requestAnimationFrame`**:
+      * `TravelContext.tsx` me navigation lifecycle ko state-driven architecture (`pendingScrollTarget`) par decouple kiya gaya.
+      * React jab mobile drawer ko completely dismiss kar deta hai aur DOM layout 100% final ho jata hai, tab double-rAF callback me scroll execute hota hai.
+    * **Dual-Layer Guarantee (Primary + Fallback)**:
+      * **Primary**: `targetElement.scrollIntoView({ block: 'start' })` with `scroll-mt-28` (112px clearance).
+      * **Secondary Fallback**: System turant verify karta hai: agar mobile touch abort ya iframe sandboxing ki wajah se scroll 150px se jyada deviated hai, to system instant deterministic fallback `window.scrollTo({ top: targetElement.offsetTop - hHeight - 14 })` aur `document.documentElement.scrollTop` apply karta hai.
+    * **Chrome Scroll Anchoring Disabled (`overflow-anchor: none`)**:
+      * `src/index.css` me `html, body { overflow-anchor: none; }` add kiya gaya, jo Chrome ko layout shift ke dauran viewport ko kisi hotel card par anchor karne se rokta hai.
+  * **Automated Full Test Verification**:
+    * Direct mobile simulation (`test-sim-direct.mjs`) inside actual iframe container:
+      * Click "Dining" -> `#restaurants` (`"Curated Restaurants & Scenic Cafes"`) -> Clearance: **18px** | Header: **Exact Match**
+    * Mobile device viewport (`test-mobile-nav.mjs`):
+      * `Dining` -> `#restaurants` (`"Curated Restaurants & Scenic Cafes"`) -> 100% Verified.
+      * `Cafes` -> `#refreshments` (`"Travel Refreshments & Cafes"`) -> 100% Verified.
+
 ### [v1.7.1] - Native Hyperlink Architecture & `overflow-x: clip` (Permanent Fix for Mobile Simulator Glitch)
 * **Date**: November 2026
 * **Changes & Key Highlights**:

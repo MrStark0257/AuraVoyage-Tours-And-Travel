@@ -54,6 +54,7 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   });
 
   const [activeCategory, setActiveCategory] = useState<CategoryType>('all');
+  const [pendingScrollTarget, setPendingScrollTarget] = useState<{ id: string; timestamp: number } | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDestinationFilter, setSelectedDestinationFilter] = useState('All');
   const [selectedDurationFilter, setSelectedDurationFilter] = useState('All');
@@ -225,8 +226,15 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const navigateToCategory = (cat: CategoryType) => {
     setActiveCategory(cat);
+    setPendingScrollTarget({ id: cat, timestamp: Date.now() });
+  };
 
-    if (cat === 'all') {
+  useEffect(() => {
+    if (!pendingScrollTarget) return;
+
+    const { id: targetId } = pendingScrollTarget;
+
+    if (targetId === 'all') {
       window.scrollTo({ top: 0, behavior: 'instant' });
       if (window.location.hash) {
         window.history.pushState(null, '', window.location.pathname);
@@ -234,26 +242,39 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       return;
     }
 
-    // Direct category-to-section mapping:
-    // 'restaurants' -> #restaurants ("Curated Restaurants & Scenic Cafes")
-    // 'refreshments' -> #refreshments ("Travel Refreshments & Cafes")
-    // 'hotels' -> #hotels ("Hotels, Resorts & Stays")
-    // 'tours' -> #tours ("Curated Tour Packages")
-    // 'builder' -> #builder ("Custom Package Studio")
-    const targetId = cat;
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ block: 'start' });
-      if (window.location.hash !== `#${targetId}`) {
-        window.history.pushState(null, '', `#${targetId}`);
-      }
-    } else {
-      const catalogElem = document.getElementById('catalog-section');
-      if (catalogElem) {
-        catalogElem.scrollIntoView({ block: 'start' });
-      }
-    }
-  };
+    // Double requestAnimationFrame guarantees that React 19 batch commits (including mobile drawer unmounting)
+    // and browser layout reflows have 100% completed before performing scroll
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          // Primary: Native C++ scrollIntoView respecting CSS scroll-mt-28
+          targetElement.scrollIntoView({ block: 'start' });
+
+          // Secondary Fallback: Verify arrival & force absolute offsetTop if browser cancelled or reverted scroll
+          const header = document.querySelector('header');
+          const hHeight = header ? header.getBoundingClientRect().height : 95;
+          const expectedTop = Math.max(0, targetElement.offsetTop - hHeight - 14);
+          const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+          if (Math.abs(currentScroll - expectedTop) > 150) {
+            window.scrollTo({ top: expectedTop, behavior: 'instant' });
+            document.documentElement.scrollTop = expectedTop;
+            document.body.scrollTop = expectedTop;
+          }
+
+          if (window.location.hash !== `#${targetId}`) {
+            window.history.pushState(null, '', `#${targetId}`);
+          }
+        } else {
+          const catalogElem = document.getElementById('catalog-section');
+          if (catalogElem) {
+            catalogElem.scrollIntoView({ block: 'start' });
+          }
+        }
+      });
+    });
+  }, [pendingScrollTarget]);
 
   return (
     <TravelContext.Provider

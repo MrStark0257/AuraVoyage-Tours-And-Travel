@@ -14,6 +14,7 @@
     /* Auto in CSS prevents mobile Safari / Chrome gesture scroll cancellation conflicts with window.scrollTo */
     scroll-behavior: auto;
     overflow-x: clip;
+    overflow-anchor: none;
   }
 
   body {
@@ -23,6 +24,7 @@
     color: #1e293b;
     background-color: #f8fafc;
     overflow-x: clip;
+    overflow-anchor: none;
     -webkit-tap-highlight-color: transparent;
   }
 }
