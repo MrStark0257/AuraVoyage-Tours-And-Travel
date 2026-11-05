@@ -45,8 +45,8 @@ export const CategoryPills: React.FC = () => {
     },
     {
       id: 'refreshments',
-      label: 'Refreshments',
-      description: 'Packs & pit stops',
+      label: 'Cafes & Pit-Stops',
+      description: 'Traveler directory',
       icon: Coffee,
     },
     {

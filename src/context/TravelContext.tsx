@@ -64,7 +64,10 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
       const saved = localStorage.getItem('auravoyage_cart');
-      return saved ? JSON.parse(saved) : [];
+      if (!saved) return [];
+      const parsed: CartItem[] = JSON.parse(saved);
+      // Clean up any historical refreshment items from cart
+      return parsed.filter((item) => item.itemType !== 'refreshment');
     } catch {
       return [];
     }

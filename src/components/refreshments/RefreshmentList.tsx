@@ -2,17 +2,28 @@ import React, { useState, useMemo } from 'react';
 import { REFRESHMENTS_DATA } from '../../data/refreshmentsData';
 import { RefreshmentCard } from './RefreshmentCard';
 import { useTravel } from '../../context/TravelContext';
-import { SlidersHorizontal } from 'lucide-react';
+import { SlidersHorizontal, Coffee, Compass } from 'lucide-react';
 
 export const RefreshmentList: React.FC = () => {
   const { searchQuery, selectedDestinationFilter } = useTravel();
-  const [filterType, setFilterType] = useState<'all' | 'packs' | 'stops'>('all');
-  const [sortBy, setSortBy] = useState<'featured' | 'rating' | 'priceAsc' | 'priceDesc'>('featured');
+  const [filterType, setFilterType] = useState<'all' | 'artisan' | 'scenic' | 'heritage'>('all');
+  const [sortBy, setSortBy] = useState<'featured' | 'rating' | 'reviews'>('featured');
 
   const filteredItems = useMemo(() => {
     return REFRESHMENTS_DATA.filter((item) => {
-      if (filterType === 'packs' && !item.isPack) return false;
-      if (filterType === 'stops' && item.isPack) return false;
+      if (filterType === 'artisan' && item.type !== 'Artisan Cafe') return false;
+      if (
+        filterType === 'scenic' &&
+        item.type !== 'Scenic Highway Pit Stop' &&
+        item.type !== 'Smoothie & Juice Bar'
+      )
+        return false;
+      if (
+        filterType === 'heritage' &&
+        item.type !== 'Heritage Tea House' &&
+        item.type !== 'Sunset Drinks Lounge'
+      )
+        return false;
 
       if (
         selectedDestinationFilter &&
@@ -38,8 +49,10 @@ export const RefreshmentList: React.FC = () => {
         const q = searchQuery.toLowerCase();
         const matchesName = item.name.toLowerCase().includes(q);
         const matchesDest = item.destination.toLowerCase().includes(q);
+        const matchesCountry = item.country.toLowerCase().includes(q);
         const matchesType = item.type.toLowerCase().includes(q);
-        if (!matchesName && !matchesDest && !matchesType) {
+        const matchesTags = item.tags.some((t) => t.toLowerCase().includes(q));
+        if (!matchesName && !matchesDest && !matchesCountry && !matchesType && !matchesTags) {
           return false;
         }
       }
@@ -47,8 +60,7 @@ export const RefreshmentList: React.FC = () => {
       return true;
     }).sort((a, b) => {
       if (sortBy === 'rating') return b.rating - a.rating;
-      if (sortBy === 'priceAsc') return a.priceUSD - b.priceUSD;
-      if (sortBy === 'priceDesc') return b.priceUSD - a.priceUSD;
+      if (sortBy === 'reviews') return b.reviewsCount - a.reviewsCount;
       return 0;
     });
   }, [filterType, selectedDestinationFilter, searchQuery, sortBy]);
@@ -58,14 +70,15 @@ export const RefreshmentList: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 gap-3">
         <div>
-          <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
-            Packs & Pit Stops
+          <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-500 block flex items-center gap-1.5 mb-1">
+            <Coffee className="w-3.5 h-3.5 text-slate-700" />
+            Travel Guide • Cafe & Pit-Stop Directory
           </span>
           <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-            Travel Refreshments & Cafes
+            Worldwide Cafes & Scenic Pit-Stops
           </h2>
-          <p className="text-slate-500 text-xs sm:text-sm mt-0.5 max-w-xl">
-            Pre-ordered artisan picnic hampers delivered en-route and reserved highway pit-stop vouchers.
+          <p className="text-slate-500 text-xs sm:text-sm mt-0.5 max-w-2xl leading-relaxed">
+            Search what cafes, alpine bakeries, and scenic road-trip pit stops exist at each worldwide destination. Free traveler directory with specialty drinks, addresses, and opening hours.
           </p>
         </div>
 
@@ -78,47 +91,57 @@ export const RefreshmentList: React.FC = () => {
             onChange={(e) => setSortBy(e.target.value as any)}
             className="bg-transparent text-slate-900 font-medium outline-none cursor-pointer"
           >
-            <option value="featured">Featured</option>
+            <option value="featured">Featured Spots</option>
             <option value="rating">Top Rated</option>
-            <option value="priceAsc">Price: Low to High</option>
-            <option value="priceDesc">Price: High to Low</option>
+            <option value="reviews">Most Reviewed</option>
           </select>
         </div>
       </div>
 
-      {/* Minimalist Tabs */}
+      {/* Category Tabs */}
       <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
         <button
           onClick={() => setFilterType('all')}
-          className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
+          className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
             filterType === 'all'
               ? 'bg-slate-900 text-white'
               : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
           }`}
         >
-          All Items ({REFRESHMENTS_DATA.length})
+          All Spots ({REFRESHMENTS_DATA.length})
         </button>
 
         <button
-          onClick={() => setFilterType('packs')}
-          className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
-            filterType === 'packs'
+          onClick={() => setFilterType('artisan')}
+          className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+            filterType === 'artisan'
               ? 'bg-slate-900 text-white'
               : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
           }`}
         >
-          Curated Picnic Hampers
+          Artisan Cafes & Bakeries
         </button>
 
         <button
-          onClick={() => setFilterType('stops')}
-          className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
-            filterType === 'stops'
+          onClick={() => setFilterType('scenic')}
+          className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+            filterType === 'scenic'
               ? 'bg-slate-900 text-white'
               : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
           }`}
         >
-          Scenic Cafes & Stops
+          Scenic Road & Clifftop Stops
+        </button>
+
+        <button
+          onClick={() => setFilterType('heritage')}
+          className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+            filterType === 'heritage'
+              ? 'bg-slate-900 text-white'
+              : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
+          }`}
+        >
+          Heritage Tea Houses & Lounges
         </button>
       </div>
 
@@ -131,15 +154,16 @@ export const RefreshmentList: React.FC = () => {
         </div>
       ) : (
         <div className="text-center py-10 bg-white rounded-xl border border-slate-200 p-5 max-w-md mx-auto">
-          <h3 className="text-sm font-semibold text-slate-800 mb-1">No refreshments match</h3>
+          <Compass className="w-8 h-8 text-slate-400 mx-auto mb-2 opacity-60" />
+          <h3 className="text-sm font-semibold text-slate-800 mb-1">No cafes match this filter</h3>
           <p className="text-xs text-slate-500 mb-3">
-            Try resetting your filters or search keywords.
+            Try resetting your destination search or explore all worldwide cafe spots.
           </p>
           <button
             onClick={() => setFilterType('all')}
-            className="px-3.5 py-1.5 bg-slate-900 text-white text-xs font-medium rounded-lg hover:bg-slate-800 transition-colors"
+            className="px-3.5 py-1.5 bg-slate-900 text-white text-xs font-medium rounded-lg hover:bg-slate-800 transition-colors cursor-pointer"
           >
-            Show All Refreshments
+            Show All Cafes ({REFRESHMENTS_DATA.length})
           </button>
         </div>
       )}

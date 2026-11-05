@@ -90,16 +90,25 @@ export interface Restaurant {
 export interface Refreshment {
   id: string;
   name: string;
-  type: 'Curated Travel Pack' | 'Artisan Cafe' | 'Scenic Highway Pit Stop' | 'Smoothie & Juice Bar' | 'Sunset Drinks Lounge';
+  type: 'Artisan Cafe' | 'Scenic Highway Pit Stop' | 'Smoothie & Juice Bar' | 'Sunset Drinks Lounge' | 'Heritage Tea House' | 'Curated Travel Pack';
   destination: string;
   country: string;
-  priceUSD: number;
   rating: number;
   reviewsCount: number;
   featuredImage: string;
+  galleryImages?: string[];
   description: string;
   tags: string[];
-  itemsIncluded?: string[]; // for travel snack packs
+  signatureItems?: string[];
+  openingHours?: string;
+  address?: string;
+  atmosphere?: string;
+  travelerTip?: string;
+  priceBracket?: '$' | '$$' | '$$$';
+  googleMapsUrl?: string;
+  // optional compatibility
+  priceUSD?: number;
+  itemsIncluded?: string[];
   caloriesOrPerk?: string;
   isPack?: boolean;
 }

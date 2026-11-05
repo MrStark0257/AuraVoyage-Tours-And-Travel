@@ -74,7 +74,7 @@ export const WishlistDrawer: React.FC = () => {
             type: 'refreshment' as const,
             title: refreshment.name,
             destination: refreshment.destination,
-            priceUSD: refreshment.priceUSD,
+            priceUSD: 0,
             image: refreshment.featuredImage,
             subtitle: refreshment.type,
             rating: refreshment.rating,
@@ -88,6 +88,7 @@ export const WishlistDrawer: React.FC = () => {
   const items = getWishlistDetails();
 
   const handleMoveToCart = (item: NonNullable<ReturnType<typeof getWishlistDetails>[0]>) => {
+    if (item.type === 'refreshment') return;
     addToCart({
       cartItemId: `${item.type}-${item.id}-${Date.now()}`,
       itemType: item.type,
@@ -95,7 +96,7 @@ export const WishlistDrawer: React.FC = () => {
       title: item.title,
       destination: item.destination,
       image: item.image,
-      unitPriceUSD: item.priceUSD,
+      unitPriceUSD: item.priceUSD || 0,
       quantity: 1,
     });
     toggleWishlist(item.id);
@@ -166,16 +167,36 @@ export const WishlistDrawer: React.FC = () => {
                     </div>
 
                     <div className="flex items-center justify-between pt-2 border-t border-slate-100 mt-2">
-                      <span className="font-bold text-xs text-slate-900">
-                        {formatPrice(item!.priceUSD, currency)}
-                      </span>
-                      <button
-                        onClick={() => handleMoveToCart(item!)}
-                        className="px-2.5 py-1 rounded-md bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-medium transition-colors flex items-center gap-1"
-                      >
-                        <ShoppingBag className="w-3 h-3" />
-                        <span>Move to Bag</span>
-                      </button>
+                      {item!.type === 'refreshment' ? (
+                        <>
+                          <span className="text-[11px] font-medium text-slate-500">
+                            Cafe Guide
+                          </span>
+                          <button
+                            onClick={() => {
+                              setIsWishlistOpen(false);
+                              const el = document.getElementById('refreshments');
+                              if (el) el.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-medium transition-colors cursor-pointer"
+                          >
+                            Explore Spot
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <span className="font-bold text-xs text-slate-900">
+                            {formatPrice(item!.priceUSD, currency)}
+                          </span>
+                          <button
+                            onClick={() => handleMoveToCart(item!)}
+                            className="px-2.5 py-1 rounded-md bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-medium transition-colors flex items-center gap-1 cursor-pointer"
+                          >
+                            <ShoppingBag className="w-3 h-3" />
+                            <span>Move to Bag</span>
+                          </button>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

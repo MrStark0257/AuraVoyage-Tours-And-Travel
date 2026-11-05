@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { useTravel } from '../../context/TravelContext';
 import { HOTELS_DATA } from '../../data/hotelsData';
 import { RESTAURANTS_DATA } from '../../data/restaurantsData';
-import { REFRESHMENTS_DATA } from '../../data/refreshmentsData';
 import { formatPrice } from '../../utils/formatters';
 import {
   Hotel,
   UtensilsCrossed,
-  Coffee,
   Check,
   ShoppingBag,
   ShieldCheck,
@@ -51,9 +49,6 @@ export const CustomPackageBuilder: React.FC = () => {
   const availableRestaurants = RESTAURANTS_DATA.filter((r) =>
     isDestMatch(r.destination, r.country, selectedDest)
   );
-  const availableRefreshments = REFRESHMENTS_DATA.filter((rf) =>
-    isDestMatch(rf.destination, rf.country, selectedDest)
-  );
 
   const [selectedHotelId, setSelectedHotelId] = useState<string>(
     availableHotels[0]?.id || HOTELS_DATA[0].id
@@ -61,9 +56,6 @@ export const CustomPackageBuilder: React.FC = () => {
   const [selectedRestaurantId, setSelectedRestaurantId] = useState<string | null>(
     availableRestaurants[0]?.id || null
   );
-  const [selectedRefreshmentIds, setSelectedRefreshmentIds] = useState<string[]>([
-    availableRefreshments[0]?.id || REFRESHMENTS_DATA[0].id,
-  ]);
 
   const handleDestinationSelect = (dest: string) => {
     setSelectedDest(dest);
@@ -76,10 +68,6 @@ export const CustomPackageBuilder: React.FC = () => {
       setSelectedRestaurantId(matchingRestaurants[0].id);
     } else {
       setSelectedRestaurantId(null);
-    }
-    const matchingRefreshments = REFRESHMENTS_DATA.filter((rf) => isDestMatch(rf.destination, rf.country, dest));
-    if (matchingRefreshments.length > 0) {
-      setSelectedRefreshmentIds([matchingRefreshments[0].id]);
     }
   };
 
@@ -109,31 +97,18 @@ export const CustomPackageBuilder: React.FC = () => {
   const chosenHotel =
     HOTELS_DATA.find((h) => h.id === selectedHotelId) || HOTELS_DATA[0];
   const chosenRestaurant = RESTAURANTS_DATA.find((r) => r.id === selectedRestaurantId);
-  const chosenRefreshments = REFRESHMENTS_DATA.filter((r) =>
-    selectedRefreshmentIds.includes(r.id)
-  );
 
   const hotelTotalUSD = (chosenHotel ? chosenHotel.pricePerNightUSD : 0) * nights;
   const restaurantTotalUSD = chosenRestaurant
     ? chosenRestaurant.avgCostPerPersonUSD * travelers
     : 0;
-  const refreshmentsTotalUSD = chosenRefreshments.reduce(
-    (acc, curr) => acc + curr.priceUSD * (curr.isPack ? 1 : travelers),
-    0
-  );
   const addonsTotalUSD = activityAddons
     .filter((a) => selectedAddons.includes(a.id))
     .reduce((acc, curr) => acc + curr.priceUSD, 0);
 
-  const subtotalUSD = hotelTotalUSD + restaurantTotalUSD + refreshmentsTotalUSD + addonsTotalUSD;
+  const subtotalUSD = hotelTotalUSD + restaurantTotalUSD + addonsTotalUSD;
   const bundleDiscountUSD = Math.round(subtotalUSD * 0.15);
   const finalPriceUSD = subtotalUSD - bundleDiscountUSD;
-
-  const toggleRefreshment = (id: string) => {
-    setSelectedRefreshmentIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
-  };
 
   const toggleAddon = (id: string) => {
     setSelectedAddons((prev) =>
@@ -142,6 +117,10 @@ export const CustomPackageBuilder: React.FC = () => {
   };
 
   const handleBookCustomBundle = () => {
+    const chosenAddonTitles = activityAddons
+      .filter((a) => selectedAddons.includes(a.id))
+      .map((a) => a.title);
+
     addToCart({
       cartItemId: `bundle-${Date.now()}`,
       itemType: 'custom_bundle',
@@ -153,11 +132,10 @@ export const CustomPackageBuilder: React.FC = () => {
       quantity: 1,
       selectedDate: startDate,
       guestsCount: travelers,
-      specialRequests: `Stay: ${chosenHotel?.name} | Dining: ${chosenRestaurant?.name || 'None'} | Refreshments: ${chosenRefreshments.map((r) => r.name).join(', ')}`,
+      specialRequests: `Stay: ${chosenHotel?.name || 'Hotel'} (${nights}N) | Dining: ${chosenRestaurant?.name || 'None'}${chosenAddonTitles.length > 0 ? ` | Add-ons: ${chosenAddonTitles.join(', ')}` : ''}`,
       bundleDetails: {
         hotelName: chosenHotel?.name,
         restaurantName: chosenRestaurant?.name,
-        refreshmentsName: chosenRefreshments.map((r) => r.name),
       },
     });
     setIsCartOpen(true);
@@ -362,67 +340,13 @@ export const CustomPackageBuilder: React.FC = () => {
             </div>
           </div>
 
-          {/* Step 4: Refreshments */}
+          {/* Step 4: Guided Excursions & Add-ons */}
           <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200">
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
                 4
               </span>
-              Refreshment Hampers & Pit Stops
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
-              {(availableRefreshments.length > 0 ? availableRefreshments : REFRESHMENTS_DATA.slice(0, 4)).map((refr) => {
-                const isSelected = selectedRefreshmentIds.includes(refr.id);
-                return (
-                  <div
-                    key={refr.id}
-                    onClick={() => toggleRefreshment(refr.id)}
-                    className={`p-2.5 rounded-xl border cursor-pointer transition-colors flex items-center justify-between gap-2.5 ${
-                      isSelected
-                        ? 'border-slate-900 bg-slate-50'
-                        : 'border-slate-200 hover:border-slate-300 bg-white'
-                    }`}
-                  >
-                    <div className="flex items-center gap-2.5 truncate">
-                      <img
-                        src={refr.featuredImage}
-                        alt={refr.name}
-                        className="w-10 h-10 rounded-lg object-cover shrink-0"
-                      />
-                      <div className="truncate">
-                        <h5 className="font-semibold text-xs text-slate-900 truncate">
-                          {refr.name}
-                        </h5>
-                        <span className="text-[10px] text-slate-500">{refr.type}</span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-2 shrink-0">
-                      <span className="font-bold text-xs text-slate-900">
-                        {formatPrice(refr.priceUSD, currency)}
-                      </span>
-                      <div
-                        className={`w-4 h-4 rounded flex items-center justify-center ${
-                          isSelected ? 'bg-slate-900 text-white' : 'border border-slate-300'
-                        }`}
-                      >
-                        {isSelected && <Check className="w-3 h-3" />}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Step 5: Guided Excursions */}
-          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2.5 sm:mb-3 flex items-center gap-2">
-              <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
-                5
-              </span>
-              Trip Add-ons
+              Trip Add-ons & Excursions
             </h3>
 
             <div className="space-y-2">
@@ -512,19 +436,6 @@ export const CustomPackageBuilder: React.FC = () => {
               </div>
             )}
 
-            {chosenRefreshments.length > 0 && (
-              <div className="flex justify-between items-start">
-                <div>
-                  <span className="font-medium text-slate-200 flex items-center gap-1.5">
-                    <Coffee className="w-3.5 h-3.5 text-slate-400" />
-                    Refreshments ({chosenRefreshments.length})
-                  </span>
-                </div>
-                <span className="font-semibold text-slate-200">
-                  {formatPrice(refreshmentsTotalUSD, currency)}
-                </span>
-              </div>
-            )}
 
             {addonsTotalUSD > 0 && (
               <div className="flex justify-between items-start">
