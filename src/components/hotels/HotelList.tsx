@@ -20,6 +20,8 @@ export const HotelList: React.FC = () => {
     'Boutique Hotel',
     'Mountain Chalet',
     'Heritage Palace',
+    'Budget Guest House',
+    'Backpacker Hostel',
   ];
 
   const filteredHotels = useMemo(() => {
@@ -102,10 +104,10 @@ export const HotelList: React.FC = () => {
             Stays & Resorts
           </span>
           <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-            Hotels, Resorts & Stays (3★ to 5★)
+            Hotels, Resorts & Stays (1★ to 5★)
           </h2>
           <p className="text-slate-500 text-xs sm:text-sm mt-0.5 max-w-xl">
-            Inspected 3-star cozy boutique stays, 4-star premium comfort, and 5-star world-class palace resorts.
+            From 1★ backpacker hostels & 2★ budget guest houses to 3★ cozy chalets, 4★ boutique stays & 5★ luxury palaces.
           </p>
         </div>
 
@@ -135,7 +137,9 @@ export const HotelList: React.FC = () => {
             { label: 'All Stays', value: 'All' },
             { label: '5★ Luxury', value: 5 },
             { label: '4★ Premium', value: 4 },
-            { label: '3★ Cozy & Budget', value: 3 },
+            { label: '3★ Cozy', value: 3 },
+            { label: '2★ Standard', value: 2 },
+            { label: '1★ Backpacker & Inn', value: 1 },
           ].map((star) => (
             <button
               key={star.label}

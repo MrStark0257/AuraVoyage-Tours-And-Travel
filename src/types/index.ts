@@ -51,7 +51,16 @@ export interface Hotel {
   originalPriceUSD?: number;
   featuredImage: string;
   galleryImages: string[];
-  propertyType: 'Luxury Resort' | 'Boutique Hotel' | 'Private Villa' | 'Mountain Chalet' | 'Heritage Palace';
+  propertyType:
+    | 'Luxury Resort'
+    | 'Boutique Hotel'
+    | 'Private Villa'
+    | 'Mountain Chalet'
+    | 'Heritage Palace'
+    | 'Backpacker Hostel'
+    | 'Budget Guest House'
+    | 'Village Homestay'
+    | 'Standard Tourist Lodge';
   amenities: string[];
   roomTypes: {
     name: string;

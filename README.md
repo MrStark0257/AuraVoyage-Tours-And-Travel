@@ -1,6 +1,6 @@
-# 🌍 AuraVoyage — Complete Tours, Travel, 3★–5★ Hotel Booking, Scenic Cafes & Custom Package Platform
+# 🌍 AuraVoyage — Complete Tours, Travel, 1★–5★ Hotel Booking, Scenic Cafes & Custom Package Platform
 
-> **AuraVoyage** ek comprehensive, modern aur minimalist Tours & Travel web application hai. Isme 38 multi-day curated tour packages across India and the World, 47 verified 3-Star, 4-Star aur 5-Star hotels & resorts, 64 Michelin restaurants, scenic mountain cafes, desert lounges, courtyard eateries & beach shacks, highway pit-stops aur ek powerful Custom Package Studio shamil hain jisme customer kisi bhi destination ya custom route ke liye exact days aur options select kar sakta hai.
+> **AuraVoyage** ek comprehensive, modern aur minimalist Tours & Travel web application hai. Isme 38 multi-day curated tour packages across India and the World, 72 verified 1-Star se lekar 5-Star accommodations (backpacker hostels, budget lodges, cozy chalets, boutique resorts aur luxury palaces), 64 Michelin restaurants, scenic mountain cafes, desert lounges, courtyard eateries & beach shacks, highway pit-stops aur ek powerful Custom Package Studio shamil hain jisme customer kisi bhi destination ya custom route ke liye exact days aur options select kar sakta hai.
 
 ---
 
@@ -8,9 +8,9 @@
 
 AuraVoyage ko travelers ke har stage ke travel needs ko dhyan me rakh kar design kiya gaya hai:
 1. **38 Curated Multi-Day Tour Packages**: India (Himachal, Kashmir, Ladakh, Uttarakhand, Kerala, Goa, Rajasthan, Golden Triangle, Northeast, South) aur Worldwide (Europe, Asia, Americas, Africa, Oceania, 1-Month Grand Tours).
-2. **47 Handpicked 3★ to 5★ Stays**: Luxury 5-star palaces se lekar cozy 3-star mountain chalets aur premium 4-star boutique hotels tak, interactive star-rating filter (`All`, `5★ Luxury`, `4★ Premium`, `3★ Cozy & Budget`) ke sath.
+2. **72 Handpicked 1★ to 5★ Stays**: 1-Star backpacker hostels & homestays se lekar 2-Star tourist lodges, 3-Star cozy chalets, 4-Star boutique resorts aur 5-Star grand palaces tak, complete 1★ se 5★ interactive filter buttons (`All Stays`, `5★ Luxury`, `4★ Premium`, `3★ Cozy`, `2★ Standard`, `1★ Backpacker & Inn`) ke sath.
 3. **64 Fine Dining Spots, Mountain Cafes, Desert Lounges & Beach Shacks**: Har single domestic aur worldwide destination ke liye authentic local dining — Dharamshala, McLeodganj, Leh Ladakh, Jaisalmer, Jaipur, Jodhpur, Agra, Havelock, Ooty, Darjeeling, Gangtok, Varanasi, Kasol, Rome, Florence, London, Edinburgh, Singapore, Cairo, Sydney, Amsterdam, Prague, Abu Dhabi, Marrakech, Hanoi, Seoul, etc.
-4. **Interactive Custom Package Studio**: Freedom to design complete trip — custom route type karein ya list mese select karein, exact days & nights (1 to 60 days), 3★/4★/5★ hotel tier, meal plans, private chauffeured AC cabs, activities aur 15% automatic bundle discount.
+4. **Interactive Custom Package Studio**: Freedom to design complete trip — custom route type karein ya list mese select karein, exact days & nights (1 to 60 days), 1★ se 5★ hotel star tiers, meal plans, private chauffeured AC cabs, activities aur 15% automatic bundle discount.
 5. **Multi-Currency Switcher**: Top nav bar me instant live currency switch (USD `$`, EUR `€`, GBP `£`, INR `₹`, AED `AED`).
 6. **Decoupled Refreshment Guide**: Scenic highway pit stops aur mountain bakeries discovery guide ke roop me (billing ya checkout se zero friction).
 7. **Trip Bag (Cart), Wishlist, Promo Codes (`VOYAGE10`, `WANDER20`), Confetti animations, Printable Digital Vouchers aur "My Bookings" system**.
@@ -98,19 +98,48 @@ npm run build
 
 ---
 
-### 2. 🏨 47 Curated 3-Star, 4-Star & 5-Star Accommodations (Hotels)
-* **Star Tier Filtering**:
-  * `All Stays (47)`
+### 2. 🏨 72 Curated Accommodations Across All 1-Star to 5-Star Tiers (Hotels, Hostels & Resorts)
+* **Complete 1★ to 5★ Star Tier Filtering**:
+  * `All Stays (72)`
   * `5★ Luxury` (Heritage Palaces, Overwater Reserves, 5-Star Spas)
-  * `4★ Premium` (Comfortable boutique hotels, mountain view lodges)
-  * `3★ Cozy & Budget` (Authentic local cottages, riverside chalets, pine stays)
-* **Rich Coverage Across Regions**:
-  * **Himachal & Himalayas**: *The Himalayan Castle 5★*, *Apple Country Resort 4★*, *Snow Valley Resorts 3★*, *Wildflower Hall Shimla 5★*, *Combermere Shimla 4★*, *Hotel Willow Banks 3★*, *Hyatt Dharamshala 5★*, *Norbu The Montanna 4★*, *Pristine Pine Cottage 3★*.
-  * **Kashmir & Ladakh**: *The Khyber Gulmarg 5★*, *Nedous Hotel 4★*, *Pine View Cottage Pahalgam 3★*, *Grand Dragon Leh 5★*, *Singge Palace 4★*, *Pangong Eco Camp 3★*.
-  * **Uttarakhand**: *Ananda in the Himalayas 5★*, *Aloha On The Ganges 4★*, *Divine Resort & Spa 3★*.
-  * **Rajasthan**: *The Oberoi Udaivilas 5★*, *Trident Udaipur 4★*, *Fateh Garh Palace 3★*, *Rambagh Palace Jaipur 5★*, *Suryagarh Jaisalmer 5★*.
-  * **Kerala & Goa**: *Kumarakom Lake Resort 5★*, *Fragrant Nature 4★*, *Coconut Lagoon 3★*, *Taj Exotica Goa 5★*, *Alila Diwa 4★*, *Santana Beach Resort 3★*.
-  * **Worldwide**: *Victoria-Jungfrau Grand Hotel 5★*, *Hotel Bernerhof 3★*, *Plaza Athénée Paris 5★*, *Hotel Malte Astotel Paris 4★*, *Hotel Danieli Venice 5★*, *Hotel Antiche Figure Venice 3★*, *Atlantis The Royal Dubai 5★*, *Rove Downtown Dubai 3★*, *Aman Tokyo 5★*, *Candeo Hotels Tokyo 4★*, *Four Seasons Bali 5★*, *Alila Ubud 4★*, *Soneva Fushi Maldives 5★*, *Museum Hotel Cappadocia 5★*.
+  * `4★ Premium` (Comfortable boutique hotels, panoramic mountain view lodges)
+  * `3★ Cozy` (Authentic local cottages, riverside chalets, pine stays)
+  * `2★ Standard` (Clean private rooms, budget havelis, tourist lodges, attached baths)
+  * `1★ Backpacker & Inn` (Social backpacker hostels, mountain homestays, pod dorms, beach huts)
+* **Comprehensive 1-Star to 5-Star Coverage Across Regions**:
+  * **1-Star Backpacker Hostels & Homestays ($12 - $32/night)**:
+    * *Zostel Old Manali Backpacker Hostel (1★, $16)* - Old Manali, Himachal Pradesh
+    * *The Hosteller Kasol Parvati Riverside (1★, $14)* - Kasol, Parvati Valley, Himachal Pradesh
+    * *McLeodganj Himalayan Backpacker Inn (1★, $15)* - McLeodganj, Dharamshala
+    * *Old Town Leh Himalayan Homestay (1★, $18)* - Leh, Ladakh
+    * *Rishikesh Ganga Ghat Backpacker Stay (1★, $14)* - Tapovan, Rishikesh
+    * *Anjuna Beach Palm Huts Goa (1★, $18)* - Anjuna Beach, North Goa
+    * *Sam Sand Dunes Desert Backpacker Camp (1★, $16)* - Jaisalmer, Rajasthan
+    * *Ganges View Backpacker Hostel Varanasi (1★, $12)* - Dashashwamedh Ghat, Varanasi
+    * *Fort Kochi Backpacker Art House (1★, $15)* - Fort Kochi, Kerala
+    * *St. Christopher's Inn Canal Paris (1★, $28)* - Paris, France
+    * *Balmers Mountain Backpacker Hostel Interlaken (1★, $32)* - Swiss Alps, Switzerland
+    * *The Yellow Hostel Rome Termini (1★, $26)* - Rome, Italy
+    * *Nine Hours Capsule Hotel Shinjuku Tokyo (1★, $28)* - Tokyo, Japan
+  * **2-Star Standard Lodges & Guest Houses ($20 - $55/night)**:
+    * *Hotel Beas View & Apple Orchards Manali (2★, $24)* - Manali, Himachal Pradesh
+    * *Shimla Heritage View Lodge (2★, $28)* - The Ridge, Shimla
+    * *Dal Lake Traditional Wooden Houseboat Stay (2★, $32)* - Srinagar, Kashmir
+    * *Golden Fort Haveli Guest House Jaisalmer (2★, $22)* - Jaisalmer, Rajasthan
+    * *Jaipur Traditional Haveli Inn (2★, $26)* - Jaipur, Rajasthan
+    * *Alleppey Backwater Village Guest House (2★, $25)* - Alleppey, Kerala
+    * *Calangute Palms Budget Stay Goa (2★, $24)* - Calangute, Goa
+    * *Hotel City Star Agra Taj View (2★, $20)* - Agra, Uttar Pradesh
+    * *Ibis Budget Paris Porte de Montmartre (2★, $48)* - Paris, France
+    * *Hotel City Garni Interlaken (2★, $55)* - Interlaken, Switzerland
+    * *ibis budget Singapore Crystal (2★, $45)* - Singapore
+    * *Hotel Horison Ubud Bali (2★, $26)* - Ubud, Bali, Indonesia
+  * **3-Star Cozy Comfort & Chalets ($35 - $65/night)**:
+    * *Snow Valley Resorts Manali (3★)*, *Hotel Willow Banks Shimla (3★)*, *Pristine Pine Cottage Dharamshala (3★)*, *Pangong Eco Camp Ladakh (3★)*, *Pine View Cottage Pahalgam (3★)*, *Divine Resort Rishikesh (3★)*, *Fateh Garh Palace Udaipur (3★)*, *Coconut Lagoon Kerala (3★)*, *Santana Beach Resort Goa (3★)*, *Hotel Bernerhof Interlaken (3★)*, *Hotel Antiche Figure Venice (3★)*, *Rove Downtown Dubai (3★)*.
+  * **4-Star Premium Boutique Resorts ($75 - $160/night)**:
+    * *Apple Country Resort Manali (4★)*, *Combermere Shimla (4★)*, *Norbu The Montanna Dharamshala (4★)*, *Singge Palace Leh (4★)*, *Nedous Hotel Gulmarg (4★)*, *Aloha On The Ganges Rishikesh (4★)*, *Trident Udaipur (4★)*, *Fragrant Nature Kerala (4★)*, *Alila Diwa Goa (4★)*, *Hotel Malte Astotel Paris (4★)*, *Candeo Hotels Tokyo (4★)*, *Alila Ubud Bali (4★)*, *Maya Ubud Resort (4★)*.
+  * **5-Star World-Class Palaces & Luxury Reserves ($180 - $850/night)**:
+    * *The Himalayan Castle Manali (5★)*, *Wildflower Hall Shimla (5★)*, *Hyatt Dharamshala (5★)*, *Grand Dragon Leh (5★)*, *The Khyber Gulmarg (5★)*, *Ananda in the Himalayas (5★)*, *The Oberoi Udaivilas Udaipur (5★)*, *Rambagh Palace Jaipur (5★)*, *Suryagarh Jaisalmer (5★)*, *Kumarakom Lake Resort Kerala (5★)*, *Taj Exotica Goa (5★)*, *Victoria-Jungfrau Interlaken (5★)*, *Plaza Athénée Paris (5★)*, *Hotel Danieli Venice (5★)*, *Atlantis The Royal Dubai (5★)*, *Aman Tokyo (5★)*, *Four Seasons Bali (5★)*, *Soneva Fushi Maldives (5★)*.
 * **Dynamic Stay Calculator**:
   * Check-in aur Check-out dates select karne par automatic nights calculate hoti hain.
   * Live pricing in selected currency (USD, EUR, GBP, INR, AED).
@@ -405,6 +434,23 @@ Har baar jab bhi project me koi naya feature ya modification hoga, wo is section
       6. **Signature Excursions**: Dedicated Local Guide, Vacation Photography Session, Scenic/Adventure Passes.
       7. **Live Pricing**: Customer ki chosen currency (`₹ INR`, `$ USD`, etc.) me itemized math aur automatic **15% bundle discount** calculation.
       8. **1-Click Booking**: "Book Custom Package" button se complete itinerary bag me add hokar instant checkout open hota hai.
+
+### [v1.6.2] - Comprehensive 1-Star to 5-Star Accommodations (72 Hostels to Palaces)
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Complete 1-Star to 5-Star Coverage (72 Accommodations)**:
+    * User request ("isme sare bataoo 1 star se leke 5 star sab") ke anusar platform par 1★ se lekar 5★ tak ke sabhi accommodation tiers ko expand kiya gaya:
+      * **1-Star Stays ($12 - $32/night)**: Social backpacker hostels, mountain homestays, capsule pods aur beach huts (*Zostel Old Manali*, *Hosteller Kasol*, *McLeodganj Backpacker Inn*, *Leh Old Town Homestay*, *Rishikesh Ganga Ghat Stay*, *Anjuna Palm Huts*, *Varanasi Ganges View Hostel*, *Sam Sand Dunes Camp*, *St. Christopher's Inn Paris*, *Balmers Hostel Interlaken*, *The Yellow Hostel Rome*, *Nine Hours Capsule Tokyo*).
+      * **2-Star Stays ($20 - $55/night)**: Standard tourist lodges, clean budget guest houses aur heritage havelis (*Hotel Beas View Manali*, *Shimla Heritage View Lodge*, *Dal Lake Houseboat Srinagar*, *Golden Fort Haveli Jaisalmer*, *Jaipur Traditional Haveli*, *Alleppey Backwater Village Guest House*, *Calangute Palms Goa*, *Hotel City Star Agra Taj View*, *Ibis Budget Paris*, *Hotel City Garni Interlaken*, *ibis budget Singapore*, *Hotel Horison Ubud Bali*).
+      * **3-Star Stays**: Cozy boutique stays, alpine chalets, lakeside cottages (*Snow Valley Manali*, *Willow Banks Shimla*, *Pangong Eco Camp*, *Coconut Lagoon Kerala*, *Hotel Bernerhof Interlaken*, *Rove Downtown Dubai*).
+      * **4-Star Stays**: Scenic resorts with pool, spa and balcony views (*Apple Country Resort*, *Combermere Shimla*, *Singge Palace Leh*, *Trident Udaipur*, *Alila Diwa Goa*, *Maya Ubud Resort*).
+      * **5-Star Stays**: World-class heritage palaces, private pool villas aur overwater reserves (*The Himalayan Castle*, *Wildflower Hall*, *The Khyber*, *The Oberoi Udaivilas*, *Taj Exotica Goa*, *Victoria-Jungfrau Switzerland*, *Plaza Athénée Paris*, *Atlantis The Royal Dubai*, *Soneva Fushi Maldives*).
+  * **Interactive Star Tier Filters**:
+    * `All Stays (72)`, `5★ Luxury`, `4★ Premium`, `3★ Cozy`, `2★ Standard`, `1★ Backpacker & Inn` buttons.
+    * Dynamic gold star badges (`{'★'.repeat(starRating)} {starRating}-Star`) on all hotel cards.
+  * **Custom Package Studio 5-Tier Accommodation Selector**:
+    * Custom Package Builder me ab 5 distinct star tiers shamil hain: 1★ Backpacker & Inn ($16/night), 2★ Standard Lodge ($26/night), 3★ Cozy & Comfort ($48/night), 4★ Premium Resort ($115/night), 5★ Luxury Palace ($320/night), with matching local property previews.
+  * **Hero Badge Updated**: Hero banner subhead and trust badges updated to "1★ to 5★ Stays & Scenic Cafes".
 
 ### [v1.6.1] - Pan-Destination Dining & Cafe Expansion (64 Spots Across All Places)
 * **Date**: November 2026

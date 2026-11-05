@@ -161,7 +161,7 @@ export const Hero: React.FC = () => {
         {/* Minimalist Subhead Tag */}
         <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium tracking-wide mb-4 sm:mb-6">
           <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-          <span>India & Worldwide Curated Expeditions • 3★ to 5★ Stays & Scenic Cafes</span>
+          <span>India & Worldwide Curated Expeditions • 1★ to 5★ Stays & Scenic Cafes</span>
         </div>
 
         {/* Hero Title */}
@@ -321,7 +321,7 @@ export const Hero: React.FC = () => {
             <ShieldCheck className="w-4 h-4 text-slate-300 shrink-0" />
             <div>
               <h4 className="text-white font-medium text-[11px] sm:text-xs">Verified Stays</h4>
-              <p className="text-slate-400 text-[10px]">Inspected 3★ to 5★ stays</p>
+              <p className="text-slate-400 text-[10px]">Inspected 1★ to 5★ stays</p>
             </div>
           </div>
 

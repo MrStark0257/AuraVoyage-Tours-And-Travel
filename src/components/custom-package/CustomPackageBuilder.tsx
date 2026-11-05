@@ -562,8 +562,8 @@ export const CustomPackageBuilder: React.FC = () => {
   const [startDate, setStartDate] = useState<string>('2026-11-20');
   const [travelers, setTravelers] = useState<number>(2);
 
-  // Hotel Tier: 3-Star, 4-Star, or 5-Star
-  const [selectedStarTier, setSelectedStarTier] = useState<3 | 4 | 5>(4);
+  // Hotel Tier: 1-Star to 5-Star
+  const [selectedStarTier, setSelectedStarTier] = useState<1 | 2 | 3 | 4 | 5>(3);
 
   // Meal Plan Preference
   const [selectedMealPlan, setSelectedMealPlan] = useState<'half_board' | 'all_inclusive' | 'breakfast' | 'none'>('half_board');
@@ -719,7 +719,13 @@ export const CustomPackageBuilder: React.FC = () => {
 
   // Dynamic Pricing Calculation
   // 1. Hotel Stay:
-  const baseHotelPricePerNight = chosenHotel ? chosenHotel.pricePerNightUSD : (selectedStarTier === 3 ? 45 : selectedStarTier === 4 ? 115 : 320);
+  const baseHotelPricePerNight = chosenHotel
+    ? chosenHotel.pricePerNightUSD
+    : selectedStarTier === 1 ? 16
+    : selectedStarTier === 2 ? 26
+    : selectedStarTier === 3 ? 48
+    : selectedStarTier === 4 ? 115
+    : 320;
   const totalHotelUSD = baseHotelPricePerNight * nightsCount;
 
   // 2. Meal Plan:
@@ -1017,27 +1023,41 @@ export const CustomPackageBuilder: React.FC = () => {
             </div>
 
             {/* Star Tier Selector Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5 mb-4">
               {[
                 {
+                  tier: 1,
+                  label: '1★ Backpacker & Inn',
+                  tag: 'Backpacker',
+                  desc: 'Clean hostels, village homestays & dorms.',
+                  badgeColor: 'text-amber-500',
+                },
+                {
+                  tier: 2,
+                  label: '2★ Standard Lodge',
+                  tag: 'Budget Value',
+                  desc: 'Private rooms, attached bath & tourist lodges.',
+                  badgeColor: 'text-amber-500',
+                },
+                {
                   tier: 3,
-                  label: '3★ Budget & Cozy',
+                  label: '3★ Cozy & Comfort',
                   tag: 'Smart Economy',
-                  desc: 'Clean boutique stays, mountain chalets & havelis with breakfast.',
+                  desc: 'Boutique stays, chalets & havelis with breakfast.',
                   badgeColor: 'text-amber-500',
                 },
                 {
                   tier: 4,
-                  label: '4★ Premium Comfort',
+                  label: '4★ Premium Resort',
                   tag: 'Most Popular',
-                  desc: 'Scenic resorts with pool, spa, lavish breakfast & balcony views.',
+                  desc: 'Scenic resorts with pool, spa & lavish breakfast.',
                   badgeColor: 'text-amber-500',
                 },
                 {
                   tier: 5,
-                  label: '5★ Luxury Palace & Spa',
+                  label: '5★ Luxury Palace',
                   tag: 'Ultra Luxury',
-                  desc: 'World-renowned 5-star properties, private villas & butler service.',
+                  desc: 'Palaces, overwater villas & butler service.',
                   badgeColor: 'text-amber-500',
                 },
               ].map((item) => {
@@ -1050,7 +1070,7 @@ export const CustomPackageBuilder: React.FC = () => {
                       const matching = matchingHotelsForDest.find((h) => h.starRating === item.tier);
                       if (matching) setSelectedHotelId(matching.id);
                     }}
-                    className={`p-3 rounded-xl border cursor-pointer transition-all flex flex-col justify-between ${
+                    className={`p-2.5 sm:p-3 rounded-xl border cursor-pointer transition-all flex flex-col justify-between ${
                       isSelected
                         ? 'border-slate-900 bg-slate-50 ring-2 ring-slate-900 shadow-sm'
                         : 'border-slate-200 hover:border-slate-300 bg-white'
@@ -1061,15 +1081,15 @@ export const CustomPackageBuilder: React.FC = () => {
                         <span className="text-amber-500 font-bold text-xs">
                           {'★'.repeat(item.tier)}
                         </span>
-                        <span className="text-[9px] font-semibold uppercase tracking-wider bg-slate-200/80 px-1.5 py-0.5 rounded text-slate-700">
+                        <span className="text-[8px] font-semibold uppercase tracking-wider bg-slate-200/80 px-1 py-0.5 rounded text-slate-700">
                           {item.tag}
                         </span>
                       </div>
-                      <h4 className="font-bold text-xs text-slate-900">{item.label}</h4>
+                      <h4 className="font-bold text-[11px] sm:text-xs text-slate-900 leading-tight">{item.label}</h4>
                       <p className="text-[10px] text-slate-500 mt-1 leading-snug">{item.desc}</p>
                     </div>
 
-                    <div className="mt-2.5 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                    <div className="mt-2 pt-2 border-t border-slate-200/60 flex items-center justify-between">
                       <span className="text-[10px] font-medium text-slate-600">
                         {isSelected ? '✓ Selected' : 'Choose Tier'}
                       </span>
