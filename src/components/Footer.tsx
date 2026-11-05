@@ -153,18 +153,20 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-slate-400">
               {[
-                { name: 'Paris', label: 'Paris, France' },
+                { name: 'Kullu Manali', label: 'Kullu Manali, India' },
+                { name: 'Kerala', label: 'Kerala Backwaters' },
+                { name: 'Kashmir', label: 'Kashmir & Gulmarg' },
+                { name: 'Goa', label: 'Goa Coast' },
+                { name: 'Rajasthan', label: 'Rajasthan, India' },
                 { name: 'Swiss Alps', label: 'Swiss Alps' },
+                { name: 'Paris', label: 'Paris, France' },
                 { name: 'Amalfi', label: 'Amalfi Coast' },
                 { name: 'Kyoto', label: 'Kyoto, Japan' },
                 { name: 'Bali', label: 'Bali, Indonesia' },
-                { name: 'Rajasthan', label: 'Rajasthan, India' },
-                { name: 'Maldives', label: 'Maldives' },
                 { name: 'Dubai', label: 'Dubai, UAE' },
-                { name: 'Iceland', label: 'Iceland' },
-                { name: 'Serengeti', label: 'Serengeti, Tanzania' },
-                { name: 'New York', label: 'New York, USA' },
-                { name: 'Peru', label: 'Machu Picchu' },
+                { name: 'Santorini', label: 'Santorini, Greece' },
+                { name: '1-Month Tours', label: '1-Month Expeditions' },
+                { name: 'Maldives', label: 'Maldives' },
               ].map((item) => (
                 <button
                   key={item.name}

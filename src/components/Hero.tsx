@@ -5,7 +5,7 @@ import {
   Search,
   MapPin,
   Calendar,
-  Users,
+  Clock,
   Compass,
   Palmtree,
   Hotel,
@@ -13,6 +13,7 @@ import {
   Coffee,
   ShieldCheck,
   Star,
+  Sparkles,
 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
@@ -23,35 +24,85 @@ export const Hero: React.FC = () => {
     setSearchQuery,
     selectedDestinationFilter,
     setSelectedDestinationFilter,
+    selectedDurationFilter,
+    setSelectedDurationFilter,
+    selectedMonthFilter,
+    setSelectedMonthFilter,
   } = useTravel();
 
   const [localSearch, setLocalSearch] = useState(searchQuery);
-  const [guestCount, setGuestCount] = useState('2 Guests');
-  const [travelMonth, setTravelMonth] = useState('Anytime');
 
-  const destinationOptions = [
-    'All Destinations',
-    'Paris, France',
-    'Swiss Alps, Switzerland',
-    'Amalfi Coast, Italy',
-    'Santorini, Greece',
-    'Reykjavík, Iceland',
-    'Kyoto & Tokyo, Japan',
-    'Bali, Indonesia',
-    'Rajasthan, India',
-    'Maldives',
-    'Dubai, UAE',
-    'Cappadocia, Turkey',
-    'Serengeti, Tanzania',
-    'Cape Town, South Africa',
-    'New York, USA',
-    'Cusco & Machu Picchu, Peru',
-    'Queenstown, New Zealand',
+  const destinationGroups = [
+    {
+      group: 'India Destinations',
+      items: [
+        'Kullu Manali, Himachal Pradesh',
+        'Kerala Backwaters & Munnar',
+        'Goa Coastal & Heritage',
+        'Kashmir Paradise & Ladakh',
+        'Rajasthan Forts & Palaces (Udaipur)',
+      ],
+    },
+    {
+      group: 'Europe & Mediterranean',
+      items: [
+        'Swiss Alps & Interlaken, Switzerland',
+        'Paris, France',
+        'Amalfi Coast & Positano, Italy',
+        'Venice & Venetian Lagoon, Italy',
+        'Santorini Caldera, Greece',
+        'Reykjavík & Blue Lagoon, Iceland',
+      ],
+    },
+    {
+      group: 'Asia & Middle East',
+      items: [
+        'Kyoto & Tokyo, Japan',
+        'Phuket & Bangkok, Thailand',
+        'Bali Sanctuary, Indonesia',
+        'Dubai & Arabian Dunes, UAE',
+        'Maldives Overwater Atolls',
+        'Cappadocia Cave Valleys, Turkey',
+      ],
+    },
+    {
+      group: 'Africa, Americas & Oceania',
+      items: [
+        'Serengeti National Park, Tanzania',
+        'Cape Town & Winelands, South Africa',
+        'New York City, USA',
+        'Machu Picchu & Cusco, Peru',
+        'Queenstown Alpine, New Zealand',
+      ],
+    },
+    {
+      group: '1-Month Grand Tours',
+      items: [
+        'Incredible India 30-Day Grand Odyssey',
+        'Grand European 28-Day Splendor',
+      ],
+    },
   ];
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSearchQuery(localSearch);
+    setSearchQuery(localSearch.trim());
+    const targetElement = document.getElementById(
+      activeCategory === 'all' ? 'catalog-section' : activeCategory
+    );
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleFeaturedClick = (keyword: string) => {
+    setLocalSearch(keyword);
+    setSearchQuery(keyword);
+    if (keyword === '1-Month Tours') {
+      setSelectedDurationFilter('month');
+    } else {
+      setSelectedDestinationFilter(keyword);
+    }
     const targetElement = document.getElementById(
       activeCategory === 'all' ? 'catalog-section' : activeCategory
     );
@@ -68,22 +119,36 @@ export const Hero: React.FC = () => {
     { label: 'Refreshments', category: 'refreshments', icon: Coffee },
   ];
 
+  const featuredKeywords = [
+    'Kullu Manali',
+    'Kerala',
+    'Kashmir',
+    'Goa',
+    'Swiss Alps',
+    'Paris',
+    'Kyoto',
+    'Dubai',
+    'Bali',
+    '1-Month Tours',
+  ];
+
   return (
     <section id="hero" className="relative w-full overflow-hidden">
       {/* Background Banner */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=85"
-          alt="Coastal destination"
+          alt="Luxury travel destinations worldwide"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-slate-950/65" />
+        <div className="absolute inset-0 bg-slate-950/70" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-12 pb-16 sm:pt-16 sm:pb-20 md:pt-24 md:pb-28 flex flex-col items-center text-center">
         {/* Minimalist Subhead Tag */}
         <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium tracking-wide mb-4 sm:mb-6">
-          <span>Curated Travel • Verified Stays • Reserved Dining</span>
+          <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+          <span>India & Worldwide Curated Expeditions • Verified 5-Star Stays</span>
         </div>
 
         {/* Hero Title */}
@@ -93,7 +158,7 @@ export const Hero: React.FC = () => {
 
         {/* Hero Subtitle */}
         <p className="text-xs sm:text-base md:text-lg text-slate-200/90 max-w-2xl leading-relaxed mb-6 sm:mb-8 font-normal">
-          Bespoke multi-day tour packages, 5-star hotel bookings, Michelin table reservations, and artisan travel refreshments.
+          From the pine peaks of Kullu Manali & Kerala backwaters to the Swiss Alps and Parisian palaces. Filter by destination, trip duration, or month.
         </p>
 
         {/* Unified Search & Booking Bar */}
@@ -122,96 +187,134 @@ export const Hero: React.FC = () => {
 
           {/* Search Inputs Form */}
           <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-2.5 text-left">
-            {/* Input 1: Destination */}
+            {/* Input 1: Destination / Search Query */}
             <div className="p-2 sm:p-2.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors">
               <label className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-0.5 flex items-center gap-1">
                 <MapPin className="w-3 h-3 text-slate-400" />
-                Destination
+                Destination / Search
               </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Type city, hotel, country..."
+                  value={localSearch}
+                  onChange={(e) => {
+                    setLocalSearch(e.target.value);
+                    setSearchQuery(e.target.value);
+                  }}
+                  className="w-full bg-transparent text-xs font-semibold text-slate-900 outline-none placeholder-slate-400 pr-5"
+                />
+                {localSearch && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setLocalSearch('');
+                      setSearchQuery('');
+                      setSelectedDestinationFilter('All');
+                    }}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs px-1"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
+              {/* Optional Quick select dropdown */}
               <select
+                aria-label="Select Destination"
                 value={selectedDestinationFilter}
                 onChange={(e) => {
                   setSelectedDestinationFilter(e.target.value);
-                  setLocalSearch(e.target.value === 'All Destinations' ? '' : e.target.value);
-                  setSearchQuery(e.target.value === 'All Destinations' ? '' : e.target.value);
+                  const val = e.target.value === 'All' ? '' : e.target.value;
+                  setLocalSearch(val);
+                  setSearchQuery(val);
                 }}
-                className="w-full bg-transparent text-xs font-semibold text-slate-900 outline-none cursor-pointer"
+                className="mt-1 w-full bg-transparent text-[11px] text-slate-500 font-medium outline-none cursor-pointer border-t border-slate-200/60 pt-1"
               >
-                {destinationOptions.map((dest) => (
-                  <option key={dest} value={dest} className="text-slate-900">
-                    {dest}
-                  </option>
+                <option value="All">Or choose from list (Worldwide)</option>
+                {destinationGroups.map((grp) => (
+                  <optgroup key={grp.group} label={grp.group}>
+                    {grp.items.map((dest) => (
+                      <option key={dest} value={dest}>
+                        {dest}
+                      </option>
+                    ))}
+                  </optgroup>
                 ))}
               </select>
             </div>
 
-            {/* Input 2: Dates */}
+            {/* Input 2: Days & Trip Duration */}
+            <div className="p-2 sm:p-2.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors">
+              <label className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-0.5 flex items-center gap-1">
+                <Clock className="w-3 h-3 text-slate-400" />
+                Trip Duration (Days)
+              </label>
+              <select
+                value={selectedDurationFilter}
+                onChange={(e) => setSelectedDurationFilter(e.target.value)}
+                className="w-full bg-transparent text-xs font-semibold text-slate-900 outline-none cursor-pointer mt-0.5"
+              >
+                <option value="All">All Trip Durations</option>
+                <option value="month">1 Full Month (25–30 Days Grand)</option>
+                <option value="two_weeks">2 Weeks (9–14 Days)</option>
+                <option value="week">1 Week Classic (5–8 Days)</option>
+                <option value="short">Short Escape (3–4 Days)</option>
+              </select>
+              <span className="block text-[10px] text-slate-400 mt-1">
+                {selectedDurationFilter === 'month' ? 'Grand Multi-City Odyssey' : 'Flexible day lengths'}
+              </span>
+            </div>
+
+            {/* Input 3: Month & Dates */}
             <div className="p-2 sm:p-2.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors">
               <label className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-0.5 flex items-center gap-1">
                 <Calendar className="w-3 h-3 text-slate-400" />
-                Travel Dates
+                Departure Month
               </label>
               <select
-                value={travelMonth}
-                onChange={(e) => setTravelMonth(e.target.value)}
-                className="w-full bg-transparent text-xs font-semibold text-slate-900 outline-none cursor-pointer"
+                value={selectedMonthFilter}
+                onChange={(e) => setSelectedMonthFilter(e.target.value)}
+                className="w-full bg-transparent text-xs font-semibold text-slate-900 outline-none cursor-pointer mt-0.5"
               >
-                <option value="Anytime">Flexible / Anytime</option>
-                <option value="Nov - Dec 2026">Nov – Dec 2026</option>
-                <option value="Jan - Feb 2027">Jan – Feb 2027</option>
-                <option value="Spring 2027">Spring 2027</option>
-                <option value="Summer 2027">Summer 2027</option>
+                <option value="Anytime">Anytime / Year-Round</option>
+                <option value="Nov">November 2026</option>
+                <option value="Dec">December 2026</option>
+                <option value="Jan">January 2027</option>
+                <option value="Feb">February 2027</option>
+                <option value="Spring">Spring (Mar – May 2027)</option>
+                <option value="Summer">Summer (Jun – Aug 2027)</option>
+                <option value="Autumn">Autumn (Sep – Nov 2027)</option>
               </select>
-            </div>
-
-            {/* Input 3: Guests */}
-            <div className="p-2 sm:p-2.5 bg-slate-50 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors">
-              <label className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-0.5 flex items-center gap-1">
-                <Users className="w-3 h-3 text-slate-400" />
-                Travelers
-              </label>
-              <select
-                value={guestCount}
-                onChange={(e) => setGuestCount(e.target.value)}
-                className="w-full bg-transparent text-xs font-semibold text-slate-900 outline-none cursor-pointer"
-              >
-                <option value="1 Solo Traveler">1 Solo Traveler</option>
-                <option value="2 Guests (Couple / Pair)">2 Guests</option>
-                <option value="3-4 Guests (Family)">3–4 Guests</option>
-                <option value="5+ Group Travelers">5+ Guests</option>
-              </select>
+              <span className="block text-[10px] text-slate-400 mt-1">
+                Select your travel window
+              </span>
             </div>
 
             {/* Action Button */}
             <div className="flex items-center sm:col-span-2 md:col-span-1">
               <button
                 type="submit"
-                className="w-full h-full min-h-[42px] bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs rounded-xl flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                className="w-full h-full min-h-[46px] bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs rounded-xl flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-sm"
               >
                 <Search className="w-3.5 h-3.5" />
-                <span>Search</span>
+                <span>Search Journeys</span>
               </button>
             </div>
           </form>
 
           {/* Quick Keywords */}
-          <div className="mt-2.5 pt-2 text-[10px] sm:text-[11px] text-slate-500 flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
-            <span className="text-slate-400">Featured:</span>
-            {['Bali', 'Swiss Alps', 'Positano', 'Kyoto', 'Dubai Dunes', 'Santorini'].map(
-              (keyword) => (
-                <button
-                  key={keyword}
-                  type="button"
-                  onClick={() => {
-                    setSearchQuery(keyword);
-                    setLocalSearch(keyword);
-                  }}
-                  className="px-1.5 sm:px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors text-[10px] sm:text-[11px]"
-                >
-                  {keyword}
-                </button>
-              )
-            )}
+          <div className="mt-2.5 pt-2 text-[10px] sm:text-[11px] text-slate-500 flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 border-t border-slate-100">
+            <span className="text-slate-400 font-medium">Featured:</span>
+            {featuredKeywords.map((keyword) => (
+              <button
+                key={keyword}
+                type="button"
+                onClick={() => handleFeaturedClick(keyword)}
+                className="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors text-[10px] sm:text-[11px] cursor-pointer"
+              >
+                {keyword}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -221,7 +324,7 @@ export const Hero: React.FC = () => {
             <ShieldCheck className="w-4 h-4 text-slate-300 shrink-0" />
             <div>
               <h4 className="text-white font-medium text-[11px] sm:text-xs">Verified Stays</h4>
-              <p className="text-slate-400 text-[10px]">Inspected properties</p>
+              <p className="text-slate-400 text-[10px]">Inspected 5-star properties</p>
             </div>
           </div>
 
@@ -229,15 +332,15 @@ export const Hero: React.FC = () => {
             <UtensilsCrossed className="w-4 h-4 text-slate-300 shrink-0" />
             <div>
               <h4 className="text-white font-medium text-[11px] sm:text-xs">Guaranteed Dining</h4>
-              <p className="text-slate-400 text-[10px]">Confirmed tables</p>
+              <p className="text-slate-400 text-[10px]">Confirmed culinary tables</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2 sm:gap-2.5">
-            <Coffee className="w-4 h-4 text-slate-300 shrink-0" />
+            <Clock className="w-4 h-4 text-slate-300 shrink-0" />
             <div>
-              <h4 className="text-white font-medium text-[11px] sm:text-xs">Travel Refreshments</h4>
-              <p className="text-slate-400 text-[10px]">Picnic hampers</p>
+              <h4 className="text-white font-medium text-[11px] sm:text-xs">1-Month & Custom</h4>
+              <p className="text-slate-400 text-[10px]">Tailored trip durations</p>
             </div>
           </div>
 
@@ -245,7 +348,7 @@ export const Hero: React.FC = () => {
             <Star className="w-4 h-4 text-slate-300 shrink-0" />
             <div>
               <h4 className="text-white font-medium text-[11px] sm:text-xs">4.97 / 5 Rating</h4>
-              <p className="text-slate-400 text-[10px]">18,400+ guests</p>
+              <p className="text-slate-400 text-[10px]">18,400+ happy voyagers</p>
             </div>
           </div>
         </div>

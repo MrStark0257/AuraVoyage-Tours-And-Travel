@@ -7,15 +7,22 @@ import { useTravel } from '../../context/TravelContext';
 import { SlidersHorizontal } from 'lucide-react';
 
 export const TourList: React.FC = () => {
-  const { searchQuery, selectedDestinationFilter, addToCart, setIsCartOpen } = useTravel();
+  const {
+    searchQuery,
+    selectedDestinationFilter,
+    selectedDurationFilter,
+    selectedMonthFilter,
+    addToCart,
+    setIsCartOpen,
+  } = useTravel();
 
   const [selectedTheme, setSelectedTheme] = useState('All');
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [sortBy, setSortBy] = useState<'featured' | 'priceAsc' | 'priceDesc' | 'rating'>('featured');
   const [activeTourModal, setActiveTourModal] = useState<TourPackage | null>(null);
 
-  const themes = ['All', 'Cultural', 'Adventure', 'Honeymoon', 'Luxury', 'Wildlife'];
-  const regions = ['All', 'Europe', 'Asia', 'Middle East', 'Africa'];
+  const themes = ['All', 'Cultural', 'Adventure', 'Honeymoon', 'Luxury', 'Beach', 'Wildlife'];
+  const regions = ['All', 'Asia', 'Europe', 'Middle East', 'Africa', 'Americas', 'Oceania'];
 
   const filteredTours = useMemo(() => {
     return TOURS_DATA.filter((tour) => {
@@ -44,13 +51,29 @@ export const TourList: React.FC = () => {
           return false;
         }
       }
+      if (selectedDurationFilter && selectedDurationFilter !== 'All') {
+        if (selectedDurationFilter === 'month' && tour.durationDays < 25) return false;
+        if (selectedDurationFilter === 'two_weeks' && (tour.durationDays < 9 || tour.durationDays > 14)) return false;
+        if (selectedDurationFilter === 'week' && (tour.durationDays < 5 || tour.durationDays > 8)) return false;
+        if (selectedDurationFilter === 'short' && tour.durationDays > 4) return false;
+      }
+      if (selectedMonthFilter && selectedMonthFilter !== 'Anytime') {
+        if (selectedMonthFilter === 'nov_dec_2026') {
+          const hasDate = tour.startDates.some((d) => d.startsWith('2026-11') || d.startsWith('2026-12'));
+          if (!hasDate) return false;
+        } else if (selectedMonthFilter === 'jan_feb_2027') {
+          const hasDate = tour.startDates.some((d) => d.startsWith('2027-01') || d.startsWith('2027-02'));
+          if (!hasDate) return false;
+        } else if (selectedMonthFilter === 'spring_2027') {
+          const hasDate = tour.startDates.some((d) => d.startsWith('2027-03') || d.startsWith('2027-04') || d.startsWith('2027-05'));
+          if (!hasDate) return false;
+        }
+      }
       if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        const matchesTitle = tour.title.toLowerCase().includes(q);
-        const matchesDest = tour.destination.toLowerCase().includes(q);
-        const matchesCountry = tour.country.toLowerCase().includes(q);
-        const matchesTheme = tour.theme.toLowerCase().includes(q);
-        if (!matchesTitle && !matchesDest && !matchesCountry && !matchesTheme) {
+        const tokens = searchQuery.toLowerCase().trim().split(/[\s,]+/).filter((t) => t.length > 1);
+        const searchableText = `${tour.title} ${tour.destination} ${tour.country} ${tour.overview} ${tour.theme} ${tour.tagline}`.toLowerCase();
+        const matches = tokens.some((t) => searchableText.includes(t));
+        if (!matches) {
           return false;
         }
       }
@@ -61,7 +84,7 @@ export const TourList: React.FC = () => {
       if (sortBy === 'rating') return b.rating - a.rating;
       return 0;
     });
-  }, [selectedTheme, selectedRegion, selectedDestinationFilter, searchQuery, sortBy]);
+  }, [selectedTheme, selectedRegion, selectedDestinationFilter, selectedDurationFilter, selectedMonthFilter, searchQuery, sortBy]);
 
   const handleBookNow = (tour: TourPackage, date: string, travelers: number) => {
     addToCart({

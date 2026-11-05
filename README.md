@@ -50,54 +50,68 @@ npm run build
 ## 🌟 Key Features & Modules (Sari Details)
 
 ### 1. 🌴 Curated Multi-Day Tour Packages (Tour Packages)
-* **Worldwide Global Destinations Across 6 Continents**:
+* **Worldwide Global Destinations Across 6 Continents & India**:
+  * **India (Domestic & Cultural)**:
+    * *Kullu Manali & Solang Valley Snow & Pines* (6D/5N) - Himachal Pradesh, India
+    * *Kerala Backwaters, Munnar Tea Hills & Alleppey Houseboat* (7D/6N) - Kerala, India
+    * *Goa Luxury Coastal & Portuguese Heritage Escape* (5D/4N) - Goa, India
+    * *Kashmir Paradise & Ladakh High Passes Odyssey* (8D/7N) - Kashmir & Ladakh, India
+    * *Royal Rajasthan Fortresses, Palaces & Taj Mahal* (8D/7N) - Rajasthan, India
+  * **1-Month Grand Expeditions**:
+    * *Incredible India 30-Day Grand Odyssey: Himalayas to Backwaters* (30D/29N) - All-India Grand Tour
+    * *Grand European 28-Day Splendor: 1-Month Pan-European Grand Tour* (28D/27N) - Switzerland, France, Italy
   * **Europe**:
     * *Paris Romance & French Riviera Glamour* (8D/7N) - France
     * *Swiss Alps Glacier Express & Alpine Lakes* (8D/7N) - Switzerland
     * *Amalfi Coast & Capri Private Yacht Odyssey* (6D/5N) - Italy
     * *Santorini & Cycladic Islands Sunset Sailing* (7D/6N) - Greece
     * *Iceland Northern Lights, Volcanic Lagoons & Glaciers* (6D/5N) - Iceland
-  * **Asia**:
+  * **Asia & Middle East**:
+    * *Thailand Tropical Islands & Bangkok Grand Palaces* (7D/6N) - Thailand
     * *Bali Island Serenity & Sacred Waterfalls* (7D/6N) - Indonesia
     * *Kyoto Zen Gardens, Mount Fuji & Tokyo Lights* (9D/8N) - Japan
-    * *Royal Rajasthan Fortresses, Palaces & Taj Mahal* (8D/7N) - India
     * *Maldives Private Island Overwater Sanctuary* (6D/5N) - Maldives
-  * **Middle East**:
     * *Dubai & Arabian Dunes Ultra-Luxury Escape* (5D/4N) - UAE
     * *Cappadocia Hot Air Balloons & Istanbul Grand Bazaars* (7D/6N) - Turkey
-  * **Africa**:
+  * **Africa, Americas & Oceania**:
     * *Serengeti Big Five Safari & Zanzibar Sands* (10D/9N) - Tanzania
     * *Cape Town, Table Mountain & Garden Route Drive* (8D/7N) - South Africa
-  * **Americas**:
     * *New York Skyline to Grand Canyon Natural Wonders* (9D/8N) - United States
     * *Machu Picchu Incan Trail & Sacred Valley Heritage* (7D/6N) - Peru
-  * **Oceania**:
     * *New Zealand Southern Alps & Milford Sound Fjords* (10D/9N) - New Zealand
 * **Day-by-Day Master Itinerary**: Har din ka schedule, lunch/dinner information aur hotel stay.
 * **Inclusions & Exclusions**: Clear list of what is included (private SUV, spa sessions, entry passes, rail passes) aur exclusions.
-* **Filter & Sort**: Theme ke basis pe (Cultural, Adventure, Honeymoon, Luxury, Wildlife), Region ke basis pe (Europe, Asia, Middle East, Africa, Americas, Oceania) aur Price/Rating ke basis pe sorting.
+* **Filter & Sort**: Duration filter (1-Month, 2-Weeks, 1-Week, Short Escape), Departure month filter, Theme (Cultural, Adventure, Honeymoon, Luxury, Wildlife), Region (India, Europe, Asia, Americas, Africa, Oceania) aur Price/Rating sorting.
 * **Instant Departure Dates & Travelers Counter**: Live total price calculation.
 
 ---
 
 ### 2. 🏨 Hotel, Luxury Resort & Villa Booking (Hotels)
-* **16 Curated 5-Star Accommodations Across the World**:
-  * *Hôtel Plaza Athénée* (Avenue Montaigne, Paris, France)
-  * *The Retreat at Blue Lagoon* (Grindavík, Iceland)
+* **24 Curated 5-Star Accommodations Across India & The World**:
+  * *The Himalayan Luxury Resort & Castle* (Old Manali, Himachal Pradesh, India)
+  * *Kumarakom Lake Resort & Luxury Houseboats* (Kumarakom & Alleppey, Kerala, India)
+  * *Taj Exotica Resort & Spa Goa* (Benaulim, South Goa, India)
+  * *The Khyber Himalayan Resort & Spa* (Gulmarg & Srinagar, Kashmir, India)
   * *The Oberoi Udaivilas* (Lake Pichola, Udaipur, India)
-  * *Soneva Fushi Overwater Reserve* (Baa Atoll, Maldives)
-  * *Four Seasons Resort Bali at Sayan* (Ubud, Bali, Indonesia)
+  * *Victoria-Jungfrau Grand Hotel & Spa* (Interlaken, Swiss Alps, Switzerland)
   * *The Chedi Andermatt* (Andermatt, Switzerland)
+  * *Hôtel Plaza Athénée* (Avenue Montaigne, Paris, France)
+  * *Hotel Danieli, Luxury Collection* (Venice, Italy)
   * *Le Sirenuse Positano* (Amalfi Coast, Italy)
-  * *Atlantis The Royal* (Palm Jumeirah, Dubai, UAE)
+  * *Aman Tokyo* (Otemachi, Tokyo, Japan)
   * *Hoshinoya Kyoto* (Kyoto, Japan)
+  * *Amanpuri Beach Sanctuary* (Pansea Beach, Phuket, Thailand)
+  * *Atlantis The Royal* (Palm Jumeirah, Dubai, UAE)
+  * *The Retreat at Blue Lagoon* (Grindavík, Iceland)
   * *Grace Hotel, Auberge Resorts Collection* (Santorini, Greece)
+  * *Soneva Fushi Overwater Reserve* (Baa Atoll, Maldives)
   * *Museum Hotel Cappadocia* (Uchisar, Cappadocia, Turkey)
   * *Four Seasons Safari Lodge Serengeti* (Serengeti, Tanzania)
   * *The Silo Hotel* (V&A Waterfront, Cape Town, South Africa)
   * *The Plaza Hotel* (Fifth Avenue, New York, USA)
   * *Belmond Sanctuary Lodge* (Machu Picchu Citadel, Peru)
   * *Blanket Bay Luxury Lodge* (Lake Wakatipu, Queenstown, New Zealand)
+  * *Four Seasons Resort Bali at Sayan* (Ubud, Bali, Indonesia)
 * **Room Tiers & Multipliers**:
   * Deluxe Suites, One-Bedroom Pool Villas, Royal Penthouse Suites.
 * **Dynamic Stay Calculator**:
@@ -290,6 +304,61 @@ d:\Tours&travel/
 ## 📝 Changelog & Update Log (Har Update Ka Record)
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
+
+### [v1.5.0] - Comprehensive Indian & Worldwide Destinations, 1-Month Tours, Duration Filters & Navbar Currency Switcher
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Comprehensive Domestic Indian Destinations (Kullu Manali, Kerala, Goa, Kashmir, Rajasthan)**:
+    * User request ke anusar domestic Indian travel spots ko fully integrate kiya gaya:
+      * *Kullu Manali & Solang Valley Snow & Pines* (Himachal Pradesh, India - 6D/5N): Solang snowmobiling, Rohtang Pass, Old Manali cedar trails, private pine chalet stay.
+      * *Kerala Backwaters, Munnar Tea Hills & Alleppey Houseboat* (Kerala, India - 7D/6N): Air-conditioned luxury Kettuvallam private cruise, spice plantation tour, tea valleys.
+      * *Goa Luxury Coastal & Portuguese Heritage Escape* (Goa, India - 5D/4N): Luxury beach villa, Old Goa Latin Quarter heritage walk, private sunset catamaran cruise.
+      * *Kashmir Paradise & Ladakh High Passes Odyssey* (Kashmir & Ladakh, India - 8D/7N): Private Dal Lake Shikara, Gulmarg Kongdoori gondola pass, Sonamarg glacier drive.
+      * *Royal Rajasthan Fortresses, Palaces & Taj Mahal* (Rajasthan, India - 8D/7N): Udaipur Lake Pichola private boat, Jaipur Amber Fort royal tour, Jodhpur blue city.
+  * **Authentic 5-Star Hotels for Every Destination**:
+    * Har destination ke liye authentic local 5-star properties add kiye gaye:
+      * Manali: *The Himalayan Luxury Resort & Castle* (Old Manali, Himachal Pradesh)
+      * Kerala: *Kumarakom Lake Resort & Luxury Houseboats* (Kumarakom & Alleppey, Kerala)
+      * Goa: *Taj Exotica Resort & Spa Goa* (Benaulim, South Goa)
+      * Kashmir: *The Khyber Himalayan Resort & Spa* (Gulmarg & Srinagar, Kashmir)
+      * Rajasthan: *The Oberoi Udaivilas* (Lake Pichola, Udaipur)
+      * Switzerland: *Victoria-Jungfrau Grand Hotel & Spa* (Interlaken, Swiss Alps) & *The Chedi Andermatt*
+      * Japan: *Aman Tokyo* (Otemachi, Tokyo) & *Hoshinoya Kyoto*
+      * Thailand: *Amanpuri Beach Sanctuary* (Pansea Beach, Phuket)
+      * Italy: *Hotel Danieli, Luxury Collection* (Venice) & *Le Sirenuse Positano*
+      * France: *Hôtel Plaza Athénée* (Paris)
+  * **Authentic Fine Dining Tables for Every Destination**:
+    * Authentic destination culinary spots:
+      * Manali: *Johnson's Cafe & Alpine Trout Bar* (Himalayan River Trout, Morel Pizzas)
+      * Kerala: *The Rice Boat at Taj Malabar* (Karimeen Pollichathu, Tiger Prawn Moilee)
+      * Goa: *The Fisherman's Wharf Waterfront Dining* (Goan Crab Xec Xec, Prawn Balchão)
+      * Kashmir: *Ahdoos Traditional Royal Wazwan* (Royal Rista, Gushtaba, Nadru Yakhni)
+      * Rajasthan: *Sheesh Mahal Lake Pichola*
+      * Tokyo: *Ginza Kyubey Omakase* (Edo-Mae Omakase Sushi)
+      * Thailand: *Blue Elephant Royal Thai Gastronomy* (Massaman Lamb Shank, Royal Thai Curries)
+      * Venice: *Ristorante Da Ivo* (Venetian Cuttlefish Ink Risotto)
+  * **1-Month Grand Expeditions (30-Day Multi-Destination Packages)**:
+    * *Incredible India 30-Day Grand Odyssey: Himalayas to Backwaters* (30 Days / 29 Nights): Delhi, Manali, Kashmir, Jaipur, Udaipur, Kerala Backwaters, aur South Goa ka complete month-long journey.
+    * *Grand European 28-Day Splendor: 1-Month Pan-European Grand Tour* (28 Days / 27 Nights): Swiss Alps, Paris, Venice, and Amalfi Coast multi-country luxury voyage.
+  * **Custom Package Builder (`CustomPackageBuilder.tsx`) Re-Architecture**:
+    * Flat cramped 16 pills ko badal kar categorized **Region Tabs** (India, Europe, Asia, Americas & Africa, 1-Month Expeditions) aur interactive city cards integrate kiye gaye.
+    * **Dynamic Hotel Strict Matching**: Jab user Manali, Kerala, Goa ya Kashmir select karta hai, toh strictly usi country aur destination ke verified hotels display hote hain. Kabhi bhi random foreign hotels (jaise Bali ya Switzerland) me fallback nahi hota.
+    * **Full Days, Nights & Month Selection**:
+      * Departure date calendar picker with automatic return date calculation.
+      * Duration dropdown: 3 Nights (4 Days), 5 Nights (6 Days), 7 Nights (1 Week), 10 Nights, 14 Nights (2 Weeks), 21 Nights (3 Weeks), 28/30 Nights (1 Full Month Grand Tour).
+      * Number of guests selection (1 Solo, 2 Couple, 3-4 Family, 6+ Private Group).
+    * **Zero Refreshments in Builder & Bill**: User command #9 and #10 ke accordance refreshments custom builder aur billing se completely hata diye gaye hain; platform par refreshments sirf ek informational showcase guide ke taur par rehta hai.
+    * Automatic **15% bundle discount** calculation on combined hotel, dining, and excursion add-ons.
+  * **Fix Search & 0-Results Issue**:
+    * Tokenized multi-keyword fuzzy matching (`tokens.every/some`) implement kiya gaya taaki user agar "Manali", "Kerala", "Houseboat", "Trout", "Swiss", ya "Dubai Dunes" type kare ya click kare, toh accurate results display hon.
+    * Hero me free-text search input add kiya gaya jisme user kisi bhi city, hotel, country ya keyword ko type karke live search kar sakta hai.
+    * Hero featured search pills update kiye gaye: *Kullu Manali*, *Kerala*, *Kashmir*, *Goa*, *Swiss Alps*, *Paris*, *Kyoto*, *Dubai*, *Bali*, *1-Month Tours*.
+  * **Main Navbar Currency Switcher**:
+    * User request ("usme currency change ka option rakho taki sab apni currancy me dekh paye price kya he or ye setting nav baar me honi chahiye") ke anusaar currency switcher ko top black bar ke alawa **main Navbar header** me prominently add kiya gaya hai (Wishlist, Bookings, aur Cart ke sath).
+    * Click karte hi clean dropdown me symbols aur currency codes (`₹ INR`, `$ USD`, `€ EUR`, `£ GBP`, `AED AED`) available hain.
+    * Mobile slide-out drawer me bhi convenient currency toggle pill bar provide kiya gaya hai.
+  * **Footer Worldwide Directory Update**:
+    * Footer me Kullu Manali, Kerala Backwaters, Kashmir & Gulmarg, Goa Coast, aur 1-Month Expeditions ke 1-click filter links add kiye gaye hain.
 
 ### [v1.4.0] - Refreshments Decoupled from Billing & Custom Builder (Pure Travel Showcase)
 * **Date**: November 2026

@@ -17,6 +17,10 @@ interface TravelContextType {
   setSearchQuery: (query: string) => void;
   selectedDestinationFilter: string;
   setSelectedDestinationFilter: (dest: string) => void;
+  selectedDurationFilter: string;
+  setSelectedDurationFilter: (duration: string) => void;
+  selectedMonthFilter: string;
+  setSelectedMonthFilter: (month: string) => void;
   wishlist: string[];
   toggleWishlist: (id: string, title?: string) => void;
   isInWishlist: (id: string) => boolean;
@@ -51,6 +55,8 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [activeCategory, setActiveCategory] = useState<CategoryType>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDestinationFilter, setSelectedDestinationFilter] = useState('All');
+  const [selectedDurationFilter, setSelectedDurationFilter] = useState('All');
+  const [selectedMonthFilter, setSelectedMonthFilter] = useState('Anytime');
 
   const [wishlist, setWishlist] = useState<string[]>(() => {
     try {
@@ -227,6 +233,10 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         setSearchQuery,
         selectedDestinationFilter,
         setSelectedDestinationFilter,
+        selectedDurationFilter,
+        setSelectedDurationFilter,
+        selectedMonthFilter,
+        setSelectedMonthFilter,
         wishlist,
         toggleWishlist,
         isInWishlist,

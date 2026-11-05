@@ -46,12 +46,10 @@ export const HotelList: React.FC = () => {
         }
       }
       if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        const matchesName = hotel.name.toLowerCase().includes(q);
-        const matchesDest = hotel.destination.toLowerCase().includes(q);
-        const matchesCountry = hotel.country.toLowerCase().includes(q);
-        const matchesType = hotel.propertyType.toLowerCase().includes(q);
-        if (!matchesName && !matchesDest && !matchesCountry && !matchesType) {
+        const tokens = searchQuery.toLowerCase().trim().split(/[\s,]+/).filter((t) => t.length > 1);
+        const searchableText = `${hotel.name} ${hotel.destination} ${hotel.country} ${hotel.propertyType} ${hotel.highlight}`.toLowerCase();
+        const matches = tokens.some((t) => searchableText.includes(t));
+        if (!matches) {
           return false;
         }
       }

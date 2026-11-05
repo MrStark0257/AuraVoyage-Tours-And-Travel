@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTravel } from '../context/TravelContext';
 import { Currency, CategoryType } from '../types';
 import { CURRENCY_RATES } from '../utils/formatters';
@@ -35,6 +35,18 @@ export const Navbar: React.FC = () => {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCurrencyDropdownOpen, setIsCurrencyDropdownOpen] = useState(false);
+  const currencyMenuRef = useRef<HTMLDivElement>(null);
+
+  // Close currency dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (currencyMenuRef.current && !currencyMenuRef.current.contains(event.target as Node)) {
+        setIsCurrencyDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handleNavClick = (category: CategoryType) => {
     setActiveCategory(category);
@@ -70,42 +82,14 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3 sm:gap-5 text-slate-400 shrink-0">
-            <div className="hidden md:flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer text-[11px]">
+            <div className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer text-[11px]">
               <PhoneCall className="w-3 h-3 text-slate-400" />
               <span>+1 (800) 792-VOYAGE</span>
             </div>
 
-            {/* Currency Selector */}
-            <div className="relative">
-              <button
-                onClick={() => setIsCurrencyDropdownOpen(!isCurrencyDropdownOpen)}
-                className="flex items-center gap-1 text-slate-200 hover:text-white bg-slate-900 px-2 py-0.5 rounded text-[11px] font-medium border border-slate-800 transition-colors"
-                aria-label="Select Currency"
-              >
-                <Globe className="w-3 h-3 text-slate-400" />
-                <span>{currency}</span>
-                <ChevronDown className="w-2.5 h-2.5 text-slate-400" />
-              </button>
-
-              {isCurrencyDropdownOpen && (
-                <div className="absolute right-0 mt-1.5 w-32 bg-white border border-slate-200 rounded-lg shadow-lg py-1 z-50 text-slate-800">
-                  {(Object.keys(CURRENCY_RATES) as Currency[]).map((curr) => (
-                    <button
-                      key={curr}
-                      onClick={() => {
-                        setCurrency(curr);
-                        setIsCurrencyDropdownOpen(false);
-                      }}
-                      className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition-colors ${
-                        currency === curr ? 'font-semibold text-slate-900 bg-slate-50' : 'text-slate-600'
-                      }`}
-                    >
-                      <span>{curr}</span>
-                      <span className="text-slate-400 font-mono text-[11px]">{CURRENCY_RATES[curr].symbol}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
+            <div className="hidden sm:flex items-center gap-1 text-[11px] text-slate-300 font-mono">
+              <span>Display Currency:</span>
+              <span className="text-white font-semibold">{CURRENCY_RATES[currency].symbol} {currency}</span>
             </div>
           </div>
         </div>
@@ -150,8 +134,46 @@ export const Navbar: React.FC = () => {
           })}
         </div>
 
-        {/* Action Buttons: Wishlist, Bookings, Cart, Mobile Toggle */}
+        {/* Action Buttons: Currency Selector, Wishlist, Bookings, Cart, Mobile Toggle */}
         <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* Main Navbar Currency Switcher */}
+          <div className="relative" ref={currencyMenuRef}>
+            <button
+              onClick={() => setIsCurrencyDropdownOpen(!isCurrencyDropdownOpen)}
+              className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 sm:py-2 rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold text-xs transition-colors"
+              aria-label="Currency Selector"
+              title="Change Display Currency"
+            >
+              <Globe className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+              <span className="font-mono text-slate-900">{CURRENCY_RATES[currency].symbol}</span>
+              <span className="text-[11px] sm:text-xs font-bold">{currency}</span>
+              <ChevronDown className="w-3 h-3 text-slate-400" />
+            </button>
+
+            {isCurrencyDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-36 bg-white border border-slate-200 rounded-xl shadow-xl py-1 z-50 text-slate-800 animate-in fade-in slide-in-from-top-1">
+                <div className="px-3 py-1 text-[10px] uppercase font-bold tracking-wider text-slate-400 border-b border-slate-100 mb-1">
+                  Currency Setting
+                </div>
+                {(Object.keys(CURRENCY_RATES) as Currency[]).map((curr) => (
+                  <button
+                    key={curr}
+                    onClick={() => {
+                      setCurrency(curr);
+                      setIsCurrencyDropdownOpen(false);
+                    }}
+                    className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition-colors ${
+                      currency === curr ? 'font-bold text-slate-900 bg-slate-100' : 'text-slate-600'
+                    }`}
+                  >
+                    <span>{curr}</span>
+                    <span className="text-slate-500 font-mono text-xs">{CURRENCY_RATES[curr].symbol}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           {/* Wishlist Button */}
           <button
             onClick={() => setIsWishlistOpen(true)}
@@ -210,7 +232,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 py-3 space-y-1 shadow-lg animate-in slide-in-from-top-2">
+        <div className="lg:hidden bg-white border-b border-slate-200 px-4 py-3 space-y-2 shadow-lg animate-in slide-in-from-top-2">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeCategory === item.category;
@@ -227,6 +249,29 @@ export const Navbar: React.FC = () => {
               </button>
             );
           })}
+
+          {/* Mobile Currency Bar */}
+          <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 px-1 mt-2">
+            <span className="font-semibold flex items-center gap-1.5">
+              <Globe className="w-3.5 h-3.5 text-slate-500" />
+              Currency:
+            </span>
+            <div className="flex items-center gap-1">
+              {(Object.keys(CURRENCY_RATES) as Currency[]).map((curr) => (
+                <button
+                  key={curr}
+                  onClick={() => setCurrency(curr)}
+                  className={`px-2 py-1 rounded text-xs font-semibold transition-colors ${
+                    currency === curr
+                      ? 'bg-slate-900 text-white'
+                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  }`}
+                >
+                  {CURRENCY_RATES[curr].symbol} {curr}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 px-1 mt-2">
             <span>24/7 Helpline:</span>
