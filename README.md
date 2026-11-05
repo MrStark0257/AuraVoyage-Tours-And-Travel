@@ -134,46 +134,26 @@ npm run build
 
 ---
 
-### 4. ☕ Worldwide Cafes & Scenic Pit-Stops Guide (Informational Travel Directory)
-* **Purely Informational & Discovery Directory**: Yeh section kisi bhi commercial booking ya bill ka hissa nahi hai. Iska uddeshya travelers ko worldwide har destination par maujood iconic local cafes, bakeries aur scenic pit stops ki poori jankari provide karna hai taaki koi bhi user search karke dekh sake ki kis jagah par konsa cafe hai aur waha kya special milta hai.
-* **16 Curated Global Cafe & Pit-Stop Locations**:
-  * *Café de Flore & Saint-Germain* (Paris, France) — Historic sidewalk terrace, hot chocolate & fresh croissants
-  * *Zermatt Matterhorn Glacier Alpine Bakery & Cafe* (Zermatt, Switzerland) — Matterhorn mountain views & hot Swiss chocolate
-  * *Positano Clifftop Lemon Sorbet & Espresso Bar* (Amalfi Coast, Italy) — Clifftop sea terrace & giant lemon granita
-  * *Kyoto Ippodo Matcha & Heritage Tea Salon* (Kyoto, Japan) — 300-year-old ceremonial Uji matcha & Wagashi flowers
-  * *Ubud Jungle Organic Cafe & Cold Brew Lab* (Bali, Indonesia) — Ayung river rainforest treehouse & Jamu tonics
-  * *Jaipur Wind Palace Rooftop Masala Chai Cafe* (Jaipur, India) — Direct eye-level view of Hawa Mahal & kulhad chai
-  * *Arabian Dunes Royal Karak Chai & Dates Lounge* (Dubai, UAE) — Desert sunset majlis & saffron Karak tea
-  * *Santorini Cliffside Pomegranate & Greek Yogurt Bar* (Santorini, Greece) — 300m caldera clifftop vista & Greek yogurt
-  * *Reykjavík Sandholt Artisan Bakery & Geothermal Coffee Bar* (Iceland) — Volcanic rye bread & cinnamon buns
-  * *Cappadocia Sunrise Balloon Panorama Cafe & Baklava Lounge* (Turkey) — Fairy chimney terrace & sand coffee
-  * *Serengeti Kopje Morning Arabica Coffee & Bush Outpost* (Tanzania) — Savannah rock outpost & Kilimanjaro roast
-  * *Cape Point Cliffs Fynbos Tea & Ocean Cold Brew Bar* (South Africa) — Chapman's Peak ocean cliffs
-  * *Central Park Loeb Boathouse Cafe & Espresso Bar* (New York, USA) — Central park lake rowboat views & bagels
-  * *Sacred Valley Organic Cacao & Quinoa Artisan Cafe* (Cusco, Peru) — Pure Incan Chuncho cacao & altitude herbal teas
-  * *Lake Wakatipu Artisan Bakery & Manuka Honey Station* (Queenstown, New Zealand) — Fiordland venison pies & flat whites
-  * *Lake Como Bellagio Waterfront Espresso Bar* (Lake Como, Italy) — Lakeside promenade terrace under wisteria
-* **Rich Cafe Details Modal (`CafeDetailModal`)**:
-  * Exact Street Address & Landmark
-  * Opening Hours & Best Time to Visit
-  * Atmosphere & Seating highlights (Clifftop, Lakeside, Sidewalk, Rooftop)
-  * Must-order signature specialties & drinks
-  * Insider Traveler Tips
-  * Direct 1-tap "Get Directions" on Google Maps
-  * **Zero Commercial Booking/Billing**: Bilkul free travel guide directory.
+### 4. ☕ Travel Refreshments, Cafes & Highway Pit Stops (Discovery Guide)
+* **Informational Showcase & En-Route Travel Guide** (Zero billing / No cart charges):
+  * Website par refreshments section ko ek curated informational guide ki tarah rakha gaya hai taaki travelers apni journey ke dauran top global artisan cafes, traditional tea houses, aur scenic highway pit-stops ko explore kar sakein.
+  * **Artisan Cafes & Bakeries**: *Café de Flore (Paris)*, *Sandholt Artisan Bakery (Reykjavík)*, *Positano Clifftop Lemon Sorbet Bar (Italy)*, *Lake Wakatipu Artisan Bakery (New Zealand)*.
+  * **Heritage Tea Houses & Lounges**: *Kyoto Ippodo Matcha Salon (Japan)*, *Jaipur Wind Palace Rooftop Masala Chai (India)*, *Arabian Dunes Royal Karak Chai & Dates Lounge (Dubai)*, *Cappadocia Balloon Panorama Cafe (Turkey)*.
+  * **Scenic Road-Trip & Vitality Stops**: *Zermatt Matterhorn Glacier Bakery (Switzerland)*, *Ubud Jungle Organic Cold Brew Lab (Bali)*, *Santorini Cliffside Pomegranate Bar (Greece)*, *Serengeti Kopje Morning Espresso (Tanzania)*.
+* Har card me must-try specialties, opening hours, atmosphere, aur local traveler tips shamil hain.
 
 ---
 
-### 5. 🎒 "Build Your Own Custom Travel Package" (4-Step Bespoke Configurator)
-Users apna complete customized tour bundle khud design kar sakte hain:
-* **Step 1**: Worldwide Destination & Dates choose karein (*Bali, Switzerland, Amalfi Coast, Kyoto, Dubai, Santorini, Paris, Iceland, India, Maldives, Cappadocia, Serengeti, Cape Town, New York, Peru, New Zealand*).
-* **Step 2**: Luxury Hotel / Resort choose karein aur kitne nights rukna hai set karein.
-* **Step 3**: Optional Michelin / Fine dining reservation add karein.
-* **Step 4**: Private excursion add-ons choose karein (*Dedicated Personal Guide, 50-Photo Drone Session, Luxury Mercedes Airport Transfers*).
+### 5. 🎒 "Build Your Own Custom Travel Package" (Configurator)
+Users apna complete customized tour bundle khud design kar sakte hain (Hotel + Dining + Excursion Add-ons):
+* **Step 1**: Destination choose karein (*Bali, Switzerland, Amalfi Coast, Kyoto, Dubai, Santorini, Paris, Iceland, India, Maldives, Cappadocia, Serengeti, Cape Town, New York, Peru, New Zealand*).
+* **Step 2**: Hotel choose karein aur kitne nights rukna hai set karein.
+* **Step 3**: Optional dinner tasting reservation experience add karein.
+* **Step 4**: Private excursion & concierge add-ons choose karein (*Dedicated Guide, 50-Photo Drone Shoot, Luxury Mercedes Transfers*).
 * **Live Calculation**:
-  * Hotel + Dining (optional) + Excursions ka subtotal calculate hota hai.
-  * **15% Instant Bundle Discount** automatically deduct hota hai.
-  * Refreshments/Cafes ko bill aur custom bundle se puri tarah alag rakha gaya hai taaki user ka bill bilkul transparent aur confirmed booking services tak hi rahe.
+  * Hotel + Dining + Addons ka subtotal calculate hota hai (Refreshments bill me se removed hai).
+  * **15% Instant Bundle Discount** automatically apply hota hai.
+  * "Book Custom Bundle" single-click me pura bundle trip bag me transfer karta hai.
 
 ---
 
@@ -311,23 +291,21 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
-### [v1.4.0] - Refreshments Converted to Pure Informational Cafe Directory (Removed from Cart & Bill)
+### [v1.4.0] - Refreshments Decoupled from Billing & Custom Builder (Pure Travel Showcase)
 * **Date**: November 2026
 * **Changes & Key Highlights**:
-  * **Removed from Cart & Bill**: User feedback ke anusaar Refreshments ko commercial cart, checkout bill aur booking engine se poori tarah hata diya gaya hai.
-  * **Custom Package Builder Streamlined**:
-    * Custom Trip Builder me se Refreshment selector step aur subtotal calculation ko completely remove kar diya gaya.
-    * Builder ab ek clean 4-step configurator ban chuka hai: *1. Destination & Logistics → 2. Luxury Accommodation → 3. Fine Dining (Optional) → 4. Private Excursions & Add-ons*.
-    * Bill breakdown aur 15% bundle discount me ab sirf confirmed accommodations, dining aur excursions shamil hain.
-  * **Purely Informational Worldwide Cafe Directory**:
-    * Refreshments section ko ek high-end "Worldwide Cafes & Scenic Pit-Stops Guide" me transform kiya gaya hai.
-    * Visitors ke liye har destination par konsa famous cafe, alpine bakery, tea lounge ya road-trip stop hai uski complete details accessible hain.
-  * **New `CafeDetailModal` Component**:
-    * Har cafe card par "View Details" button jo ek dedicated travel guide modal open karta hai.
-    * Modal me exact street address, opening hours, seating atmosphere, must-order signature specialties, aur traveler insider tips shamil hain.
-    * 1-click **"Get Directions"** button diya gaya hai jo seedha Google Maps par cafe location open karta hai.
-  * **Wishlist Integration Protected**: Saved favorites me cafes ko bookmark kiya ja sakta hai ("Cafe Guide • Explore Spot"), lekin unhe kabhi bhi cart ya bill me add nahi kiya ja sakta.
-  * **Cart Sanitization**: LocalStorage me purane session ke kisi bhi refreshment item ko load hone par automatically sanitize kiya jata hai.
+  * **Removed from Bill & Cart**: User feedback ke anusar Refreshment Hampers ko billing, cart calculation aur checkout se complete decouple kar diya gaya hai. Refreshments ab customer ke total invoice ya booking charges me include nahi hote.
+  * **Removed from Custom Package Builder (`CustomPackageBuilder.tsx`)**:
+    * Custom package builder me se Refreshments selection step completely remove kar diya gaya hai.
+    * Steps ko renumber kiya gaya: Step 1 (Destination & Dates) -> Step 2 (Select Accommodation) -> Step 3 (Dining Reservation - Optional) -> Step 4 (Trip Add-ons & Excursions).
+    * Subtotal aur 15% instant bundle discount calculation ab sirf Hotel Stay + Dining + Excursion Add-ons par calculate hota hai.
+    * Order summary breakdown card aur bundle booking payloads se refreshments references clean kar diye gaye.
+  * **Informational Travel Showcase & Guide Transformation**:
+    * Refreshment cards (`RefreshmentCard.tsx`) me se quantity steppers (`+/-`) aur "Add to Bag" buttons remove kar diye gaye.
+    * Cards ko rich informative format me enhance kiya gaya: Must-Try Specialties, Local Atmosphere, Opening Hours, aur Curated Traveler Tips display hote hain with an elegant "Guide Highlight" badge.
+  * **Wishlist & Cart UX Refinement**:
+    * Wishlist drawer me saved refreshments ke liye "Move to Bag" button disabled rakha gaya hai taaki billing integrity maintain rahe.
+    * Cart drawer empty state messaging update kar di gayi hai.
 
 ### [v1.3.0] - Worldwide Global Destinations Expansion (All Continents Included)
 * **Date**: November 2026

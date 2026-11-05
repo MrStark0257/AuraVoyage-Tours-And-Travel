@@ -7,9 +7,9 @@ import {
   Hotel,
   UtensilsCrossed,
   Check,
+  Layers,
   ShoppingBag,
   ShieldCheck,
-  Layers,
 } from 'lucide-react';
 
 export const CustomPackageBuilder: React.FC = () => {
@@ -117,10 +117,6 @@ export const CustomPackageBuilder: React.FC = () => {
   };
 
   const handleBookCustomBundle = () => {
-    const chosenAddonTitles = activityAddons
-      .filter((a) => selectedAddons.includes(a.id))
-      .map((a) => a.title);
-
     addToCart({
       cartItemId: `bundle-${Date.now()}`,
       itemType: 'custom_bundle',
@@ -132,7 +128,7 @@ export const CustomPackageBuilder: React.FC = () => {
       quantity: 1,
       selectedDate: startDate,
       guestsCount: travelers,
-      specialRequests: `Stay: ${chosenHotel?.name || 'Hotel'} (${nights}N) | Dining: ${chosenRestaurant?.name || 'None'}${chosenAddonTitles.length > 0 ? ` | Add-ons: ${chosenAddonTitles.join(', ')}` : ''}`,
+      specialRequests: `Stay: ${chosenHotel?.name} | Dining: ${chosenRestaurant?.name || 'None'} | Add-ons: ${selectedAddons.join(', ')}`,
       bundleDetails: {
         hotelName: chosenHotel?.name,
         restaurantName: chosenRestaurant?.name,
@@ -152,7 +148,7 @@ export const CustomPackageBuilder: React.FC = () => {
           Build Your Custom Package
         </h2>
         <p className="text-slate-500 text-xs sm:text-sm mt-1">
-          Combine hotel stays, dining reservations, refreshments, and excursions. Automatic <strong>15% bundle savings</strong> applied.
+          Combine hotel stays, dining reservations, and excursion add-ons. Automatic <strong>15% bundle savings</strong> applied.
         </p>
       </div>
 
@@ -435,7 +431,6 @@ export const CustomPackageBuilder: React.FC = () => {
                 </span>
               </div>
             )}
-
 
             {addonsTotalUSD > 0 && (
               <div className="flex justify-between items-start">

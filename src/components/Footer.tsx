@@ -129,7 +129,7 @@ export const Footer: React.FC = () => {
                   }}
                   className="hover:text-white transition-colors"
                 >
-                  Cafes & Pit-Stops Guide
+                  Refreshment Hampers
                 </button>
               </li>
               <li>

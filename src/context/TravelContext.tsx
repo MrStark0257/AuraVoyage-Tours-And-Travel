@@ -66,7 +66,7 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       const saved = localStorage.getItem('auravoyage_cart');
       if (!saved) return [];
       const parsed: CartItem[] = JSON.parse(saved);
-      // Clean up any historical refreshment items from cart
+      // Automatically purge any legacy refreshment items from cart/billing
       return parsed.filter((item) => item.itemType !== 'refreshment');
     } catch {
       return [];
@@ -149,6 +149,12 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const isInWishlist = (id: string) => wishlist.includes(id);
 
   const addToCart = (newItem: CartItem) => {
+    // Refreshments are strictly guide/showcase items and excluded from billing
+    if (newItem.itemType === 'refreshment') {
+      addToast(`Refreshments are part of the destination guide and not billed directly.`, 'info');
+      return;
+    }
+
     setCart((prev) => {
       // Check if identical item already in cart
       const existingIndex = prev.findIndex(

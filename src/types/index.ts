@@ -90,25 +90,22 @@ export interface Restaurant {
 export interface Refreshment {
   id: string;
   name: string;
-  type: 'Artisan Cafe' | 'Scenic Highway Pit Stop' | 'Smoothie & Juice Bar' | 'Sunset Drinks Lounge' | 'Heritage Tea House' | 'Curated Travel Pack';
+  type: 'Curated Travel Pack' | 'Artisan Cafe' | 'Scenic Highway Pit Stop' | 'Smoothie & Juice Bar' | 'Sunset Drinks Lounge' | 'Heritage Tea House';
   destination: string;
   country: string;
+  priceUSD?: number;
   rating: number;
   reviewsCount: number;
   featuredImage: string;
   galleryImages?: string[];
   description: string;
-  tags: string[];
-  signatureItems?: string[];
-  openingHours?: string;
   address?: string;
+  openingHours?: string;
   atmosphere?: string;
+  signatureItems?: string[];
   travelerTip?: string;
-  priceBracket?: '$' | '$$' | '$$$';
-  googleMapsUrl?: string;
-  // optional compatibility
-  priceUSD?: number;
-  itemsIncluded?: string[];
+  tags: string[];
+  itemsIncluded?: string[]; // for travel snack packs
   caloriesOrPerk?: string;
   isPack?: boolean;
 }

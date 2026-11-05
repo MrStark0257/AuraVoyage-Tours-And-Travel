@@ -159,7 +159,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onOpenCheckout }) => {
                 <ShoppingBag className="w-8 h-8 text-slate-300 mx-auto mb-2" />
                 <h4 className="font-medium text-slate-700 text-xs">Your trip bag is empty</h4>
                 <p className="text-[11px] text-slate-400 mt-1 max-w-xs mx-auto">
-                  Add tour packages, hotel nights, restaurant tables, or refreshments to reserve them together.
+                  Add tour packages, hotel nights, or restaurant tables to reserve them together.
                 </p>
               </div>
             )}

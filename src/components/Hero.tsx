@@ -65,7 +65,7 @@ export const Hero: React.FC = () => {
     { label: 'Tours', category: 'tours', icon: Palmtree },
     { label: 'Hotels', category: 'hotels', icon: Hotel },
     { label: 'Dining', category: 'restaurants', icon: UtensilsCrossed },
-    { label: 'Cafes & Spots', category: 'refreshments', icon: Coffee },
+    { label: 'Refreshments', category: 'refreshments', icon: Coffee },
   ];
 
   return (
@@ -93,7 +93,7 @@ export const Hero: React.FC = () => {
 
         {/* Hero Subtitle */}
         <p className="text-xs sm:text-base md:text-lg text-slate-200/90 max-w-2xl leading-relaxed mb-6 sm:mb-8 font-normal">
-          Bespoke multi-day tour packages, 5-star hotel bookings, Michelin table reservations, and worldwide cafe guides.
+          Bespoke multi-day tour packages, 5-star hotel bookings, Michelin table reservations, and artisan travel refreshments.
         </p>
 
         {/* Unified Search & Booking Bar */}

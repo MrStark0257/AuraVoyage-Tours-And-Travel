@@ -50,7 +50,7 @@ export const CafeDetailModal: React.FC<CafeDetailModalProps> = ({
           <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
             <button
               onClick={() => toggleWishlist(item.id, item.name)}
-              className={`p-2 rounded-full backdrop-blur-md transition-colors ${
+              className={`p-2 rounded-full backdrop-blur-md transition-colors cursor-pointer ${
                 isFavorited
                   ? 'bg-rose-500 text-white'
                   : 'bg-black/40 text-white hover:bg-white hover:text-slate-900'
@@ -61,7 +61,7 @@ export const CafeDetailModal: React.FC<CafeDetailModalProps> = ({
             </button>
             <button
               onClick={onClose}
-              className="p-2 rounded-full bg-black/40 text-white hover:bg-white hover:text-slate-900 transition-colors"
+              className="p-2 rounded-full bg-black/40 text-white hover:bg-white hover:text-slate-900 transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-4 h-4" />

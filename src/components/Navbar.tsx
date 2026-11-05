@@ -50,7 +50,7 @@ export const Navbar: React.FC = () => {
     { label: 'Tours', category: 'tours', icon: Palmtree },
     { label: 'Hotels', category: 'hotels', icon: Hotel },
     { label: 'Dining', category: 'restaurants', icon: UtensilsCrossed },
-    { label: 'Cafes', category: 'refreshments', icon: Coffee },
+    { label: 'Refreshments', category: 'refreshments', icon: Coffee },
     { label: 'Custom Trip', category: 'builder', icon: Layers },
   ];
 
