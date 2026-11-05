@@ -435,6 +435,21 @@ Har baar jab bhi project me koi naya feature ya modification hoga, wo is section
       7. **Live Pricing**: Customer ki chosen currency (`₹ INR`, `$ USD`, etc.) me itemized math aur automatic **15% bundle discount** calculation.
       8. **1-Click Booking**: "Book Custom Package" button se complete itinerary bag me add hokar instant checkout open hota hai.
 
+### [v1.6.3] - Full Website Audit: Bug Fixes, Filter Normalization & Form State Reset
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Complete Codebase Audit & Zero-Loop Verification**:
+    * Pura website scan kiya gaya: koi infinite re-render loop nahi hai, event listeners correctly unmount hote hain, aur local storage synchronization safe aur unidirectional hai.
+    * Dataset ID uniqueness verified across all 38 tours, 72 hotels, 64 restaurants, and 16 refreshments (0 duplicates).
+  * **Hero Month Filter Normalization in `TourList.tsx`**:
+    * Fixed a filtering glitch where Hero departure month selection (`Nov`, `Dec`, `Jan`, `Feb`, `Spring`, `Summer`, `Autumn`) was not matching composite date strings. Added case-insensitive substring checks for all travel seasons and months.
+  * **Interactive Form State Reset (`AddReviewModal.tsx`)**:
+    * Review submit hone par form input fields (`name`, `location`, `itemTitle`, `comment`, `rating`) cleanly reset hote hain taaki duplicate ya stale values na bachein.
+  * **Category Navigation Sync (`CategoryPills.tsx`)**:
+    * Category pills me hotel description ko update karke `1★ to 5★ stays` kiya gaya taaki 72 verified backpacker hostels se lekar 5-star luxury palaces tak ka exact sync rahe.
+  * **Hero "Featured:" Pills Permanent Removal Reconfirmed**:
+    * Dono purani screenshots me dikhayi gayi `Featured: Bali ...` aur `Featured: Kullu Manali ...` quick pills Hero search bar se completely removed hain, jisse ultra-minimalist, distraction-free search experience bana rahe.
+
 ### [v1.6.2] - Comprehensive 1-Star to 5-Star Accommodations (72 Hostels to Palaces)
 * **Date**: November 2026
 * **Changes & Key Highlights**:

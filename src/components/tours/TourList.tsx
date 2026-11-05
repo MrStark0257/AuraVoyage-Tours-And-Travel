@@ -58,14 +58,27 @@ export const TourList: React.FC = () => {
         if (selectedDurationFilter === 'short' && tour.durationDays > 4) return false;
       }
       if (selectedMonthFilter && selectedMonthFilter !== 'Anytime') {
-        if (selectedMonthFilter === 'nov_dec_2026') {
-          const hasDate = tour.startDates.some((d) => d.startsWith('2026-11') || d.startsWith('2026-12'));
+        const m = selectedMonthFilter.toLowerCase();
+        if (m === 'nov' || m === 'nov_dec_2026') {
+          const hasDate = tour.startDates.some((d) => d.includes('-11-') || d.includes('-12-'));
           if (!hasDate) return false;
-        } else if (selectedMonthFilter === 'jan_feb_2027') {
-          const hasDate = tour.startDates.some((d) => d.startsWith('2027-01') || d.startsWith('2027-02'));
+        } else if (m === 'dec') {
+          const hasDate = tour.startDates.some((d) => d.includes('-12-'));
           if (!hasDate) return false;
-        } else if (selectedMonthFilter === 'spring_2027') {
-          const hasDate = tour.startDates.some((d) => d.startsWith('2027-03') || d.startsWith('2027-04') || d.startsWith('2027-05'));
+        } else if (m === 'jan' || m === 'jan_feb_2027') {
+          const hasDate = tour.startDates.some((d) => d.includes('-01-') || d.includes('-02-'));
+          if (!hasDate) return false;
+        } else if (m === 'feb') {
+          const hasDate = tour.startDates.some((d) => d.includes('-02-'));
+          if (!hasDate) return false;
+        } else if (m === 'spring' || m === 'spring_2027') {
+          const hasDate = tour.startDates.some((d) => d.includes('-03-') || d.includes('-04-') || d.includes('-05-'));
+          if (!hasDate) return false;
+        } else if (m === 'summer') {
+          const hasDate = tour.startDates.some((d) => d.includes('-06-') || d.includes('-07-') || d.includes('-08-'));
+          if (!hasDate) return false;
+        } else if (m === 'autumn') {
+          const hasDate = tour.startDates.some((d) => d.includes('-09-') || d.includes('-10-') || d.includes('-11-'));
           if (!hasDate) return false;
         }
       }

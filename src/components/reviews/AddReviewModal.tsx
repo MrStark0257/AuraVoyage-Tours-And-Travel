@@ -34,6 +34,11 @@ export const AddReviewModal: React.FC<AddReviewModalProps> = ({ isOpen, onClose 
       verified: true,
     });
 
+    setName('');
+    setLocation('');
+    setItemTitle('');
+    setComment('');
+    setRating(5);
     onClose();
   };
 

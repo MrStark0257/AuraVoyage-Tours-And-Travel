@@ -34,7 +34,7 @@ export const CategoryPills: React.FC = () => {
       {
         id: 'hotels',
         label: 'Hotels & Resorts',
-        description: '5-star suites & villas',
+        description: '1★ to 5★ stays',
         icon: Hotel,
       },
       {
