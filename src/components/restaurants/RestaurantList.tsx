@@ -19,6 +19,8 @@ export const RestaurantList: React.FC = () => {
     'Riverside Cafe',
     'Beach Shack',
     'Heritage Tea Salon',
+    'Courtyard Dining',
+    'Desert Lounge',
     'Rooftop Lounge',
     'Oceanfront Sunset',
     'Michelin Fine Dining',

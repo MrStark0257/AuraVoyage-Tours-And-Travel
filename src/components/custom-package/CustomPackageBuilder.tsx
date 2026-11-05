@@ -637,19 +637,33 @@ export const CustomPackageBuilder: React.FC = () => {
   // Matching Restaurants & Mountain Cafes
   const matchingRestaurantsForDest = useMemo(() => {
     const destCity = (currentDest.city || '').toLowerCase();
+    const destName = (currentDest.name || '').toLowerCase();
     const destCountry = (currentDest.country || '').toLowerCase();
 
-    const list = RESTAURANTS_DATA.filter((r) => {
-      const rDest = r.destination.toLowerCase();
-      const rCountry = r.country.toLowerCase();
+    // Priority 1: Match specific city or landmark tokens
+    const cityTokens = `${destCity} ${destName}`
+      .toLowerCase()
+      .split(/[\s,]+/)
+      .filter((t) => t.length > 3 && !['road', 'street', 'near', 'hotel', 'resort', 'park'].includes(t));
+
+    const directMatches = RESTAURANTS_DATA.filter((r) => {
+      const rDest = `${r.destination} ${r.name}`.toLowerCase();
+      return cityTokens.some((token) => rDest.includes(token));
+    });
+
+    if (directMatches.length > 0) {
+      return directMatches;
+    }
+
+    // Priority 2: Match country
+    const countryMatches = RESTAURANTS_DATA.filter((r) => {
       return (
-        rDest.includes(destCity) ||
-        destCity.split(',').some((p) => p.trim() && rDest.includes(p.trim())) ||
-        rCountry === destCountry
+        r.country.toLowerCase().includes(destCountry) ||
+        destCountry.includes(r.country.toLowerCase())
       );
     });
 
-    return list.length > 0 ? list : RESTAURANTS_DATA.slice(0, 4);
+    return countryMatches.length > 0 ? countryMatches : RESTAURANTS_DATA.slice(0, 4);
   }, [currentDest]);
 
   const chosenRestaurant = useMemo(() => {

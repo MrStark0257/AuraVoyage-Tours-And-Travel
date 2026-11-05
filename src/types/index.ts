@@ -86,7 +86,9 @@ export interface Restaurant {
     | 'Riverside Cafe'
     | 'Mountain Cafe'
     | 'Beach Shack'
-    | 'Heritage Tea Salon';
+    | 'Heritage Tea Salon'
+    | 'Desert Lounge'
+    | 'Courtyard Dining';
   signatureDishes: string[];
   openingHours: string;
   address: string;

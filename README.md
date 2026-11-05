@@ -1,6 +1,6 @@
 # 🌍 AuraVoyage — Complete Tours, Travel, 3★–5★ Hotel Booking, Scenic Cafes & Custom Package Platform
 
-> **AuraVoyage** ek comprehensive, modern aur minimalist Tours & Travel web application hai. Isme 38 multi-day curated tour packages across India and the World, 47 verified 3-Star, 4-Star aur 5-Star hotels & resorts, 32 Michelin restaurants, scenic mountain cafes & tea salons, highway pit-stops aur ek powerful Custom Package Studio shamil hain jisme customer kisi bhi destination ya custom route ke liye exact days aur options select kar sakta hai.
+> **AuraVoyage** ek comprehensive, modern aur minimalist Tours & Travel web application hai. Isme 38 multi-day curated tour packages across India and the World, 47 verified 3-Star, 4-Star aur 5-Star hotels & resorts, 64 Michelin restaurants, scenic mountain cafes, desert lounges, courtyard eateries & beach shacks, highway pit-stops aur ek powerful Custom Package Studio shamil hain jisme customer kisi bhi destination ya custom route ke liye exact days aur options select kar sakta hai.
 
 ---
 
@@ -9,7 +9,7 @@
 AuraVoyage ko travelers ke har stage ke travel needs ko dhyan me rakh kar design kiya gaya hai:
 1. **38 Curated Multi-Day Tour Packages**: India (Himachal, Kashmir, Ladakh, Uttarakhand, Kerala, Goa, Rajasthan, Golden Triangle, Northeast, South) aur Worldwide (Europe, Asia, Americas, Africa, Oceania, 1-Month Grand Tours).
 2. **47 Handpicked 3★ to 5★ Stays**: Luxury 5-star palaces se lekar cozy 3-star mountain chalets aur premium 4-star boutique hotels tak, interactive star-rating filter (`All`, `5★ Luxury`, `4★ Premium`, `3★ Cozy & Budget`) ke sath.
-3. **32 Fine Dining Spots, Mountain Cafes & Beach Shacks**: Michelin tasting menus, riverside cafes (Cafe 1947 Manali), rooftop bistros, beach shacks (Curlies Goa), aur heritage tea salons.
+3. **64 Fine Dining Spots, Mountain Cafes, Desert Lounges & Beach Shacks**: Har single domestic aur worldwide destination ke liye authentic local dining — Dharamshala, McLeodganj, Leh Ladakh, Jaisalmer, Jaipur, Jodhpur, Agra, Havelock, Ooty, Darjeeling, Gangtok, Varanasi, Kasol, Rome, Florence, London, Edinburgh, Singapore, Cairo, Sydney, Amsterdam, Prague, Abu Dhabi, Marrakech, Hanoi, Seoul, etc.
 4. **Interactive Custom Package Studio**: Freedom to design complete trip — custom route type karein ya list mese select karein, exact days & nights (1 to 60 days), 3★/4★/5★ hotel tier, meal plans, private chauffeured AC cabs, activities aur 15% automatic bundle discount.
 5. **Multi-Currency Switcher**: Top nav bar me instant live currency switch (USD `$`, EUR `€`, GBP `£`, INR `₹`, AED `AED`).
 6. **Decoupled Refreshment Guide**: Scenic highway pit stops aur mountain bakeries discovery guide ke roop me (billing ya checkout se zero friction).
@@ -117,27 +117,82 @@ npm run build
 
 ---
 
-### 3. 🍽️ 32 Restaurants, Mountain Cafes & Beach Shacks (Dining Reservations)
-* **Diverse Ambience Filters**:
-  * `All`, `Mountain Cafe`, `Riverside Cafe`, `Beach Shack`, `Heritage Tea Salon`, `Rooftop Lounge`, `Oceanfront Sunset`, `Michelin Fine Dining`, `Historic Bistro`, `Garden Terrace`.
-* **Authentic Local Gems Alongside Fine Dining**:
-  * *Cafe 1947 Manali* (Riverside Italian & Wood-fired Pizza by Beas River) - Mountain Cafe ($$)
-  * *Wake & Bake Cafe Shimla* (The Mall Road French Crepes & Organic Coffee) - Mountain Cafe ($)
-  * *Kashi Art Cafe Fort Kochi* (Courtyard Gallery & Fresh Brews) - Garden Terrace ($$)
-  * *Curlies Beach Shack Anjuna Goa* (Sunset Trance, Fresh Seafood & Waves) - Beach Shack ($$)
-  * *Chai Jaai Tea Room Srinagar* (Jhelum Riverbank Kahwa & Kashmiri Samovar) - Heritage Tea Salon ($)
-  * *Tapri Central Jaipur* (Rooftop Masala Chai & Street Snacks) - Rooftop Lounge ($)
-  * *The Little Buddha Cafe Rishikesh* (Treehouse Organic Smoothie Bowl & Ganga View) - Riverside Cafe ($)
-  * *Café de Paris Interlaken* (Swiss Fondue & Alpinist Hot Chocolate) - Historic Bistro ($$)
-  * *Arabian Tea House Dubai* (Al Fahidi Heritage Courtyard Karak Chai) - Garden Terrace ($$)
-  * *Le Jules Verne Eiffel Tower* (Paris, France) - Michelin Fine Dining ($$$$)
-  * *Moss Restaurant Blue Lagoon* (Iceland) - Michelin Fine Dining ($$$$)
-  * *Sheesh Mahal Lake Pichola* (Udaipur, India) - Royal Indian Terrace ($$$$)
-  * *Ithaa Undersea Restaurant* (Maldives) - Ocean Floor Dining ($$$$)
-  * *Il San Pietro Cliffside Terrace* (Positano, Italy) - Oceanfront Sunset ($$$$)
-  * *Seki Cave Cellar* (Cappadocia, Turkey) - Historic Bistro ($$$)
+### 3. 🍽️ 64 Curated Restaurants, Mountain Cafes, Desert Lounges & Beach Shacks (Dining Reservations)
+* **Comprehensive Ambience Filters**:
+  * `All`, `Mountain Cafe`, `Riverside Cafe`, `Beach Shack`, `Heritage Tea Salon`, `Courtyard Dining`, `Desert Lounge`, `Rooftop Lounge`, `Oceanfront Sunset`, `Michelin Fine Dining`, `Historic Bistro`, `Garden Terrace`.
+* **Authentic Local Gems for Every Destination**:
+  * **Himalayas & North India**:
+    * *Cafe 1947 Manali* (Beas Riverside Wood-fired Pizza) - Mountain Cafe ($$)
+    * *Johnson’s Cafe & Alpine Trout Bar Manali* (Fresh Trout & Pizzas) - Historic Bistro ($$)
+    * *The Restaurant at The Oberoi Cecil Shimla* (Colonial British Roasts & Sepu Badi) - Historic Bistro ($$$)
+    * *Wake & Bake Cafe Shimla* (The Mall Road French Crepes & Coffee) - Mountain Cafe ($)
+    * *Illiterati Books & Mountain Cafe McLeodganj* (Cliffside Library & Pizza) - Mountain Cafe ($$)
+    * *Tibet Kitchen McLeodganj* (Traditional Tingmo, Momos & Thukpa) - Historic Bistro ($)
+    * *The Tibetan Kitchen Leh Ladakh* (Ladakhi Skyu & Copper Hot Pot) - Courtyard Dining ($$)
+    * *Bon Appétit Leh Ladakh* (Mountain View Fusion Grills & Yak Cheese Flatbread) - Mountain Cafe ($$)
+    * *Evergreen Cafe & Riverside Garden Kasol* (Israeli Shakshuka & Trout) - Mountain Cafe ($)
+    * *The Little Buddha Cafe Rishikesh* (Ganga Treehouse Smoothies & Bowls) - Riverside Cafe ($)
+    * *Chai Jaai Tea Room Srinagar* (Jhelum Riverbank Kahwa & Kashmiri Samovar) - Heritage Tea Salon ($)
+    * *Ahdoos Traditional Wazwan Srinagar* (Rista, Gushtaba & Nadru Yakhni) - Historic Bistro ($$)
+  * **Rajasthan & Golden Triangle**:
+    * *1135 AD Amer Palace Dining Jaipur* (Silver Service Rajput Feast) - Courtyard Dining ($$$$)
+    * *Tapri Central Jaipur* (Rooftop Masala Chai & Street Snacks) - Rooftop Lounge ($)
+    * *Indique Rooftop at Pal Haveli Jodhpur* (Mehrangarh Fort View Marwari Dining) - Rooftop Lounge ($$$)
+    * *The Trio Fort Vista Jaisalmer* (Thar Desert Lal Maas & Ker Sangri) - Desert Lounge ($$)
+    * *Sheesh Mahal Lake Pichola Udaipur* (Royal Indian Terrace) - Royal Terrace ($$$$)
+    * *Peshawri at ITC Mughal Agra* (18-Hour Dal Bukhara & Sikandari Raan) - Historic Bistro ($$$$)
+    * *Dolphin Rooftop Restaurant Varanasi* (Ghats Satvik Thali & Kulhad Lassi) - Riverside Cafe ($)
+  * **South India, Goa & Islands**:
+    * *Kashi Art Cafe Fort Kochi* (Courtyard Art Gallery & Cold Brews) - Garden Terrace ($$)
+    * *The Rice Boat at Taj Malabar Kochi* (Karimeen Pollichathu & Moilee) - Oceanfront Sunset ($$$$)
+    * *Earl’s Secret at King’s Cliff Ooty* (Heritage Glasshouse Anglo-Indian Roasts) - Garden Terrace ($$)
+    * *Curlies Beach Shack Anjuna Goa* (Sunset Trance, Fresh Seafood & Waves) - Beach Shack ($$)
+    * *The Fisherman’s Wharf South Goa* (Goan Crab Xec Xec & Balchão) - Oceanfront Sunset ($$$)
+    * *Something Different — A Beachside Cafe Havelock* (Andaman Mud Crab & Tiger Prawns) - Beach Shack ($$)
+    * *Glenary’s Bakery & Vintage Pub Darjeeling* (100-Year Heritage Apple Pies & Sizzlers) - Mountain Cafe ($$)
+    * *Nimtho Traditional Sikkimese Gangtok* (Gundruk, Sel Roti & Kothey Momos) - Historic Bistro ($$)
+  * **Europe & Mediterranean**:
+    * *Le Jules Verne Eiffel Tower Paris* (Michelin Fine Dining by Frédéric Anton) ($$$$)
+    * *Roscioli Salumeria con Cucina Rome* (Legendary Roman Carbonara & Wine Cellar) - Historic Bistro ($$$)
+    * *Trattoria Zà Zà Florence* (Bistecca alla Fiorentina & Black Truffle Tagliolini) - Historic Bistro ($$$)
+    * *Il San Pietro Cliffside Terrace Positano* (Neapolitan Seafood & Limoncello Soufflé) ($$$$)
+    * *Ristorante Da Ivo San Marco Venice* (Venetian Cuttlefish Ink Risotto) - Historic Bistro ($$$$)
+    * *The Ritz Restaurant London* (Michelin-Starred Classical French & High Tea) ($$$$)
+    * *Dishoom Covent Garden London* (Bombay Irani Cafe & 24-Hour Black Daal) - Historic Bistro ($$)
+    * *The Witchery by the Castle Edinburgh* (Scottish Highland Deer & Mull Scallops) ($$$$)
+    * *Restaurant De Kas Amsterdam* (Michelin Green Star Farm-to-Table in Glasshouses) ($$$$)
+    * *Café Imperial Prague* (Historic 1914 Art Deco Bohemian Braised Beef Svíčková) ($$)
+    * *Café de Paris Interlaken* (Swiss Alpine Fondue & Hot Chocolate) - Historic Bistro ($$)
+    * *The Japanese Restaurant at Chedi Andermatt* (Michelin Kaiseki in the Alps) ($$$$)
+    * *Ambrosia Sunset Restaurant Santorini* (Caldera Clifftop Candlelit Dining) ($$$$)
+    * *Moss Restaurant Blue Lagoon Iceland* (Michelin Geothermal Volcanic Gastronomy) ($$$$)
+  * **Asia, Middle East, Americas, Africa & Oceania**:
+    * *Lau Pa Sat Satay Street Singapore* (Charcoal Satay Skewers & Chilli Crab) - Courtyard Dining ($)
+    * *CÉ LA VI Marina Bay Sands Singapore* (Skyline Rooftop Dining & Cocktails) ($$$$)
+    * *Arabian Tea House Dubai* (Al Fahidi Heritage Courtyard Emirati Breakfast) - Garden Terrace ($$)
+    * *Pierchic Over-Water Dining Dubai* (Gulf Ocean Floor Seafood) ($$$$)
+    * *Hakkasan at Emirates Palace Abu Dhabi* (Michelin Cantonese in Royal Palace) ($$$$)
+    * *Seki Cave Cellar Cappadocia* (Underground Volcanic Wine & Anatolian Pot Roast) ($$$)
+    * *9 Pyramids Lounge Giza, Egypt* (Bedouin Grills facing the Great Pyramids) - Desert Lounge ($$$)
+    * *Naguib Mahfouz Cafe Cairo, Egypt* (Historic Khan el-Khalili Bazaar Dining) - Historic Bistro ($$)
+    * *Bennelong at Sydney Opera House* (Modern Australian inside the Sails) ($$$$)
+    * *Icebergs Dining Room & Bar Bondi Beach* (Clifftop Mediterranean Dining) ($$$$)
+    * *Locavore NXT Ubud, Bali* (Avant-Garde Farm to Table Fermentation Lab) ($$$)
+    * *Ginza Kyubey Omakase Tokyo* (Edo-Mae Omakase Sushi) ($$$$)
+    * *Kikunoi Roan 2-Star Kaiseki Kyoto* (Traditional Kyoto Kaiseki) ($$$$)
+    * *Blue Elephant Royal Thai Phuket & Bangkok* (Massaman Lamb & Royal Curries) ($$$)
+    * *Ithaa Undersea Restaurant Maldives* (5 Meters Below Indian Ocean) ($$$$)
+    * *Nomad Spice Terrace Marrakech, Morocco* (Rooftop Medina Lamb Tagine) ($$)
+    * *Cầu Gỗ Lake Terrace Hanoi, Vietnam* (Hoan Kiem Lake Claypot Catfish) ($$)
+    * *Jungsik Seoul, South Korea* (2-Star Michelin Modern Korean Gastronomy) ($$$$)
+    * *Serengeti Boma Bush Barbecue Tanzania* (Safari Bush Grills under the Stars) ($$$$)
+    * *FYN Restaurant Cape Town, South Africa* (African-Japanese Fusion Overlooking Table Mountain) ($$$$)
+    * *Le Bernardin by Eric Ripert New York* (3-Star Michelin Seafood Temple) ($$$$)
+    * *Mil Centro Sacred Valley Cusco, Peru* (High-Altitude Andean Ecosystem Tasting) ($$$$)
+    * *Rātā Queenstown, New Zealand* (Southern Alps Venison & Marlborough Wines) ($$$$)
 * **Interactive Reservation Modal**:
-  * Time slot, party size (1–10 guests), ambience preference, special requests.
+  * Date aur Time slot selector (`12:00 PM`, `1:30 PM`, `7:00 PM`, `8:15 PM`, `9:30 PM`).
+  * Party size (1–10 guests), ambience preference, special requests.
 
 ---
 
@@ -350,6 +405,35 @@ Har baar jab bhi project me koi naya feature ya modification hoga, wo is section
       6. **Signature Excursions**: Dedicated Local Guide, Vacation Photography Session, Scenic/Adventure Passes.
       7. **Live Pricing**: Customer ki chosen currency (`₹ INR`, `$ USD`, etc.) me itemized math aur automatic **15% bundle discount** calculation.
       8. **1-Click Booking**: "Book Custom Package" button se complete itinerary bag me add hokar instant checkout open hota hai.
+
+### [v1.6.1] - Pan-Destination Dining & Cafe Expansion (64 Spots Across All Places)
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **64 Curated Restaurants, Mountain Cafes, Desert Lounges & Beach Shacks**:
+    * Catalog ko 32 spots se expand karke **64 world-class dining spots** kar diya gaya hai, taaki har destination ke pas verified local restaurants aur cafes hon.
+    * **Every Indian Destination Covered**:
+      * *Shimla*: *The Oberoi Cecil Restaurant* (British roasts & Pahadi Chha Gosht) & *Wake & Bake Cafe*.
+      * *Dharamshala & McLeodganj*: *Illiterati Books & Mountain Cafe* (Kangra valley pizza) & *Tibet Kitchen* (Traditional momos & thukpa).
+      * *Leh Ladakh*: *The Tibetan Kitchen Leh* (Copper hot pot & Ladakhi Skyu) & *Bon Appétit Leh* (Apricot glazed grills).
+      * *Jaisalmer*: *The Trio Fort Vista* (Thar desert Lal Maas & Ker Sangri).
+      * *Jaipur & Jodhpur*: *1135 AD Amer Palace Dining* (Silver service feast) & *Indique Rooftop Pal Haveli*.
+      * *Agra*: *Peshawri at ITC Mughal Agra* (18-Hour Dal Bukhara & Sikandari Raan).
+      * *Andaman Islands*: *Something Different — A Beachside Cafe Havelock* (Mud crab & tiger prawns).
+      * *Ooty & Coonoor*: *Earl’s Secret at King’s Cliff* (Heritage glasshouse Anglo-Indian dining).
+      * *Darjeeling & Gangtok*: *Glenary’s Bakery & Vintage Pub* (100-year apple pies) & *Nimtho Sikkimese Restaurant*.
+      * *Varanasi*: *Dolphin Rooftop Restaurant on the Ghats* (Satvik thali & Malai lassi).
+      * *Kasol & Parvati Valley*: *Evergreen Cafe & Riverside Garden* (Shakshuka & trout).
+    * **Every International Destination Covered**:
+      * *Rome & Florence*: *Roscioli Salumeria con Cucina Rome* (Carbonara & wine) & *Trattoria Zà Zà Florence* (Bistecca alla Fiorentina).
+      * *London & Edinburgh*: *The Ritz Restaurant London* (Michelin French & high tea), *Dishoom Covent Garden* (Bombay Irani cafe), & *The Witchery by the Castle Edinburgh* (Highland venison).
+      * *Singapore*: *Lau Pa Sat Satay Street* (Charcoal satay & chili crab) & *CÉ LA VI Marina Bay Sands SkyBar*.
+      * *Egypt (Cairo & Giza)*: *9 Pyramids Lounge Giza* (Bedouin grills facing the Pyramids) & *Naguib Mahfouz Cafe Khan el-Khalili*.
+      * *Australia (Sydney)*: *Bennelong at Sydney Opera House* (Inside the sails) & *Icebergs Dining Room Bondi Beach*.
+      * *Amsterdam & Prague*: *Restaurant De Kas Amsterdam* (Michelin Green Star glasshouse farm-to-table) & *Café Imperial Prague* (Historic 1914 Art Deco Svíčková).
+      * *Abu Dhabi & Morocco*: *Hakkasan Emirates Palace Abu Dhabi* & *Nomad Spice Terrace Marrakech*.
+      * *Vietnam & South Korea*: *Cầu Gỗ Lake Terrace Hanoi* & *Jungsik Seoul 2-Star Michelin*.
+  * **New Ambience Categories**: Added `Courtyard Dining` aur `Desert Lounge` filters with total 12 ambience chips in the dining filter bar.
+  * **Smart Prioritized Custom Studio Matching**: Custom Package Studio me restaurant selector direct destination tokens se match karta hai, jisse Dharamshala, Leh, Jaisalmer ya Rome select karte hi strictly authentic local restaurants sabse upar display hote hain.
 
 ### [v1.6.0] - Pan-India & Global Destination Expansion, 3★–5★ Stays, Scenic Cafes & Custom Package Studio
 * **Date**: November 2026
