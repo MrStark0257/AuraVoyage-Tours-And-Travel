@@ -239,8 +239,10 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       return;
     }
 
-    // When clicking Cafes ('refreshments'), navigate directly to 'Curated Restaurants & Scenic Cafes' (#restaurants)
-    const targetId = cat === 'refreshments' ? 'restaurants' : cat;
+    // Direct category-to-section mapping:
+    // 'restaurants' -> #restaurants ("Curated Restaurants & Scenic Cafes")
+    // 'refreshments' -> #refreshments ("Travel Refreshments & Cafes")
+    const targetId = cat;
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       const header = document.querySelector('header');

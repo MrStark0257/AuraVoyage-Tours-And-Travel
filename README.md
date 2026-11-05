@@ -398,6 +398,23 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
+### [v1.6.9] - Explicit Distinction: Dining -> "Curated Restaurants & Scenic Cafes" & Cafes -> "Travel Refreshments & Cafes"
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Dedicated Category-to-Section Routing**:
+    * User requirement clarified (*"jab dining pe click karte he to 'Curated Restaurants & Scenic Cafes' ana chahiye or Cafe pe click kar ne pe 'Travel Refreshments & Cafes' ana chahiye"*):
+      * **Dining Button** (`category: 'restaurants'`): Ab click karne par page specifically **`#restaurants` ("GASTRONOMY — Curated Restaurants & Scenic Cafes")** par land karta hai (Michelin dining, mountain & riverside cafes, coastal bistros, and reserved tables).
+      * **Cafes Button** (`category: 'refreshments'`): Ab click karne par page specifically **`#refreshments` ("PACKS & PIT STOPS — Travel Refreshments & Cafes")** par land karta hai (Scenic highway pit stops, artisan coffee shops, mountain bakeries, tea salons & sunset lounges).
+  * **Unified Multi-Entry Synchronization**:
+    * Navbar (desktop & mobile drawer), Category Pills, Hero Search Tabs, aur Footer links sabhi me yeh separation perfectly align ho gaya hai.
+  * **Tested & Verified with Headless Chrome DevTools Protocol**:
+    * **Mobile Viewport (iPhone 14 / 390x844)**:
+      * `Dining` -> `#restaurants` ("Curated Restaurants & Scenic Cafes") with exact **14px** visual clearance below sticky navbar.
+      * `Cafes` -> `#refreshments` ("Travel Refreshments & Cafes") with exact **14px** visual clearance below sticky navbar.
+    * **Desktop Viewport (1280x800)**:
+      * `Dining` -> `#restaurants` with exact **14px** clearance.
+      * `Cafes` -> `#refreshments` with exact **14px** clearance.
+
 ### [v1.6.8] - Permanent Fix for Button Redirect Glitch & High-Distance Mobile Navigation
 * **Date**: November 2026
 * **Changes & Key Highlights**:
