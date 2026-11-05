@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
     setTimeout(() => {
       navigateToCategory(category);
-    }, 20);
+    }, 40);
   };
 
   const navItems: { label: string; category: CategoryType; icon: React.ElementType }[] = [
@@ -226,77 +226,88 @@ export const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Floating Overlay that never shifts document flow) */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 py-3 space-y-2 shadow-lg animate-in slide-in-from-top-2">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeCategory === item.category;
-            return (
-              <button
-                key={item.category}
-                onClick={() => handleNavClick(item.category)}
-                className={`flex items-center gap-2.5 w-full px-3 py-2.5 rounded-lg text-xs font-medium transition-colors ${isActive ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50'
-                  }`}
-              >
-                <Icon className="w-4 h-4" />
-                <span>{item.label}</span>
-              </button>
-            );
-          })}
+        <>
+          {/* Backdrop blur overlay */}
+          <div
+            className="fixed inset-0 top-16 sm:top-18 bg-slate-950/40 backdrop-blur-xs z-40 lg:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
 
-          {/* Quick Drawer Shortcuts */}
-          <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 mt-2">
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsWishlistOpen(true);
-              }}
-              className="flex items-center justify-center gap-1.5 p-2 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
-            >
-              <Heart className="w-3.5 h-3.5 text-rose-500" />
-              <span>Wishlist ({wishlist.length})</span>
-            </button>
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsMyBookingsOpen(true);
-              }}
-              className="flex items-center justify-center gap-1.5 p-2 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
-            >
-              <TicketCheck className="w-3.5 h-3.5 text-slate-800" />
-              <span>Bookings ({bookings.length})</span>
-            </button>
-          </div>
-
-          {/* Mobile Currency Bar */}
-          <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 px-1 mt-2">
-            <span className="font-semibold flex items-center gap-1.5">
-              <Globe className="w-3.5 h-3.5 text-slate-500" />
-              Currency:
-            </span>
-            <div className="flex items-center gap-1">
-              {(Object.keys(CURRENCY_RATES) as Currency[]).map((curr) => (
+          {/* Drawer Menu Container */}
+          <div className="absolute top-full left-0 right-0 z-50 lg:hidden bg-white border-b border-slate-200 px-4 py-3 space-y-2 shadow-2xl max-h-[calc(100vh-5rem)] overflow-y-auto animate-in slide-in-from-top-2">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeCategory === item.category;
+              return (
                 <button
-                  key={curr}
-                  onClick={() => setCurrency(curr)}
-                  className={`px-2 py-1 rounded text-xs font-semibold transition-colors ${
-                    currency === curr
-                      ? 'bg-slate-900 text-white'
-                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  key={item.category}
+                  onClick={() => handleNavClick(item.category)}
+                  className={`flex items-center gap-2.5 w-full px-3 py-2.5 rounded-lg text-xs font-medium transition-colors ${
+                    isActive ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
-                  {CURRENCY_RATES[curr].symbol} {curr}
+                  <Icon className="w-4 h-4" />
+                  <span>{item.label}</span>
                 </button>
-              ))}
+              );
+            })}
+
+            {/* Quick Drawer Shortcuts */}
+            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 mt-2">
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsWishlistOpen(true);
+                }}
+                className="flex items-center justify-center gap-1.5 p-2 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+              >
+                <Heart className="w-3.5 h-3.5 text-rose-500" />
+                <span>Wishlist ({wishlist.length})</span>
+              </button>
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsMyBookingsOpen(true);
+                }}
+                className="flex items-center justify-center gap-1.5 p-2 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+              >
+                <TicketCheck className="w-3.5 h-3.5 text-slate-800" />
+                <span>Bookings ({bookings.length})</span>
+              </button>
+            </div>
+
+            {/* Mobile Currency Bar */}
+            <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 px-1 mt-2">
+              <span className="font-semibold flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5 text-slate-500" />
+                Currency:
+              </span>
+              <div className="flex items-center gap-1">
+                {(Object.keys(CURRENCY_RATES) as Currency[]).map((curr) => (
+                  <button
+                    key={curr}
+                    onClick={() => setCurrency(curr)}
+                    className={`px-2 py-1 rounded text-xs font-semibold transition-colors ${
+                      currency === curr
+                        ? 'bg-slate-900 text-white'
+                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                    }`}
+                  >
+                    {CURRENCY_RATES[curr].symbol} {curr}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 px-1 mt-2">
+              <span>24/7 Helpline:</span>
+              <a href="tel:+18007928692" className="text-slate-900 font-semibold">+1 (800) 792-VOYAGE</a>
             </div>
           </div>
-
-          <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 px-1 mt-2">
-            <span>24/7 Helpline:</span>
-            <a href="tel:+18007928692" className="text-slate-900 font-semibold">+1 (800) 792-VOYAGE</a>
-          </div>
-        </div>
+        </>
       )}
     </header>
   );

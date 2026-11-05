@@ -11,7 +11,8 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* Auto in CSS prevents mobile Safari / Chrome gesture scroll cancellation conflicts with window.scrollTo */
+    scroll-behavior: auto;
   }
 
   body {

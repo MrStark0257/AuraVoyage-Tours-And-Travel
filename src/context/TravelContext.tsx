@@ -231,14 +231,18 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       return;
     }
 
-    // When clicking Cafes ('refreshments'), navigate directly to 'Curated Restaurants & Scenic Cafes' (#restaurants)
-    const targetId = cat === 'refreshments' ? 'restaurants' : cat;
-    const targetElement = document.getElementById(targetId);
+    // Both 'restaurants' (Dining) and 'refreshments' (Cafes) navigate directly to 'Curated Restaurants & Scenic Cafes' (#restaurants)
+    const targetId = (cat === 'refreshments' || cat === 'restaurants') ? 'restaurants' : cat;
+    const targetElement = document.getElementById(targetId) || document.getElementById('catalog-section');
     if (targetElement) {
-      const navOffset = 75;
+      // Calculate dynamic header height + safe breathing gap so heading is never clipped by sticky header
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : 92;
+      const extraGap = 16; // 16px cushion
+
       const rect = targetElement.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const targetY = Math.max(0, rect.top + scrollTop - navOffset);
+      const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const targetY = Math.max(0, rect.top + currentScrollY - headerHeight - extraGap);
 
       window.scrollTo({
         top: targetY,
@@ -247,10 +251,12 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     } else {
       const catalogElem = document.getElementById('catalog-section');
       if (catalogElem) {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 92;
         const rect = catalogElem.getBoundingClientRect();
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
         window.scrollTo({
-          top: Math.max(0, rect.top + scrollTop - 75),
+          top: Math.max(0, rect.top + currentScrollY - headerHeight - 16),
           behavior: 'smooth',
         });
       }

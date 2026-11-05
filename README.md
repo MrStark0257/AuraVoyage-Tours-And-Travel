@@ -638,6 +638,22 @@ Har baar jab bhi project me koi naya feature ya modification hoga, wo is section
   * **Footer Worldwide Directory**:
     * Footer me click karne yogya 12+ international destination quick-links jisse user 1 tap me directly filtered tours section par navigate kar sakta hai.
 
+### [v1.5.0] - Responsive Mobile Navigation & Cafes Scroll Anchoring Overhaul
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Zero-Layout-Shift Mobile Overlay**:
+    * Navbar mobile menu drawer ko in-flow document element se transform karke `absolute top-full left-0 right-0 z-50` floating overlay me convert kiya gaya with a backdrop blur overlay (`fixed inset-0 bg-slate-950/40 backdrop-blur-xs`).
+    * Opening ya closing menu se sticky header height (`~92px` on mobile, `100px` on desktop) me zero change hota hai aur document flow me zero cumulative layout shift (CLS) rehta hai.
+  * **Precision Scroll Position Calculation (`navigateToCategory`)**:
+    * Dynamic header height measurement (`header.offsetHeight`) aur 16px safety cushion integrate kiya gaya.
+    * Hardcoded 75px offset ko replace karke dynamic scroll coordinate `rect.top + currentScrollY - headerHeight - 16` banaya gaya taaki section heading ("GASTRONOMY - Curated Restaurants & Scenic Cafes") sticky navbar ke piche kabhi na chhupe.
+  * **Mobile Smooth Scroll Engine Conflict Resolution**:
+    * `src/index.css` me `html { scroll-behavior: auto; }` kiya gaya taaki iOS Safari aur mobile Chrome touch gesture events ke dauran JavaScript programmatic smooth scroll (`window.scrollTo({ behavior: 'smooth' })`) ko abort ya cancel na karein.
+  * **Unified Cafes & Dining Routing**:
+    * Mobile drawer, desktop navbar, Hero search tabs aur CategoryPills sabhi me `Cafes` click karne par target seedhe `#restaurants` ("Curated Restaurants & Scenic Cafes") par accurately land hota hai.
+    * `RestaurantList.tsx` me `activeCategory` listener add kiya gaya jisse Cafes ya Dining click hote hi Ambience filter automatically `'All'` par reset ho jata hai, exactly matching the user's expected mobile screenshot.
+    * All primary sections (`tours`, `hotels`, `restaurants`, `refreshments`, `builder`, `catalog-section`) upgraded to `scroll-mt-24 sm:scroll-mt-28`.
+
 ### [v1.2.0] - Comprehensive Mobile, Tablet & Desktop Responsive Polish
 * **Date**: November 2026
 * **Changes & Key Highlights**:
