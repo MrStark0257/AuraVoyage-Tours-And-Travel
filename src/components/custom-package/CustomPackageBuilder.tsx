@@ -29,7 +29,7 @@ interface DestinationChoice {
   name: string;
   city: string;
   country: string;
-  region: 'India' | 'Europe' | 'Asia' | 'Americas & Africa' | '1-Month Expeditions';
+  region: 'India' | 'Europe' | 'Asia' | 'Americas, Africa & Oceania' | '1-Month Expeditions';
   isOneMonth?: boolean;
 }
 
@@ -163,6 +163,104 @@ const EXTENDED_DESTINATIONS: DestinationChoice[] = [
     country: 'India',
     region: 'India',
   },
+  {
+    id: 'spiti',
+    name: 'Spiti Valley & Chandratal Lake',
+    city: 'Kaza, Spiti Valley',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'kasol',
+    name: 'Kasol, Tosh & Parvati Valley',
+    city: 'Kasol, Himachal Pradesh',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'nainital',
+    name: 'Nainital & Kumaon Lake District',
+    city: 'Nainital, Uttarakhand',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'corbett',
+    name: 'Jim Corbett National Park & Tigers',
+    city: 'Ramnagar, Uttarakhand',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'varanasi',
+    name: 'Varanasi Ancient Ghats & Ganga Dawn',
+    city: 'Varanasi, Uttar Pradesh',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'darjeeling',
+    name: 'Darjeeling & Kanchenjunga Sunrise',
+    city: 'Darjeeling, West Bengal',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'gangtok',
+    name: 'Gangtok & Tsomgo Lake',
+    city: 'Gangtok, Sikkim',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'shillong',
+    name: 'Shillong & Cherrapunji Root Bridges',
+    city: 'Shillong, Meghalaya',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'coorg',
+    name: 'Coorg Coffee Estates & Mist',
+    city: 'Madikeri, Coorg',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'wayanad',
+    name: 'Wayanad Rainforests & Treehouses',
+    city: 'Wayanad, Kerala',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'gokarna',
+    name: 'Gokarna Om Beach & Cliff Trek',
+    city: 'Gokarna, Karnataka',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'kodaikanal',
+    name: 'Kodaikanal Princess of Hill Stations',
+    city: 'Kodaikanal, Tamil Nadu',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'jodhpur',
+    name: 'Jodhpur Blue City & Mehrangarh Fort',
+    city: 'Jodhpur, Rajasthan',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'ranthambore',
+    name: 'Ranthambore Royal Bengal Tiger Safari',
+    city: 'Sawai Madhopur, Rajasthan',
+    country: 'India',
+    region: 'India',
+  },
 
   // --- Europe & Mediterranean ---
   {
@@ -233,6 +331,34 @@ const EXTENDED_DESTINATIONS: DestinationChoice[] = [
     name: 'Barcelona Sagrada Familia & Beach',
     city: 'Barcelona',
     country: 'Spain',
+    region: 'Europe',
+  },
+  {
+    id: 'florence',
+    name: 'Florence & Tuscan Renaissance',
+    city: 'Florence',
+    country: 'Italy',
+    region: 'Europe',
+  },
+  {
+    id: 'edinburgh',
+    name: 'Edinburgh Royal Mile & Highlands',
+    city: 'Edinburgh',
+    country: 'United Kingdom',
+    region: 'Europe',
+  },
+  {
+    id: 'amsterdam',
+    name: 'Amsterdam Canals & Museums',
+    city: 'Amsterdam',
+    country: 'Netherlands',
+    region: 'Europe',
+  },
+  {
+    id: 'prague',
+    name: 'Prague Charles Bridge & Castle',
+    city: 'Prague',
+    country: 'Czech Republic',
     region: 'Europe',
   },
 
@@ -307,49 +433,98 @@ const EXTENDED_DESTINATIONS: DestinationChoice[] = [
     country: 'Turkey',
     region: 'Asia',
   },
+  {
+    id: 'hanoi',
+    name: 'Hanoi & Ha Long Bay Emerald Waters',
+    city: 'Hanoi',
+    country: 'Vietnam',
+    region: 'Asia',
+  },
+  {
+    id: 'seoul',
+    name: 'Seoul Gyeongbokgung & Myeongdong',
+    city: 'Seoul',
+    country: 'South Korea',
+    region: 'Asia',
+  },
+  {
+    id: 'doha',
+    name: 'Doha Museum of Islamic Art & Souq',
+    city: 'Doha',
+    country: 'Qatar',
+    region: 'Asia',
+  },
 
-  // --- Americas & Africa ---
+  // --- Americas, Africa & Oceania ---
+  {
+    id: 'cairo',
+    name: 'Cairo Pyramids & Giza Sphinx',
+    city: 'Cairo',
+    country: 'Egypt',
+    region: 'Americas, Africa & Oceania',
+  },
+  {
+    id: 'sydney',
+    name: 'Sydney Opera House & Harbour',
+    city: 'Sydney',
+    country: 'Australia',
+    region: 'Americas, Africa & Oceania',
+  },
+  {
+    id: 'morocco',
+    name: 'Marrakech Medina & Atlas Mountains',
+    city: 'Marrakech',
+    country: 'Morocco',
+    region: 'Americas, Africa & Oceania',
+  },
+  {
+    id: 'rio',
+    name: 'Rio de Janeiro Christ Redeemer & Copacabana',
+    city: 'Rio de Janeiro',
+    country: 'Brazil',
+    region: 'Americas, Africa & Oceania',
+  },
   {
     id: 'new-york',
     name: 'New York City & Central Park',
     city: 'New York',
     country: 'United States',
-    region: 'Americas & Africa',
+    region: 'Americas, Africa & Oceania',
   },
   {
     id: 'california',
     name: 'Los Angeles & California Pacific',
     city: 'Los Angeles',
     country: 'United States',
-    region: 'Americas & Africa',
+    region: 'Americas, Africa & Oceania',
   },
   {
     id: 'serengeti',
     name: 'Serengeti Big 5 Wildlife Safari',
     city: 'Serengeti',
     country: 'Tanzania',
-    region: 'Americas & Africa',
+    region: 'Americas, Africa & Oceania',
   },
   {
     id: 'cape-town',
     name: 'Cape Town & Table Mountain Drive',
     city: 'Cape Town',
     country: 'South Africa',
-    region: 'Americas & Africa',
+    region: 'Americas, Africa & Oceania',
   },
   {
     id: 'machu-picchu',
     name: 'Machu Picchu & Cusco Sacred Valley',
     city: 'Cusco',
     country: 'Peru',
-    region: 'Americas & Africa',
+    region: 'Americas, Africa & Oceania',
   },
   {
     id: 'queenstown',
     name: 'Queenstown Southern Alps',
     city: 'Queenstown',
     country: 'New Zealand',
-    region: 'Americas & Africa',
+    region: 'Americas, Africa & Oceania',
   },
 
   // --- 1-Month Grand Expeditions ---
@@ -592,7 +767,7 @@ export const CustomPackageBuilder: React.FC = () => {
     setIsCartOpen(true);
   };
 
-  const regionTabs = ['India', 'Europe', 'Asia', 'Americas & Africa', '1-Month Expeditions'];
+  const regionTabs = ['India', 'Europe', 'Asia', 'Americas, Africa & Oceania', '1-Month Expeditions'];
 
   const filteredDestinations = useMemo(() => {
     return EXTENDED_DESTINATIONS.filter((d) => d.region === selectedRegion);

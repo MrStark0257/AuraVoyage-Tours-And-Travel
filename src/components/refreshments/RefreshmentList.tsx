@@ -66,7 +66,7 @@ export const RefreshmentList: React.FC = () => {
             Travel Refreshments & Cafes
           </h2>
           <p className="text-slate-500 text-xs sm:text-sm mt-0.5 max-w-xl">
-            Curated travel snack hampers, artisan bakeries, and scenic highway pit-stops to discover along your global journeys.
+            Scenic highway pit stops, artisan coffee shops, and mountain bakeries to explore during your journeys.
           </p>
         </div>
 

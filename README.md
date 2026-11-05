@@ -1,19 +1,19 @@
-# 🌍 AuraVoyage — Complete Tours, Travel, Hotel Booking, Dining & Refreshments Platform
+# 🌍 AuraVoyage — Complete Tours, Travel, 3★–5★ Hotel Booking, Scenic Cafes & Custom Package Platform
 
-> **AuraVoyage** ek comprehensive, modern aur luxury Tours & Travel web application hai. Isme multi-day tour packages, 5-star hotel & resort booking, guaranteed restaurant table reservations, travel refreshment hampers, highway pit-stops aur interactive custom trip builder shamil hain.
+> **AuraVoyage** ek comprehensive, modern aur minimalist Tours & Travel web application hai. Isme 38 multi-day curated tour packages across India and the World, 47 verified 3-Star, 4-Star aur 5-Star hotels & resorts, 32 Michelin restaurants, scenic mountain cafes & tea salons, highway pit-stops aur ek powerful Custom Package Studio shamil hain jisme customer kisi bhi destination ya custom route ke liye exact days aur options select kar sakta hai.
 
 ---
 
 ## 📌 Project Overview (Project Ka Parichay)
 
 AuraVoyage ko travelers ke har stage ke travel needs ko dhyan me rakh kar design kiya gaya hai:
-1. **Pehle se plan kiye gaye luxury tour packages** dekhna aur book karna.
-2. **Hotels, luxury resorts aur private villas** me rooms book karna (nights aur room category ke according live pricing ke sath).
-3. **Michelin aur rooftop restaurants** me table reserve karna (time slot, party size aur seating preference ke sath).
-4. **En-route travel refreshments** (gourmet snack packs aur highway pit-stop vouchers) order karna.
-5. **Apna custom package banana** (Hotel + Dining + Refreshments + Guide/Photoshoots) jisme 15% instant bundle discount milta hai.
-6. **Multi-currency switcher** (USD, EUR, GBP, INR, AED).
-7. **Trip bag (Cart), Wishlist (Saved Favorites), Promo Codes (`VOYAGE10`, `WANDER20`), Confetti animation, Printable Digital Vouchers aur "My Bookings" system**.
+1. **38 Curated Multi-Day Tour Packages**: India (Himachal, Kashmir, Ladakh, Uttarakhand, Kerala, Goa, Rajasthan, Golden Triangle, Northeast, South) aur Worldwide (Europe, Asia, Americas, Africa, Oceania, 1-Month Grand Tours).
+2. **47 Handpicked 3★ to 5★ Stays**: Luxury 5-star palaces se lekar cozy 3-star mountain chalets aur premium 4-star boutique hotels tak, interactive star-rating filter (`All`, `5★ Luxury`, `4★ Premium`, `3★ Cozy & Budget`) ke sath.
+3. **32 Fine Dining Spots, Mountain Cafes & Beach Shacks**: Michelin tasting menus, riverside cafes (Cafe 1947 Manali), rooftop bistros, beach shacks (Curlies Goa), aur heritage tea salons.
+4. **Interactive Custom Package Studio**: Freedom to design complete trip — custom route type karein ya list mese select karein, exact days & nights (1 to 60 days), 3★/4★/5★ hotel tier, meal plans, private chauffeured AC cabs, activities aur 15% automatic bundle discount.
+5. **Multi-Currency Switcher**: Top nav bar me instant live currency switch (USD `$`, EUR `€`, GBP `£`, INR `₹`, AED `AED`).
+6. **Decoupled Refreshment Guide**: Scenic highway pit stops aur mountain bakeries discovery guide ke roop me (billing ya checkout se zero friction).
+7. **Trip Bag (Cart), Wishlist, Promo Codes (`VOYAGE10`, `WANDER20`), Confetti animations, Printable Digital Vouchers aur "My Bookings" system**.
 
 ---
 
@@ -49,125 +49,134 @@ npm run build
 
 ## 🌟 Key Features & Modules (Sari Details)
 
-### 1. 🌴 Curated Multi-Day Tour Packages (Tour Packages)
-* **Worldwide Global Destinations Across 6 Continents & India**:
-  * **India (Domestic & Cultural)**:
-    * *Kullu Manali & Solang Valley Snow & Pines* (6D/5N) - Himachal Pradesh, India
-    * *Kerala Backwaters, Munnar Tea Hills & Alleppey Houseboat* (7D/6N) - Kerala, India
-    * *Goa Luxury Coastal & Portuguese Heritage Escape* (5D/4N) - Goa, India
-    * *Kashmir Paradise & Ladakh High Passes Odyssey* (8D/7N) - Kashmir & Ladakh, India
-    * *Royal Rajasthan Fortresses, Palaces & Taj Mahal* (8D/7N) - Rajasthan, India
-  * **1-Month Grand Expeditions**:
-    * *Incredible India 30-Day Grand Odyssey: Himalayas to Backwaters* (30D/29N) - All-India Grand Tour
-    * *Grand European 28-Day Splendor: 1-Month Pan-European Grand Tour* (28D/27N) - Switzerland, France, Italy
-  * **Europe**:
-    * *Paris Romance & French Riviera Glamour* (8D/7N) - France
-    * *Swiss Alps Glacier Express & Alpine Lakes* (8D/7N) - Switzerland
-    * *Amalfi Coast & Capri Private Yacht Odyssey* (6D/5N) - Italy
-    * *Santorini & Cycladic Islands Sunset Sailing* (7D/6N) - Greece
-    * *Iceland Northern Lights, Volcanic Lagoons & Glaciers* (6D/5N) - Iceland
-  * **Asia & Middle East**:
-    * *Thailand Tropical Islands & Bangkok Grand Palaces* (7D/6N) - Thailand
-    * *Bali Island Serenity & Sacred Waterfalls* (7D/6N) - Indonesia
-    * *Kyoto Zen Gardens, Mount Fuji & Tokyo Lights* (9D/8N) - Japan
-    * *Maldives Private Island Overwater Sanctuary* (6D/5N) - Maldives
-    * *Dubai & Arabian Dunes Ultra-Luxury Escape* (5D/4N) - UAE
-    * *Cappadocia Hot Air Balloons & Istanbul Grand Bazaars* (7D/6N) - Turkey
-  * **Africa, Americas & Oceania**:
-    * *Serengeti Big Five Safari & Zanzibar Sands* (10D/9N) - Tanzania
-    * *Cape Town, Table Mountain & Garden Route Drive* (8D/7N) - South Africa
-    * *New York Skyline to Grand Canyon Natural Wonders* (9D/8N) - United States
-    * *Machu Picchu Incan Trail & Sacred Valley Heritage* (7D/6N) - Peru
-    * *New Zealand Southern Alps & Milford Sound Fjords* (10D/9N) - New Zealand
+### 1. 🌴 38 Curated Multi-Day Tour Packages (Tour Packages)
+* **Dedicated Top-Level 'India' & Worldwide Region Tabs**:
+  * Filter buttons: `All (38)`, `India (16)`, `Europe (9)`, `Asia (6)`, `Middle East (2)`, `Africa (2)`, `Americas (2)`, `Oceania (1)`.
+  * **India Domestic Expeditions (16 Tours)**:
+    1. *Kullu Manali & Solang Valley Snow & Pines* (6D/5N) - Himachal Pradesh
+    2. *Shimla, Kufri & Chail Pine Heritage & Toy Train* (5D/4N) - Himachal Pradesh
+    3. *Dharamshala, McLeodganj & Kangra Valley Zen Escape* (5D/4N) - Himachal Pradesh
+    4. *Kashmir Paradise & Ladakh High Passes Odyssey* (8D/7N) - Kashmir & Ladakh
+    5. *Leh Ladakh, Nubra Valley & Pangong Tso High Passes* (7D/6N) - Ladakh
+    6. *Rishikesh Yoga, White-Water Rafting & Haridwar Ganga Aarti* (4D/3N) - Uttarakhand
+    7. *Royal Rajasthan Fortresses, Palaces & Taj Mahal* (8D/7N) - Rajasthan
+    8. *Jaisalmer Golden Fort, Thar Desert Safari & Sam Dunes* (5D/4N) - Rajasthan
+    9. *Golden Triangle Classic: Delhi, Agra Taj Mahal & Jaipur Palaces* (6D/5N) - Golden Triangle
+    10. *Kerala Backwaters, Munnar Tea Hills & Alleppey Houseboat* (7D/6N) - Kerala
+    11. *Ooty, Coonoor & Nilgiri Mountain Toy Train Escape* (5D/4N) - Tamil Nadu
+    12. *Goa Luxury Coastal & Portuguese Heritage Escape* (5D/4N) - Goa
+    13. *Andaman Islands: Port Blair, Havelock & Radhanagar Beach* (6D/5N) - Andaman
+    14. *Darjeeling Himalayan Sunrise & Gangtok Monasteries* (6D/5N) - West Bengal & Sikkim
+    15. *Varanasi Spiritual Ghats, Sarnath & Sacred Ganga Dawn* (4D/3N) - Uttar Pradesh
+    16. *Incredible India 30-Day Grand Odyssey: Himalayas to Backwaters* (30D/29N) - 1-Month Grand Tour
+  * **Global International Expeditions (22 Tours)**:
+    17. *Paris Romance & French Riviera Glamour* (8D/7N) - France
+    18. *Swiss Alps Glacier Express & Alpine Lakes* (8D/7N) - Switzerland
+    19. *Italy Grand Romance: Rome, Florence & Venice Gondolas* (8D/7N) - Italy
+    20. *Amalfi Coast & Capri Private Yacht Odyssey* (6D/5N) - Italy
+    21. *Santorini & Cycladic Islands Sunset Sailing* (7D/6N) - Greece
+    22. *Iceland Northern Lights, Volcanic Lagoons & Glaciers* (6D/5N) - Iceland
+    23. *London Royal Landmarks, Stonehenge & Scottish Highlands* (8D/7N) - United Kingdom
+    24. *Grand European 28-Day Splendor: 1-Month Pan-European Grand Tour* (28D/27N) - Switzerland, France, Italy
+    25. *Thailand Tropical Islands & Bangkok Grand Palaces* (7D/6N) - Thailand
+    26. *Bali Island Serenity & Sacred Waterfalls* (7D/6N) - Indonesia
+    27. *Singapore Futuristic Wonders, Marina Bay & Sentosa Island* (5D/4N) - Singapore
+    28. *Kyoto Zen Gardens, Mount Fuji & Tokyo Lights* (9D/8N) - Japan
+    29. *Maldives Private Island Overwater Sanctuary* (6D/5N) - Maldives
+    30. *Dubai & Arabian Dunes Ultra-Luxury Escape* (5D/4N) - UAE
+    31. *Abu Dhabi Cultural Splendor & Desert Oasis* (5D/4N) - UAE
+    32. *Cappadocia Hot Air Balloons & Istanbul Grand Bazaars* (7D/6N) - Turkey
+    33. *Egypt Pyramids of Giza, Luxor Temples & Nile Luxury Cruise* (7D/6N) - Egypt
+    34. *Serengeti Big Five Safari & Zanzibar Sands* (10D/9N) - Tanzania
+    35. *Cape Town, Table Mountain & Garden Route Drive* (8D/7N) - South Africa
+    36. *New York Skyline to Grand Canyon Natural Wonders* (9D/8N) - United States
+    37. *Machu Picchu Incan Trail & Sacred Valley Heritage* (7D/6N) - Peru
+    38. *Australia Sydney Harbour, Blue Mountains & Great Barrier Reef* (8D/7N) - Australia
 * **Day-by-Day Master Itinerary**: Har din ka schedule, lunch/dinner information aur hotel stay.
 * **Inclusions & Exclusions**: Clear list of what is included (private SUV, spa sessions, entry passes, rail passes) aur exclusions.
-* **Filter & Sort**: Duration filter (1-Month, 2-Weeks, 1-Week, Short Escape), Departure month filter, Theme (Cultural, Adventure, Honeymoon, Luxury, Wildlife), Region (India, Europe, Asia, Americas, Africa, Oceania) aur Price/Rating sorting.
 * **Instant Departure Dates & Travelers Counter**: Live total price calculation.
 
 ---
 
-### 2. 🏨 Hotel, Luxury Resort & Villa Booking (Hotels)
-* **24 Curated 5-Star Accommodations Across India & The World**:
-  * *The Himalayan Luxury Resort & Castle* (Old Manali, Himachal Pradesh, India)
-  * *Kumarakom Lake Resort & Luxury Houseboats* (Kumarakom & Alleppey, Kerala, India)
-  * *Taj Exotica Resort & Spa Goa* (Benaulim, South Goa, India)
-  * *The Khyber Himalayan Resort & Spa* (Gulmarg & Srinagar, Kashmir, India)
-  * *The Oberoi Udaivilas* (Lake Pichola, Udaipur, India)
-  * *Victoria-Jungfrau Grand Hotel & Spa* (Interlaken, Swiss Alps, Switzerland)
-  * *The Chedi Andermatt* (Andermatt, Switzerland)
-  * *Hôtel Plaza Athénée* (Avenue Montaigne, Paris, France)
-  * *Hotel Danieli, Luxury Collection* (Venice, Italy)
-  * *Le Sirenuse Positano* (Amalfi Coast, Italy)
-  * *Aman Tokyo* (Otemachi, Tokyo, Japan)
-  * *Hoshinoya Kyoto* (Kyoto, Japan)
-  * *Amanpuri Beach Sanctuary* (Pansea Beach, Phuket, Thailand)
-  * *Atlantis The Royal* (Palm Jumeirah, Dubai, UAE)
-  * *The Retreat at Blue Lagoon* (Grindavík, Iceland)
-  * *Grace Hotel, Auberge Resorts Collection* (Santorini, Greece)
-  * *Soneva Fushi Overwater Reserve* (Baa Atoll, Maldives)
-  * *Museum Hotel Cappadocia* (Uchisar, Cappadocia, Turkey)
-  * *Four Seasons Safari Lodge Serengeti* (Serengeti, Tanzania)
-  * *The Silo Hotel* (V&A Waterfront, Cape Town, South Africa)
-  * *The Plaza Hotel* (Fifth Avenue, New York, USA)
-  * *Belmond Sanctuary Lodge* (Machu Picchu Citadel, Peru)
-  * *Blanket Bay Luxury Lodge* (Lake Wakatipu, Queenstown, New Zealand)
-  * *Four Seasons Resort Bali at Sayan* (Ubud, Bali, Indonesia)
-* **Room Tiers & Multipliers**:
-  * Deluxe Suites, One-Bedroom Pool Villas, Royal Penthouse Suites.
+### 2. 🏨 47 Curated 3-Star, 4-Star & 5-Star Accommodations (Hotels)
+* **Star Tier Filtering**:
+  * `All Stays (47)`
+  * `5★ Luxury` (Heritage Palaces, Overwater Reserves, 5-Star Spas)
+  * `4★ Premium` (Comfortable boutique hotels, mountain view lodges)
+  * `3★ Cozy & Budget` (Authentic local cottages, riverside chalets, pine stays)
+* **Rich Coverage Across Regions**:
+  * **Himachal & Himalayas**: *The Himalayan Castle 5★*, *Apple Country Resort 4★*, *Snow Valley Resorts 3★*, *Wildflower Hall Shimla 5★*, *Combermere Shimla 4★*, *Hotel Willow Banks 3★*, *Hyatt Dharamshala 5★*, *Norbu The Montanna 4★*, *Pristine Pine Cottage 3★*.
+  * **Kashmir & Ladakh**: *The Khyber Gulmarg 5★*, *Nedous Hotel 4★*, *Pine View Cottage Pahalgam 3★*, *Grand Dragon Leh 5★*, *Singge Palace 4★*, *Pangong Eco Camp 3★*.
+  * **Uttarakhand**: *Ananda in the Himalayas 5★*, *Aloha On The Ganges 4★*, *Divine Resort & Spa 3★*.
+  * **Rajasthan**: *The Oberoi Udaivilas 5★*, *Trident Udaipur 4★*, *Fateh Garh Palace 3★*, *Rambagh Palace Jaipur 5★*, *Suryagarh Jaisalmer 5★*.
+  * **Kerala & Goa**: *Kumarakom Lake Resort 5★*, *Fragrant Nature 4★*, *Coconut Lagoon 3★*, *Taj Exotica Goa 5★*, *Alila Diwa 4★*, *Santana Beach Resort 3★*.
+  * **Worldwide**: *Victoria-Jungfrau Grand Hotel 5★*, *Hotel Bernerhof 3★*, *Plaza Athénée Paris 5★*, *Hotel Malte Astotel Paris 4★*, *Hotel Danieli Venice 5★*, *Hotel Antiche Figure Venice 3★*, *Atlantis The Royal Dubai 5★*, *Rove Downtown Dubai 3★*, *Aman Tokyo 5★*, *Candeo Hotels Tokyo 4★*, *Four Seasons Bali 5★*, *Alila Ubud 4★*, *Soneva Fushi Maldives 5★*, *Museum Hotel Cappadocia 5★*.
 * **Dynamic Stay Calculator**:
   * Check-in aur Check-out dates select karne par automatic nights calculate hoti hain.
-  * Formula: `Nights × Room Price × Guests` live display hota hai.
-* **Included Amenities**: Complimentary breakfast tags, free cancellation up to 48-72 hours, private plunge pools, spas.
+  * Live pricing in selected currency (USD, EUR, GBP, INR, AED).
 
 ---
 
-### 3. 🍽️ Restaurants & Fine Dining (Dining Reservations)
-* **16 Handpicked Gastronomy Destinations Worldwide**:
-  * *Le Jules Verne Eiffel Tower* (Paris, France) - Michelin Fine Dining
-  * *Moss Restaurant Blue Lagoon* (Grindavík, Iceland) - Michelin Fine Dining
-  * *Sheesh Mahal Lake Pichola* (Udaipur, India) - Royal Indian Terrace
-  * *Ithaa Undersea Restaurant* (Rangali Island, Maldives) - Ocean Floor Dining
-  * *Il San Pietro Cliffside Terrace* (Positano, Italy)
-  * *Locavore NXT Ubud* (Bali, Indonesia)
-  * *The Japanese Restaurant at Chedi Andermatt* (Switzerland)
-  * *Pierchic Over-Water Dining* (Dubai, UAE)
-  * *Kikunoi Roan 2-Star Kaiseki* (Kyoto, Japan)
-  * *Ambrosia Sunset Restaurant & Caldera Wine Bar* (Santorini, Greece)
-  * *Seki Restaurant & Cave Cellar* (Cappadocia, Turkey)
-  * *Serengeti Boma Bush Barbecue* (Serengeti, Tanzania)
-  * *FYN Restaurant Cape Town* (Cape Town, South Africa)
-  * *Le Bernardin by Eric Ripert* (Midtown Manhattan, New York, USA)
-  * *Mil Centro & Sacred Valley Gastronomy* (Cusco, Peru)
-  * *Rātā Queenstown* (Queenstown, New Zealand)
-* **Interactive Table Reserve Modal**:
-  * Date aur Time slot selector (`12:00 PM`, `1:30 PM`, `7:00 PM`, `8:15 PM`, `9:30 PM`).
-  * Party size (Guests: 1 to 10 guests).
-  * Seating Atmosphere Preference: *Terrace / Sunset View, Candlelit Romantic Corner, Main Dining Hall, Private VIP Booth*.
-  * Dietary and special request notes (Anniversary, Birthday, Vegan, Nut Allergy).
-  * Live average cost estimate based on guest count.
+### 3. 🍽️ 32 Restaurants, Mountain Cafes & Beach Shacks (Dining Reservations)
+* **Diverse Ambience Filters**:
+  * `All`, `Mountain Cafe`, `Riverside Cafe`, `Beach Shack`, `Heritage Tea Salon`, `Rooftop Lounge`, `Oceanfront Sunset`, `Michelin Fine Dining`, `Historic Bistro`, `Garden Terrace`.
+* **Authentic Local Gems Alongside Fine Dining**:
+  * *Cafe 1947 Manali* (Riverside Italian & Wood-fired Pizza by Beas River) - Mountain Cafe ($$)
+  * *Wake & Bake Cafe Shimla* (The Mall Road French Crepes & Organic Coffee) - Mountain Cafe ($)
+  * *Kashi Art Cafe Fort Kochi* (Courtyard Gallery & Fresh Brews) - Garden Terrace ($$)
+  * *Curlies Beach Shack Anjuna Goa* (Sunset Trance, Fresh Seafood & Waves) - Beach Shack ($$)
+  * *Chai Jaai Tea Room Srinagar* (Jhelum Riverbank Kahwa & Kashmiri Samovar) - Heritage Tea Salon ($)
+  * *Tapri Central Jaipur* (Rooftop Masala Chai & Street Snacks) - Rooftop Lounge ($)
+  * *The Little Buddha Cafe Rishikesh* (Treehouse Organic Smoothie Bowl & Ganga View) - Riverside Cafe ($)
+  * *Café de Paris Interlaken* (Swiss Fondue & Alpinist Hot Chocolate) - Historic Bistro ($$)
+  * *Arabian Tea House Dubai* (Al Fahidi Heritage Courtyard Karak Chai) - Garden Terrace ($$)
+  * *Le Jules Verne Eiffel Tower* (Paris, France) - Michelin Fine Dining ($$$$)
+  * *Moss Restaurant Blue Lagoon* (Iceland) - Michelin Fine Dining ($$$$)
+  * *Sheesh Mahal Lake Pichola* (Udaipur, India) - Royal Indian Terrace ($$$$)
+  * *Ithaa Undersea Restaurant* (Maldives) - Ocean Floor Dining ($$$$)
+  * *Il San Pietro Cliffside Terrace* (Positano, Italy) - Oceanfront Sunset ($$$$)
+  * *Seki Cave Cellar* (Cappadocia, Turkey) - Historic Bistro ($$$)
+* **Interactive Reservation Modal**:
+  * Time slot, party size (1–10 guests), ambience preference, special requests.
 
 ---
 
-### 4. ☕ Travel Refreshments, Cafes & Highway Pit Stops (Discovery Guide)
-* **Informational Showcase & En-Route Travel Guide** (Zero billing / No cart charges):
-  * Website par refreshments section ko ek curated informational guide ki tarah rakha gaya hai taaki travelers apni journey ke dauran top global artisan cafes, traditional tea houses, aur scenic highway pit-stops ko explore kar sakein.
-  * **Artisan Cafes & Bakeries**: *Café de Flore (Paris)*, *Sandholt Artisan Bakery (Reykjavík)*, *Positano Clifftop Lemon Sorbet Bar (Italy)*, *Lake Wakatipu Artisan Bakery (New Zealand)*.
-  * **Heritage Tea Houses & Lounges**: *Kyoto Ippodo Matcha Salon (Japan)*, *Jaipur Wind Palace Rooftop Masala Chai (India)*, *Arabian Dunes Royal Karak Chai & Dates Lounge (Dubai)*, *Cappadocia Balloon Panorama Cafe (Turkey)*.
-  * **Scenic Road-Trip & Vitality Stops**: *Zermatt Matterhorn Glacier Bakery (Switzerland)*, *Ubud Jungle Organic Cold Brew Lab (Bali)*, *Santorini Cliffside Pomegranate Bar (Greece)*, *Serengeti Kopje Morning Espresso (Tanzania)*.
-* Har card me must-try specialties, opening hours, atmosphere, aur local traveler tips shamil hain.
+### 4. ☕ Travel Refreshments & Pit Stops (Informational Discovery Guide)
+* **Decoupled from Billing**: User feedback ke anusar Refreshment Hampers ko billing, cart aur custom builder se completely remove kar diya gaya hai. Ye section pure discovery ke liye hai.
+* **Artisan Pit Stops**: Highway scenic stops, bakeries aur coffee stops around the world.
 
 ---
 
-### 5. 🎒 "Build Your Own Custom Travel Package" (Configurator)
-Users apna complete customized tour bundle khud design kar sakte hain (Hotel + Dining + Excursion Add-ons):
-* **Step 1**: Destination choose karein (*Bali, Switzerland, Amalfi Coast, Kyoto, Dubai, Santorini, Paris, Iceland, India, Maldives, Cappadocia, Serengeti, Cape Town, New York, Peru, New Zealand*).
-* **Step 2**: Hotel choose karein aur kitne nights rukna hai set karein.
-* **Step 3**: Optional dinner tasting reservation experience add karein.
-* **Step 4**: Private excursion & concierge add-ons choose karein (*Dedicated Guide, 50-Photo Drone Shoot, Luxury Mercedes Transfers*).
-* **Live Calculation**:
-  * Hotel + Dining + Addons ka subtotal calculate hota hai (Refreshments bill me se removed hai).
-  * **15% Instant Bundle Discount** automatically apply hota hai.
-  * "Book Custom Bundle" single-click me pura bundle trip bag me transfer karta hai.
+### 5. 🎒 Custom Package Studio ("Create Your Own Tour Package")
+Customer ko poori aazadi milti hai apna custom package design karne ki:
+* **Destination Selection**:
+  * 30+ pre-configured domestic & international destinations across India, Europe, Asia, Americas, Africa & Oceania.
+  * **"✏️ Type Custom Route" Free-Text Mode**: Customer koi bhi city, multi-city route (e.g. *Delhi -> Manali -> Kasol -> Shimla* ya *Paris -> Zermatt -> Rome*) type kar sakta hai. Koi limitation nahi hai.
+* **Exact Days & Nights Selection**:
+  * Steppers (`+` / `-`) aur direct numeric input se 1 se 60 days tak select karein.
+  * Automatic return date calculator based on departure date.
+* **Hotel Tier Selector**:
+  * 3★ Cozy & Budget (`$45/night`)
+  * 4★ Premium Boutique (`$95/night`)
+  * 5★ Luxury Palace / Resort (`$220/night`)
+  * Matching verified properties ka live interactive preview.
+* **Meal Plan Options**:
+  * Half Board (Breakfast & Dinner Included)
+  * All Inclusive (All Meals & Snacks)
+  * Breakfast Only
+  * Self-Dining / Flexible
+* **Transport Options**:
+  * Private AC Cab / SUV with Dedicated Chauffeur
+  * Self-Drive Rental Vehicle Assist
+  * Airport / Railway Transfers Only
+* **Activities & Concierge Add-ons**:
+  * Dedicated Private Tour Guide
+  * Professional 50-Photo Vacation Shoot
+  * VIP Sightseeing Fast-Track Passes
+* **Live Transparent Pricing & Bundle Savings**:
+  * Real-time currency conversion with active currency.
+  * **15% Automatic Custom Bundle Savings** applied.
+  * 1-Click "Book Custom Package" adds the entire tailored trip directly to the Cart/Bag.
 
 ---
 
@@ -341,6 +350,30 @@ Har baar jab bhi project me koi naya feature ya modification hoga, wo is section
       6. **Signature Excursions**: Dedicated Local Guide, Vacation Photography Session, Scenic/Adventure Passes.
       7. **Live Pricing**: Customer ki chosen currency (`₹ INR`, `$ USD`, etc.) me itemized math aur automatic **15% bundle discount** calculation.
       8. **1-Click Booking**: "Book Custom Package" button se complete itinerary bag me add hokar instant checkout open hota hai.
+
+### [v1.6.0] - Pan-India & Global Destination Expansion, 3★–5★ Stays, Scenic Cafes & Custom Package Studio
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **38 Curated Multi-Day Tour Packages**:
+    * 15 naye tour packages add kiye gaye (10 domestic Indian + 5 global international), jisse total tour packages 23 se badhkar **38** ho gaye hain.
+    * **16 Domestic Indian Tours**: Kullu Manali, Shimla & Kufri, Dharamshala & McLeodganj, Leh Ladakh Nubra & Pangong Tso, Kashmir Paradise, Rishikesh Yoga & Rafting, Royal Rajasthan, Jaisalmer Thar Desert, Golden Triangle (Delhi, Agra, Jaipur), Kerala Backwaters, Ooty & Nilgiris, Goa Coastal, Andaman & Nicobar Islands, Darjeeling & Gangtok, Varanasi Spiritual Ghats, aur 30-Day Incredible India Grand Tour.
+    * **22 Global Worldwide Tours**: Paris, Swiss Alps, Italy Grand Romance (Rome/Florence/Venice), Amalfi Coast, Santorini, Iceland, London & Highlands, 28-Day Grand European Splendor, Thailand, Bali, Singapore, Kyoto, Maldives, Dubai, Abu Dhabi, Cappadocia, Egypt Pyramids, Serengeti Safari, Cape Town, New York & Grand Canyon, Machu Picchu, aur Sydney & Great Barrier Reef.
+    * **Dedicated 'India' Region Tab**: Tour filter bar me 'India' ko ek distinct primary tab banaya gaya (`All`, `India`, `Europe`, `Asia`, `Middle East`, `Africa`, `Americas`, `Oceania`).
+  * **47 Handpicked Accommodations Across 3-Star, 4-Star & 5-Star Tiers**:
+    * Luxury 5-star properties ke sath 3-star cozy chalets aur 4-star boutique stays add kiye gaye (Manali, Shimla, Dharamshala, Leh, Kashmir, Rishikesh, Rajasthan, Kerala, Goa, Swiss Alps, Paris, Dubai, Bali, Tokyo, Venice).
+    * **Interactive Star Rating Filter**: `All Stays (47)`, `5★ Luxury`, `4★ Premium`, `3★ Cozy & Budget` quick filters + gold star rating badges on every card.
+  * **32 Dining Spots, Mountain Cafes, Riverside Eateries & Beach Shacks**:
+    * Fine dining ke sath authentic local spots shamil kiye gaye: *Cafe 1947 Manali* (Riverside Cafe), *Wake & Bake Shimla* (Mountain Cafe), *Kashi Art Cafe Kochi*, *Curlies Beach Shack Goa*, *Chai Jaai Srinagar* (Heritage Tea Salon), *Tapri Central Jaipur* (Rooftop Lounge), *The Little Buddha Cafe Rishikesh*, *Café de Paris Interlaken*, aur *Arabian Tea House Dubai*.
+    * Filter bar me `Mountain Cafe`, `Riverside Cafe`, `Beach Shack`, `Heritage Tea Salon` options integrate kiye gaye.
+  * **Interactive Custom Package Studio ("Create Your Own Tour Package")**:
+    * **Unlimited Destinations**: 30+ pre-listed global/domestic spots ya **"✏️ Type Custom Route"** mode jisme customer koi bhi city ya custom multi-city itinerary freely type kar sakta hai.
+    * **Exact Days & Nights**: 1 se 60 days tak steppers (`+`/`-`) aur direct numeric input se set karein with auto return date calculator.
+    * **Hotel Star Tier Selection**: 3★ ($45/night), 4★ ($95/night), 5★ ($220/night) with matching local properties preview.
+    * **Meal Plans & Local Cafes**: Half Board, All Inclusive, Breakfast Only, Self-Dining + optional local cafe reservation.
+    * **Transport Selection**: Dedicated Private AC Cab/SUV with Chauffeur, Self-Drive Assist, Transfers Only.
+    * **Live Itemized Math & 15% Automatic Bundle Savings**: Real-time pricing in active currency with 1-click cart addition.
+  * **Hero Cleanup Reconfirmed**:
+    * `Featured: ...` quick search pills row removed from Hero, giving a clean, minimalist UI with expanded worldwide destination dropdown and 3★ to 5★ verified stay badges.
 
 ### [v1.5.1] - Minimalist Hero Cleanup (Removed Featured Keyword Pills)
 * **Date**: November 2026

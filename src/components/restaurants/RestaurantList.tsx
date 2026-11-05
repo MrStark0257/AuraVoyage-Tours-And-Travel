@@ -15,6 +15,10 @@ export const RestaurantList: React.FC = () => {
 
   const ambiences = [
     'All',
+    'Mountain Cafe',
+    'Riverside Cafe',
+    'Beach Shack',
+    'Heritage Tea Salon',
     'Rooftop Lounge',
     'Oceanfront Sunset',
     'Michelin Fine Dining',
@@ -100,10 +104,10 @@ export const RestaurantList: React.FC = () => {
             Gastronomy
           </span>
           <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-            Curated Restaurants & Dining
+            Curated Restaurants & Scenic Cafes
           </h2>
           <p className="text-slate-500 text-xs sm:text-sm mt-0.5 max-w-xl">
-            Reserved clifftop terraces, Michelin tasting menus, and authentic local bistros.
+            Reserved tables at Michelin dining, local mountain cafes, riverside spots & coastal bistros.
           </p>
         </div>
 

@@ -22,7 +22,7 @@ export const TourList: React.FC = () => {
   const [activeTourModal, setActiveTourModal] = useState<TourPackage | null>(null);
 
   const themes = ['All', 'Cultural', 'Adventure', 'Honeymoon', 'Luxury', 'Beach', 'Wildlife'];
-  const regions = ['All', 'Asia', 'Europe', 'Middle East', 'Africa', 'Americas', 'Oceania'];
+  const regions = ['All', 'India', 'Europe', 'Asia', 'Middle East', 'Africa', 'Americas', 'Oceania'];
 
   const filteredTours = useMemo(() => {
     return TOURS_DATA.filter((tour) => {

@@ -13,7 +13,7 @@ export interface TourPackage {
   tagline: string;
   destination: string;
   country: string;
-  region: 'Europe' | 'Asia' | 'Americas' | 'Africa' | 'Middle East' | 'Oceania';
+  region: 'India' | 'Europe' | 'Asia' | 'Americas' | 'Africa' | 'Middle East' | 'Oceania';
   durationDays: number;
   durationNights: number;
   groupSize: string;
@@ -99,22 +99,25 @@ export interface Restaurant {
 export interface Refreshment {
   id: string;
   name: string;
-  type: 'Curated Travel Pack' | 'Artisan Cafe' | 'Scenic Highway Pit Stop' | 'Smoothie & Juice Bar' | 'Sunset Drinks Lounge' | 'Heritage Tea House';
+  type: 'Artisan Cafe' | 'Scenic Highway Pit Stop' | 'Smoothie & Juice Bar' | 'Sunset Drinks Lounge' | 'Heritage Tea House' | 'Curated Travel Pack';
   destination: string;
   country: string;
-  priceUSD?: number;
   rating: number;
   reviewsCount: number;
   featuredImage: string;
   galleryImages?: string[];
   description: string;
-  address?: string;
-  openingHours?: string;
-  atmosphere?: string;
-  signatureItems?: string[];
-  travelerTip?: string;
   tags: string[];
-  itemsIncluded?: string[]; // for travel snack packs
+  signatureItems?: string[];
+  openingHours?: string;
+  address?: string;
+  atmosphere?: string;
+  travelerTip?: string;
+  priceBracket?: '$' | '$$' | '$$$';
+  googleMapsUrl?: string;
+  // optional compatibility
+  priceUSD?: number;
+  itemsIncluded?: string[];
   caloriesOrPerk?: string;
   isPack?: boolean;
 }

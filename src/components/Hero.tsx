@@ -39,22 +39,30 @@ export const Hero: React.FC = () => {
         'Kullu Manali & Solang Valley, Himachal Pradesh',
         'Shimla & Kufri Pines, Himachal Pradesh',
         'Dharamshala & McLeodganj, Himachal Pradesh',
+        'Spiti Valley & Chandratal Lake, Himachal Pradesh',
+        'Kasol & Parvati Valley, Himachal Pradesh',
         'Kashmir Paradise, Gulmarg & Pahalgam',
         'Leh Ladakh & Pangong Tso Odyssey',
-        'Rishikesh & Haridwar, Uttarakhand',
-        'Mussoorie & Queen of Hills, Uttarakhand',
+        'Rishikesh & Haridwar Ganga Aarti, Uttarakhand',
+        'Nainital & Kumaon Lake District, Uttarakhand',
+        'Jim Corbett Tiger Reserve, Uttarakhand',
       ],
     },
     {
-      group: 'India — South, West & Heritage',
+      group: 'India — South, West, East & Heritage',
       items: [
         'Kerala Backwaters, Munnar & Alleppey',
         'Goa Coastal Beaches & Portuguese Heritage',
         'Rajasthan Forts, Udaipur & Jaipur Palaces',
-        'Jaisalmer Thar Desert Dunes & Jodhpur',
-        'Agra & Taj Mahal Golden Triangle',
+        'Jaisalmer Thar Desert Dunes & Jodhpur Blue City',
+        'Varanasi Ancient Ghats & Sacred Ganga',
+        'Darjeeling Himalayan Sunrise & Gangtok Monasteries',
+        'Shillong & Cherrapunji Living Root Bridges',
+        'Coorg Coffee Estates & Wayanad Rainforests',
+        'Gokarna Om Beach & Kodaikanal Hills',
         'Andaman & Nicobar Islands Tropical Atolls',
         'Ooty & Nilgiri Hills, Tamil Nadu',
+        'Agra Taj Mahal & Golden Triangle',
       ],
     },
     {
@@ -64,12 +72,16 @@ export const Hero: React.FC = () => {
         'Zermatt & Matterhorn, Switzerland',
         'Paris & French Riviera, France',
         'Rome & Colosseum, Italy',
+        'Florence & Tuscan Hills, Italy',
         'Venice & Venetian Canals, Italy',
         'Amalfi Coast & Positano, Italy',
         'Santorini & Cycladic Caldera, Greece',
         'Reykjavík & Blue Lagoon, Iceland',
-        'London & Scottish Highlands, UK',
-        'Barcelona & Madrid, Spain',
+        'London, Stonehenge & Scottish Highlands, UK',
+        'Edinburgh Castle & Royal Mile, Scotland',
+        'Barcelona Sagrada Familia & Madrid, Spain',
+        'Amsterdam Canals & Windmills, Netherlands',
+        'Prague Charles Bridge & Historic Castle, Czechia',
       ],
     },
     {
@@ -81,10 +93,12 @@ export const Hero: React.FC = () => {
         'Bangkok Grand Palaces, Thailand',
         'Ubud & Bali Tropical Sanctuary, Indonesia',
         'Dubai Palm Jumeirah & Desert Dunes, UAE',
-        'Abu Dhabi & Yas Island, UAE',
+        'Abu Dhabi & Sheikh Zayed Grand Mosque, UAE',
         'Maldives Private Island Atolls',
-        'Singapore Marina Bay & Sentosa',
+        'Singapore Marina Bay & Sentosa Island',
         'Cappadocia Hot Air Balloons & Istanbul, Turkey',
+        'Hanoi & Ha Long Bay Emerald Waters, Vietnam',
+        'Seoul Gangnam & Historic Palaces, South Korea',
       ],
     },
     {
@@ -93,11 +107,13 @@ export const Hero: React.FC = () => {
         'Serengeti National Park Big 5 Safari, Tanzania',
         'Cape Town & Garden Route, South Africa',
         'Cairo & Pyramids of Giza, Egypt',
+        'Marrakech Medina & Sahara Dunes, Morocco',
         'New York City & Manhattan, USA',
         'California & Los Angeles Pacific Coast, USA',
         'Machu Picchu & Cusco Incan Trail, Peru',
+        'Rio de Janeiro & Copacabana, Brazil',
         'Queenstown & Milford Sound, New Zealand',
-        'Sydney & Great Barrier Reef, Australia',
+        'Sydney Harbour & Great Barrier Reef, Australia',
       ],
     },
     {
@@ -145,7 +161,7 @@ export const Hero: React.FC = () => {
         {/* Minimalist Subhead Tag */}
         <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium tracking-wide mb-4 sm:mb-6">
           <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-          <span>India & Worldwide Curated Expeditions • Verified 5-Star Stays</span>
+          <span>India & Worldwide Curated Expeditions • 3★ to 5★ Stays & Scenic Cafes</span>
         </div>
 
         {/* Hero Title */}
@@ -305,7 +321,7 @@ export const Hero: React.FC = () => {
             <ShieldCheck className="w-4 h-4 text-slate-300 shrink-0" />
             <div>
               <h4 className="text-white font-medium text-[11px] sm:text-xs">Verified Stays</h4>
-              <p className="text-slate-400 text-[10px]">Inspected 5-star properties</p>
+              <p className="text-slate-400 text-[10px]">Inspected 3★ to 5★ stays</p>
             </div>
           </div>
 
