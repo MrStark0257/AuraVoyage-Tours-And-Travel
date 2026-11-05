@@ -16,6 +16,12 @@ import {
   Camera,
   Car,
   Compass,
+  Plus,
+  Minus,
+  Edit3,
+  Star,
+  Coffee,
+  Navigation,
 } from 'lucide-react';
 
 interface DestinationChoice {
@@ -27,45 +33,138 @@ interface DestinationChoice {
   isOneMonth?: boolean;
 }
 
-const DESTINATION_CATALOG: DestinationChoice[] = [
-  // India
+const EXTENDED_DESTINATIONS: DestinationChoice[] = [
+  // --- India: Mountains & North ---
   {
     id: 'manali',
     name: 'Kullu Manali & Solang Valley',
-    city: 'Kullu Manali',
+    city: 'Manali',
     country: 'India',
     region: 'India',
   },
   {
-    id: 'kerala',
-    name: 'Kerala Backwaters & Munnar',
-    city: 'Kumarakom & Alleppey',
+    id: 'shimla',
+    name: 'Shimla & Kufri Pine Ridges',
+    city: 'Shimla',
     country: 'India',
     region: 'India',
   },
   {
-    id: 'goa',
-    name: 'Goa Coastal & Heritage',
-    city: 'Benaulim, Goa',
+    id: 'dharamshala',
+    name: 'Dharamshala & McLeodganj',
+    city: 'Dharamshala',
     country: 'India',
     region: 'India',
   },
   {
     id: 'kashmir',
-    name: 'Kashmir Valley & Gulmarg',
+    name: 'Kashmir Valley & Gulmarg Snow',
     city: 'Gulmarg & Srinagar',
     country: 'India',
     region: 'India',
   },
   {
-    id: 'rajasthan',
-    name: 'Rajasthan Forts & Lake Pichola',
-    city: 'Udaipur, Rajasthan',
+    id: 'pahalgam',
+    name: 'Pahalgam Lidder Valley',
+    city: 'Pahalgam',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'ladakh',
+    name: 'Leh Ladakh & Pangong Tso',
+    city: 'Leh, Ladakh',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'rishikesh',
+    name: 'Rishikesh Yoga & River Rapids',
+    city: 'Rishikesh',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'mussoorie',
+    name: 'Mussoorie Queen of Hills',
+    city: 'Mussoorie',
     country: 'India',
     region: 'India',
   },
 
-  // Europe
+  // --- India: South, Coastal & Heritage ---
+  {
+    id: 'kerala-backwaters',
+    name: 'Kerala Backwaters & Alleppey',
+    city: 'Kumarakom & Alleppey',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'munnar',
+    name: 'Munnar Tea Gardens & Waterfalls',
+    city: 'Munnar',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'goa-north',
+    name: 'North Goa (Calangute, Anjuna, Baga)',
+    city: 'Calangute, Goa',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'goa-south',
+    name: 'South Goa (Benaulim & Palolem)',
+    city: 'Benaulim, Goa',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'udaipur',
+    name: 'Udaipur City of Lakes',
+    city: 'Udaipur, Rajasthan',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'jaipur',
+    name: 'Jaipur Pink City & Amber Fort',
+    city: 'Jaipur, Rajasthan',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'jaisalmer',
+    name: 'Jaisalmer Golden Fort & Thar Desert',
+    city: 'Jaisalmer, Rajasthan',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'agra',
+    name: 'Agra & Taj Mahal Heritage',
+    city: 'Agra, Uttar Pradesh',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'andaman',
+    name: 'Andaman Islands & Havelock Beach',
+    city: 'Havelock, Andaman',
+    country: 'India',
+    region: 'India',
+  },
+  {
+    id: 'ooty',
+    name: 'Ooty & Nilgiri Mountain Railway',
+    city: 'Ooty, Tamil Nadu',
+    country: 'India',
+    region: 'India',
+  },
+
+  // --- Europe & Mediterranean ---
   {
     id: 'swiss-alps',
     name: 'Swiss Alps & Interlaken',
@@ -74,15 +173,15 @@ const DESTINATION_CATALOG: DestinationChoice[] = [
     region: 'Europe',
   },
   {
-    id: 'andermatt',
-    name: 'Andermatt Alpine Valley',
-    city: 'Andermatt',
+    id: 'zermatt',
+    name: 'Zermatt & Matterhorn Glacier',
+    city: 'Zermatt',
     country: 'Switzerland',
     region: 'Europe',
   },
   {
     id: 'paris',
-    name: 'Paris & Avenue Montaigne',
+    name: 'Paris Romance & Eiffel Tower',
     city: 'Paris',
     country: 'France',
     region: 'Europe',
@@ -96,51 +195,79 @@ const DESTINATION_CATALOG: DestinationChoice[] = [
   },
   {
     id: 'venice',
-    name: 'Venice & Venetian Lagoon',
+    name: 'Venice Canals & Gondolas',
     city: 'Venice',
     country: 'Italy',
     region: 'Europe',
   },
   {
+    id: 'rome',
+    name: 'Rome Colosseum & Historic Center',
+    city: 'Rome',
+    country: 'Italy',
+    region: 'Europe',
+  },
+  {
     id: 'santorini',
-    name: 'Santorini Caldera',
+    name: 'Santorini Sunset Caldera',
     city: 'Santorini',
     country: 'Greece',
     region: 'Europe',
   },
   {
     id: 'iceland',
-    name: 'Reykjavík & Blue Lagoon',
+    name: 'Reykjavík & Blue Lagoon Hot Springs',
     city: 'Grindavík',
     country: 'Iceland',
     region: 'Europe',
   },
-
-  // Asia & Middle East
   {
-    id: 'kyoto',
-    name: 'Kyoto Arashiyama & Bamboo Groves',
-    city: 'Kyoto',
-    country: 'Japan',
-    region: 'Asia',
+    id: 'london',
+    name: 'London & British Royalty',
+    city: 'London',
+    country: 'United Kingdom',
+    region: 'Europe',
   },
   {
+    id: 'barcelona',
+    name: 'Barcelona Sagrada Familia & Beach',
+    city: 'Barcelona',
+    country: 'Spain',
+    region: 'Europe',
+  },
+
+  // --- Asia & Middle East ---
+  {
     id: 'tokyo',
-    name: 'Tokyo Ginza & Skyline',
+    name: 'Tokyo Ginza & Shibuya Skyline',
     city: 'Tokyo',
     country: 'Japan',
     region: 'Asia',
   },
   {
+    id: 'kyoto',
+    name: 'Kyoto Arashiyama & Golden Pavilion',
+    city: 'Kyoto',
+    country: 'Japan',
+    region: 'Asia',
+  },
+  {
     id: 'phuket',
-    name: 'Phuket & Andaman Sea',
+    name: 'Phuket & Andaman Turquoise Waters',
     city: 'Phuket',
     country: 'Thailand',
     region: 'Asia',
   },
   {
+    id: 'bangkok',
+    name: 'Bangkok Grand Palaces & Temples',
+    city: 'Bangkok',
+    country: 'Thailand',
+    region: 'Asia',
+  },
+  {
     id: 'bali',
-    name: 'Ubud & Sacred Valley Sanctuary',
+    name: 'Bali (Ubud & Seminyak)',
     city: 'Ubud, Bali',
     country: 'Indonesia',
     region: 'Asia',
@@ -153,6 +280,13 @@ const DESTINATION_CATALOG: DestinationChoice[] = [
     region: 'Asia',
   },
   {
+    id: 'abu-dhabi',
+    name: 'Abu Dhabi Grand Mosque & Louvre',
+    city: 'Abu Dhabi',
+    country: 'United Arab Emirates',
+    region: 'Asia',
+  },
+  {
     id: 'maldives',
     name: 'Maldives Overwater Sanctuary',
     city: 'Baa Atoll',
@@ -160,14 +294,21 @@ const DESTINATION_CATALOG: DestinationChoice[] = [
     region: 'Asia',
   },
   {
+    id: 'singapore',
+    name: 'Singapore Marina Bay & Gardens',
+    city: 'Singapore',
+    country: 'Singapore',
+    region: 'Asia',
+  },
+  {
     id: 'cappadocia',
-    name: 'Cappadocia Hot Air & Caves',
+    name: 'Cappadocia Hot Air Balloons & Caves',
     city: 'Cappadocia',
     country: 'Turkey',
     region: 'Asia',
   },
 
-  // Americas & Africa & Oceania
+  // --- Americas & Africa ---
   {
     id: 'new-york',
     name: 'New York City & Central Park',
@@ -176,22 +317,29 @@ const DESTINATION_CATALOG: DestinationChoice[] = [
     region: 'Americas & Africa',
   },
   {
+    id: 'california',
+    name: 'Los Angeles & California Pacific',
+    city: 'Los Angeles',
+    country: 'United States',
+    region: 'Americas & Africa',
+  },
+  {
     id: 'serengeti',
-    name: 'Serengeti Wildlife Safari',
+    name: 'Serengeti Big 5 Wildlife Safari',
     city: 'Serengeti',
     country: 'Tanzania',
     region: 'Americas & Africa',
   },
   {
     id: 'cape-town',
-    name: 'Cape Town & Atlantic Seaboard',
+    name: 'Cape Town & Table Mountain Drive',
     city: 'Cape Town',
     country: 'South Africa',
     region: 'Americas & Africa',
   },
   {
     id: 'machu-picchu',
-    name: 'Machu Picchu & Sacred Valley',
+    name: 'Machu Picchu & Cusco Sacred Valley',
     city: 'Cusco',
     country: 'Peru',
     region: 'Americas & Africa',
@@ -204,7 +352,7 @@ const DESTINATION_CATALOG: DestinationChoice[] = [
     region: 'Americas & Africa',
   },
 
-  // 1-Month Grand Expeditions
+  // --- 1-Month Grand Expeditions ---
   {
     id: 'month-india',
     name: 'Incredible India 30-Day Grand Tour',
@@ -226,160 +374,151 @@ const DESTINATION_CATALOG: DestinationChoice[] = [
 export const CustomPackageBuilder: React.FC = () => {
   const { currency, addToCart, setIsCartOpen } = useTravel();
 
+  // Destination Mode: catalog vs custom free-text route
+  const [isCustomRouteMode, setIsCustomRouteMode] = useState<boolean>(false);
+  const [customRouteText, setCustomRouteText] = useState<string>('');
+
   const [selectedRegion, setSelectedRegion] = useState<string>('India');
   const [selectedDestId, setSelectedDestId] = useState<string>('manali');
-  const [travelers, setTravelers] = useState<number>(2);
-  const [nights, setNights] = useState<number>(5);
-  const [startDate, setStartDate] = useState<string>('2026-11-20');
 
-  // Currently chosen destination object
+  // Days, Nights & Dates
+  const [daysCount, setDaysCount] = useState<number>(6);
+  const nightsCount = Math.max(1, daysCount - 1);
+  const [startDate, setStartDate] = useState<string>('2026-11-20');
+  const [travelers, setTravelers] = useState<number>(2);
+
+  // Hotel Tier: 3-Star, 4-Star, or 5-Star
+  const [selectedStarTier, setSelectedStarTier] = useState<3 | 4 | 5>(4);
+
+  // Meal Plan Preference
+  const [selectedMealPlan, setSelectedMealPlan] = useState<'half_board' | 'all_inclusive' | 'breakfast' | 'none'>('half_board');
+
+  // Transport Preference
+  const [selectedTransport, setSelectedTransport] = useState<'cab_ac' | 'self_drive' | 'transfers_only'>('cab_ac');
+
+  // Specific restaurant / cafe add-on
+  const [selectedRestaurantId, setSelectedRestaurantId] = useState<string | null>(null);
+
+  // Excursion & activity add-ons
+  const [selectedAddons, setSelectedAddons] = useState<string[]>(['addon-guide', 'addon-transfer']);
+
+  // Currently selected destination
   const currentDest = useMemo(() => {
-    return DESTINATION_CATALOG.find((d) => d.id === selectedDestId) || DESTINATION_CATALOG[0];
+    return EXTENDED_DESTINATIONS.find((d) => d.id === selectedDestId) || EXTENDED_DESTINATIONS[0];
   }, [selectedDestId]);
+
+  const activeDestinationTitle = isCustomRouteMode && customRouteText.trim()
+    ? customRouteText.trim()
+    : currentDest.name;
+
+  const activeDestinationCountry = isCustomRouteMode ? 'Custom Route' : currentDest.country;
 
   // Calculate return date
   const returnDate = useMemo(() => {
     try {
       const d = new Date(startDate);
-      d.setDate(d.getDate() + nights);
+      d.setDate(d.getDate() + daysCount);
       return d.toISOString().split('T')[0];
     } catch {
       return '';
     }
-  }, [startDate, nights]);
+  }, [startDate, daysCount]);
 
-  // Filter hotels strictly matching destination and country
-  const availableHotels = useMemo(() => {
-    const destName = currentDest.name.toLowerCase();
-    const destCity = currentDest.city.toLowerCase();
-    const destCountry = currentDest.country.toLowerCase();
+  // Matching Hotels based on Destination AND Star Tier
+  const matchingHotelsForDest = useMemo(() => {
+    const destCity = (currentDest.city || '').toLowerCase();
+    const destCountry = (currentDest.country || '').toLowerCase();
 
-    // First attempt: match city/destination specifically
-    const specificMatches = HOTELS_DATA.filter((h) => {
+    let list = HOTELS_DATA.filter((h) => {
       const hDest = h.destination.toLowerCase();
-      const hName = h.name.toLowerCase();
-      return (
+      const hCountry = h.country.toLowerCase();
+      const matchesLocation =
         hDest.includes(destCity) ||
-        destCity.split(',').some((part) => part.trim() && hDest.includes(part.trim())) ||
-        destName.includes(hDest) ||
-        hName.includes(destCity)
-      );
+        destCity.split(',').some((p) => p.trim() && hDest.includes(p.trim())) ||
+        hCountry === destCountry ||
+        destCountry.includes(hCountry);
+      return matchesLocation;
     });
 
-    if (specificMatches.length > 0) return specificMatches;
+    if (list.length === 0) {
+      list = HOTELS_DATA;
+    }
 
-    // Second attempt: match country
-    const countryMatches = HOTELS_DATA.filter((h) => {
-      return (
-        h.country.toLowerCase() === destCountry ||
-        h.country.toLowerCase().includes(destCountry) ||
-        destCountry.includes(h.country.toLowerCase())
-      );
-    });
+    // Filter by selected star tier
+    const tierMatches = list.filter((h) => h.starRating === selectedStarTier);
+    return tierMatches.length > 0 ? tierMatches : list;
+  }, [currentDest, selectedStarTier]);
 
-    if (countryMatches.length > 0) return countryMatches;
-
-    // Fallback: only if completely unmapped, return top hotels
-    return HOTELS_DATA.slice(0, 3);
-  }, [currentDest]);
-
-  // Filter restaurants strictly matching destination and country
-  const availableRestaurants = useMemo(() => {
-    const destName = currentDest.name.toLowerCase();
-    const destCity = currentDest.city.toLowerCase();
-    const destCountry = currentDest.country.toLowerCase();
-
-    const specificMatches = RESTAURANTS_DATA.filter((r) => {
-      const rDest = r.destination.toLowerCase();
-      return (
-        rDest.includes(destCity) ||
-        destCity.split(',').some((part) => part.trim() && rDest.includes(part.trim())) ||
-        destName.includes(rDest)
-      );
-    });
-
-    if (specificMatches.length > 0) return specificMatches;
-
-    const countryMatches = RESTAURANTS_DATA.filter((r) => {
-      return (
-        r.country.toLowerCase() === destCountry ||
-        r.country.toLowerCase().includes(destCountry) ||
-        destCountry.includes(r.country.toLowerCase())
-      );
-    });
-
-    return countryMatches;
-  }, [currentDest]);
-
-  const [selectedHotelId, setSelectedHotelId] = useState<string>(availableHotels[0]?.id || 'hotel-17');
-  const [selectedRestaurantId, setSelectedRestaurantId] = useState<string | null>(
-    availableRestaurants[0]?.id || null
+  const [selectedHotelId, setSelectedHotelId] = useState<string>(
+    matchingHotelsForDest[0]?.id || 'hotel-26'
   );
-  const [selectedAddons, setSelectedAddons] = useState<string[]>(['addon-guide', 'addon-transfer']);
 
-  // Update selection when destination changes
-  const handleDestinationChange = (destId: string) => {
-    setSelectedDestId(destId);
-    const dest = DESTINATION_CATALOG.find((d) => d.id === destId);
-    if (dest?.isOneMonth) {
-      setNights(dest.id === 'month-india' ? 30 : 28);
-    }
+  // Update selected hotel when tier or destination changes
+  const chosenHotel = useMemo(() => {
+    const matched = matchingHotelsForDest.find((h) => h.id === selectedHotelId);
+    return matched || matchingHotelsForDest[0] || HOTELS_DATA[0];
+  }, [matchingHotelsForDest, selectedHotelId]);
 
-    // Auto-select first matching hotel and restaurant
-    const destCity = (dest?.city || '').toLowerCase();
-    const destCountry = (dest?.country || '').toLowerCase();
+  // Matching Restaurants & Mountain Cafes
+  const matchingRestaurantsForDest = useMemo(() => {
+    const destCity = (currentDest.city || '').toLowerCase();
+    const destCountry = (currentDest.country || '').toLowerCase();
 
-    const hotelMatch = HOTELS_DATA.find((h) => {
-      const hDest = h.destination.toLowerCase();
-      return (
-        hDest.includes(destCity) ||
-        h.country.toLowerCase() === destCountry ||
-        destCity.split(',').some((p) => p.trim() && hDest.includes(p.trim()))
-      );
-    });
-    if (hotelMatch) {
-      setSelectedHotelId(hotelMatch.id);
-    }
-
-    const restMatch = RESTAURANTS_DATA.find((r) => {
+    const list = RESTAURANTS_DATA.filter((r) => {
       const rDest = r.destination.toLowerCase();
+      const rCountry = r.country.toLowerCase();
       return (
         rDest.includes(destCity) ||
-        r.country.toLowerCase() === destCountry ||
-        destCity.split(',').some((p) => p.trim() && rDest.includes(p.trim()))
+        destCity.split(',').some((p) => p.trim() && rDest.includes(p.trim())) ||
+        rCountry === destCountry
       );
     });
-    setSelectedRestaurantId(restMatch ? restMatch.id : null);
+
+    return list.length > 0 ? list : RESTAURANTS_DATA.slice(0, 4);
+  }, [currentDest]);
+
+  const chosenRestaurant = useMemo(() => {
+    return RESTAURANTS_DATA.find((r) => r.id === selectedRestaurantId);
+  }, [selectedRestaurantId]);
+
+  const handleDestinationSelect = (destId: string) => {
+    setSelectedDestId(destId);
+    setIsCustomRouteMode(false);
+    const dest = EXTENDED_DESTINATIONS.find((d) => d.id === destId);
+    if (dest?.isOneMonth) {
+      setDaysCount(dest.id === 'month-india' ? 30 : 28);
+    }
   };
 
+  // Activity Add-ons
   const activityAddons = [
     {
       id: 'addon-guide',
       title: 'Dedicated Local Private Guide & Host',
-      priceUSD: 160,
+      priceUSD: 140,
       icon: Compass,
-      description: 'Expert multilingual companion for customized daily excursions & heritage lore',
+      description: 'Expert local guide for personalized daily sightseeing, folklore, and hidden spots',
     },
     {
       id: 'addon-transfer',
-      title: 'VIP Chauffeur & Airport Concierge',
-      priceUSD: 120,
+      title: 'Airport / Railway Station VIP Meet & Greet',
+      priceUSD: 85,
       icon: Car,
-      description: 'Luxury climate-controlled vehicle with meet & greet at arrival terminal',
+      description: 'Chauffeured arrival & departure transfers in sanitized AC vehicle',
     },
     {
       id: 'addon-photo',
-      title: 'Professional Holiday Photography (50 Edited HD Photos)',
-      priceUSD: 190,
+      title: 'Vacation Photography Session (50 Edited HD Photos)',
+      priceUSD: 160,
       icon: Camera,
-      description: '2-hour private photoshoot at iconic landmarks & viewpoint terraces',
+      description: '2-hour private holiday photo session at top scenic viewpoints & heritage terraces',
     },
     {
       id: 'addon-scenic',
-      title: 'Signature Scenic Excursion (Shikara / Gondola / Viewpoint)',
-      priceUSD: 95,
+      title: 'Signature Scenic Experience (Rafting / Shikara / Snow Ride)',
+      priceUSD: 75,
       icon: Sparkles,
-      description: 'Private sunset ride or reserved alpine cable-car panorama pass',
+      description: 'Reserved local signature adventure or scenic boat ride pass',
     },
   ];
 
@@ -389,47 +528,65 @@ export const CustomPackageBuilder: React.FC = () => {
     );
   };
 
-  const chosenHotel = useMemo(() => {
-    return (
-      HOTELS_DATA.find((h) => h.id === selectedHotelId) ||
-      availableHotels[0] ||
-      HOTELS_DATA[0]
-    );
-  }, [selectedHotelId, availableHotels]);
+  // Dynamic Pricing Calculation
+  // 1. Hotel Stay:
+  const baseHotelPricePerNight = chosenHotel ? chosenHotel.pricePerNightUSD : (selectedStarTier === 3 ? 45 : selectedStarTier === 4 ? 115 : 320);
+  const totalHotelUSD = baseHotelPricePerNight * nightsCount;
 
-  const chosenRestaurant = useMemo(() => {
-    return RESTAURANTS_DATA.find((r) => r.id === selectedRestaurantId);
-  }, [selectedRestaurantId]);
+  // 2. Meal Plan:
+  // half_board: $25/guest/day, all_inclusive: $45/guest/day, breakfast: $10/guest/day, none: 0
+  const mealRatePerDayUSD =
+    selectedMealPlan === 'all_inclusive' ? 45 :
+    selectedMealPlan === 'half_board' ? 25 :
+    selectedMealPlan === 'breakfast' ? 10 : 0;
+  const totalMealUSD = mealRatePerDayUSD * travelers * daysCount;
 
-  // Billing Calculations (WITHOUT refreshments)
-  const hotelTotalUSD = (chosenHotel ? chosenHotel.pricePerNightUSD : 0) * nights;
-  const restaurantTotalUSD = chosenRestaurant
+  // 3. Transport:
+  // cab_ac: $40/day, self_drive: $20/day, transfers_only: $60 flat
+  const totalTransportUSD =
+    selectedTransport === 'cab_ac' ? 40 * daysCount :
+    selectedTransport === 'self_drive' ? 20 * daysCount : 60;
+
+  // 4. Restaurant reservation (if specific one picked):
+  const totalSpecificRestUSD = chosenRestaurant
     ? chosenRestaurant.avgCostPerPersonUSD * travelers
     : 0;
-  const addonsTotalUSD = activityAddons
+
+  // 5. Excursion Add-ons:
+  const totalAddonsUSD = activityAddons
     .filter((a) => selectedAddons.includes(a.id))
     .reduce((acc, curr) => acc + curr.priceUSD, 0);
 
-  const subtotalUSD = hotelTotalUSD + restaurantTotalUSD + addonsTotalUSD;
+  const subtotalUSD = totalHotelUSD + totalMealUSD + totalTransportUSD + totalSpecificRestUSD + totalAddonsUSD;
   const bundleDiscountUSD = Math.round(subtotalUSD * 0.15); // 15% custom bundle savings
-  const finalPriceUSD = subtotalUSD - bundleDiscountUSD;
+  const finalPriceUSD = Math.max(50, subtotalUSD - bundleDiscountUSD);
 
-  const handleBookCustomBundle = () => {
+  const handleBookCustomPackage = () => {
+    const mealLabel =
+      selectedMealPlan === 'all_inclusive' ? 'All Meals (Breakfast, Lunch & Dinner)' :
+      selectedMealPlan === 'half_board' ? 'Breakfast & Dinner Included' :
+      selectedMealPlan === 'breakfast' ? 'Breakfast Only' : 'Independent Dining';
+
+    const transportLabel =
+      selectedTransport === 'cab_ac' ? 'Private Dedicated AC Cab with Chauffeur' :
+      selectedTransport === 'self_drive' ? 'Self-Drive Vehicle Assist' : 'Airport Station Transfers';
+
     addToCart({
-      cartItemId: `bundle-${Date.now()}`,
+      cartItemId: `custom-pkg-${Date.now()}`,
       itemType: 'custom_bundle',
-      referenceId: `custom-${currentDest.id}`,
-      title: `Custom ${currentDest.name} (${nights} Nights)`,
-      destination: `${currentDest.name}, ${currentDest.country}`,
+      referenceId: `custom-${currentDest.id}-${daysCount}d`,
+      title: `Custom ${activeDestinationTitle} (${daysCount} Days / ${nightsCount} Nights)`,
+      destination: `${activeDestinationTitle}, ${activeDestinationCountry}`,
       image: chosenHotel ? chosenHotel.featuredImage : 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
       unitPriceUSD: finalPriceUSD,
       quantity: 1,
       selectedDate: startDate,
+      endDate: returnDate,
       guestsCount: travelers,
-      specialRequests: `Hotel: ${chosenHotel?.name} (${nights} Nights) | Dining: ${chosenRestaurant ? chosenRestaurant.name : 'Independent Dining'} | Addons: ${activityAddons.filter((a) => selectedAddons.includes(a.id)).map((a) => a.title).join(', ') || 'None'}`,
+      specialRequests: `Stay: ${chosenHotel.name} (${selectedStarTier}★, ${nightsCount}N) | Meals: ${mealLabel} | Transport: ${transportLabel} | Addons: ${selectedAddons.length > 0 ? selectedAddons.join(', ') : 'None'}`,
       bundleDetails: {
-        hotelName: chosenHotel?.name,
-        restaurantName: chosenRestaurant?.name,
+        hotelName: chosenHotel.name,
+        restaurantName: chosenRestaurant ? chosenRestaurant.name : mealLabel,
       },
     });
     setIsCartOpen(true);
@@ -438,7 +595,7 @@ export const CustomPackageBuilder: React.FC = () => {
   const regionTabs = ['India', 'Europe', 'Asia', 'Americas & Africa', '1-Month Expeditions'];
 
   const filteredDestinations = useMemo(() => {
-    return DESTINATION_CATALOG.filter((d) => d.region === selectedRegion);
+    return EXTENDED_DESTINATIONS.filter((d) => d.region === selectedRegion);
   }, [selectedRegion]);
 
   return (
@@ -446,89 +603,176 @@ export const CustomPackageBuilder: React.FC = () => {
       {/* Heading */}
       <div className="text-left md:text-center max-w-3xl mx-auto mb-6 sm:mb-10">
         <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-500 block mb-1">
-          Bespoke Trip Configurator
+          Custom Package Studio
         </span>
         <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-          Build Your Custom Journey
+          Create Your Own Tour Package
         </h2>
-        <p className="text-slate-500 text-xs sm:text-sm mt-1 max-w-xl mx-auto">
-          Select domestic Indian spots (Manali, Kerala, Kashmir, Goa, Rajasthan) or worldwide hubs. Pick your duration, 5-star hotel, reserved dining, and excursions. Automatic <strong>15% bundle savings</strong> applied.
+        <p className="text-slate-500 text-xs sm:text-sm mt-1 max-w-2xl mx-auto">
+          Freedom to design your entire trip: pick any destination or custom route, exact days, 3★/4★/5★ hotel tier, meal plan, private cab, and activities with automatic <strong>15% bundle savings</strong>.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 items-start">
         {/* Left 2 Columns: Configurator Controls */}
         <div className="lg:col-span-2 space-y-4 sm:space-y-6">
-          {/* Step 1: Destination, Duration & Logistics */}
+
+          {/* STEP 1: DESTINATION & PLACE SELECTION (UNLIMITED) */}
           <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
-            <div className="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 border-b border-slate-100 pb-2.5 gap-2">
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
                 <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
                   1
                 </span>
-                Destination & Duration Selection
+                Choose Destination or Enter Custom Route
               </h3>
-              <span className="text-[11px] font-medium text-slate-500">
-                Current: <strong className="text-slate-900">{currentDest.name}</strong>
+
+              {/* Toggle Custom Route Mode */}
+              <button
+                type="button"
+                onClick={() => setIsCustomRouteMode(!isCustomRouteMode)}
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+                  isCustomRouteMode
+                    ? 'bg-slate-900 text-white'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                }`}
+              >
+                <Edit3 className="w-3.5 h-3.5" />
+                <span>{isCustomRouteMode ? 'Choose from Catalog' : '✏️ Type Custom Route'}</span>
+              </button>
+            </div>
+
+            {/* Custom Free-Text Destination Input */}
+            {isCustomRouteMode ? (
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 mb-3 space-y-2">
+                <label className="block text-[11px] font-semibold text-slate-700">
+                  Enter Your Custom Cities, Circuit or State:
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={customRouteText}
+                    onChange={(e) => setCustomRouteText(e.target.value)}
+                    placeholder="e.g. Manali - Kasol - Jibhi - Tirthan Valley (or Paris - Lucerne - Milan)"
+                    className="flex-1 bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-900 outline-none focus:border-slate-800"
+                  />
+                </div>
+                <p className="text-[10px] text-slate-500">
+                  Tip: You can customize any circuit across India or Worldwide with personal stays, cab, and dining.
+                </p>
+              </div>
+            ) : (
+              <div>
+                {/* Region Tabs */}
+                <div className="flex items-center gap-1.5 overflow-x-auto pb-2 mb-3 no-scrollbar border-b border-slate-100">
+                  {regionTabs.map((region) => (
+                    <button
+                      key={region}
+                      type="button"
+                      onClick={() => {
+                        setSelectedRegion(region);
+                        const firstInRegion = EXTENDED_DESTINATIONS.find((d) => d.region === region);
+                        if (firstInRegion) {
+                          handleDestinationSelect(firstInRegion.id);
+                        }
+                      }}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                        selectedRegion === region
+                          ? 'bg-slate-900 text-white shadow-sm'
+                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                      }`}
+                    >
+                      {region === '1-Month Expeditions' ? '★ 1-Month Grand Tours' : region}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Destination Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 max-h-56 overflow-y-auto pr-1">
+                  {filteredDestinations.map((dest) => {
+                    const isSelected = selectedDestId === dest.id && !isCustomRouteMode;
+                    return (
+                      <button
+                        key={dest.id}
+                        type="button"
+                        onClick={() => handleDestinationSelect(dest.id)}
+                        className={`p-2 rounded-xl text-left border transition-all cursor-pointer ${
+                          isSelected
+                            ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
+                            : 'border-slate-200 hover:border-slate-300 bg-white'
+                        }`}
+                      >
+                        <div className="font-semibold text-xs text-slate-900 line-clamp-1">
+                          {dest.name}
+                        </div>
+                        <div className="text-[10px] text-slate-500 flex items-center gap-1 mt-0.5 truncate">
+                          <MapPin className="w-2.5 h-2.5 text-slate-400 shrink-0" />
+                          <span className="truncate">{dest.city}</span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* STEP 2: DURATION, DATES & TRAVELERS */}
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center gap-2">
+              <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
+                2
               </span>
-            </div>
+              Trip Duration (Days & Nights) & Travelers
+            </h3>
 
-            {/* Region Tabs */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-2 mb-3 no-scrollbar border-b border-slate-100">
-              {regionTabs.map((region) => (
-                <button
-                  key={region}
-                  type="button"
-                  onClick={() => {
-                    setSelectedRegion(region);
-                    const firstInRegion = DESTINATION_CATALOG.find((d) => d.region === region);
-                    if (firstInRegion) {
-                      handleDestinationChange(firstInRegion.id);
-                    }
-                  }}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
-                    selectedRegion === region
-                      ? 'bg-slate-900 text-white shadow-sm'
-                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                  }`}
-                >
-                  {region === '1-Month Expeditions' ? '★ 1-Month Grand Tours' : region}
-                </button>
-              ))}
-            </div>
-
-            {/* Destination Selection Cards/Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mb-4">
-              {filteredDestinations.map((dest) => {
-                const isSelected = selectedDestId === dest.id;
-                return (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+              {/* Stepper for Days */}
+              <div>
+                <label className="block text-[10px] font-semibold uppercase text-slate-500 mb-1 flex items-center gap-1">
+                  <Clock className="w-3 h-3 text-slate-400" />
+                  Trip Duration
+                </label>
+                <div className="flex items-center gap-1.5 bg-white p-1 rounded-lg border border-slate-200">
                   <button
-                    key={dest.id}
                     type="button"
-                    onClick={() => handleDestinationChange(dest.id)}
-                    className={`p-2.5 rounded-xl text-left border transition-all cursor-pointer ${
-                      isSelected
-                        ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
-                        : 'border-slate-200 hover:border-slate-300 bg-white'
-                    }`}
+                    onClick={() => setDaysCount((prev) => Math.max(2, prev - 1))}
+                    className="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center font-bold text-sm cursor-pointer"
                   >
-                    <div className="flex items-start justify-between gap-1">
-                      <div className="font-semibold text-xs text-slate-900 leading-snug line-clamp-1">
-                        {dest.name}
-                      </div>
-                      {isSelected && <Check className="w-3.5 h-3.5 text-slate-900 shrink-0 mt-0.5" />}
-                    </div>
-                    <div className="text-[11px] text-slate-500 flex items-center gap-1 mt-1 truncate">
-                      <MapPin className="w-2.5 h-2.5 text-slate-400 shrink-0" />
-                      <span className="truncate">{dest.city}, {dest.country}</span>
-                    </div>
+                    <Minus className="w-3.5 h-3.5" />
                   </button>
-                );
-              })}
-            </div>
+                  <div className="flex-1 text-center">
+                    <span className="font-bold text-xs text-slate-900">{daysCount} Days</span>
+                    <span className="block text-[9px] text-slate-400 font-medium">{nightsCount} Nights</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setDaysCount((prev) => Math.min(60, prev + 1))}
+                    className="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center font-bold text-sm cursor-pointer"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+                {/* Fast Day Presets */}
+                <div className="flex items-center gap-1 mt-1.5 flex-wrap">
+                  {[3, 5, 7, 10, 14, 30].map((d) => (
+                    <button
+                      key={d}
+                      type="button"
+                      onClick={() => setDaysCount(d)}
+                      className={`text-[9px] px-1.5 py-0.5 rounded font-semibold cursor-pointer ${
+                        daysCount === d
+                          ? 'bg-slate-900 text-white'
+                          : 'bg-slate-200/80 hover:bg-slate-300 text-slate-700'
+                      }`}
+                    >
+                      {d}D
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-            {/* Logistics Grid: Start Date, Nights/Days, Travelers */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+              {/* Start Date */}
               <div>
                 <label className="block text-[10px] font-semibold uppercase text-slate-500 mb-1 flex items-center gap-1">
                   <Calendar className="w-3 h-3 text-slate-400" />
@@ -541,38 +785,15 @@ export const CustomPackageBuilder: React.FC = () => {
                   onChange={(e) => setStartDate(e.target.value)}
                   className="w-full bg-white px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 outline-none"
                 />
-                <span className="block text-[10px] text-slate-400 mt-1">
-                  Return: {returnDate || 'Calculated'}
+                <span className="block text-[10px] text-slate-500 mt-1.5">
+                  End Date: <strong className="text-slate-800">{returnDate}</strong>
                 </span>
               </div>
 
+              {/* Travelers */}
               <div>
-                <label className="block text-[10px] font-semibold uppercase text-slate-500 mb-1 flex items-center gap-1">
-                  <Clock className="w-3 h-3 text-slate-400" />
-                  Trip Duration (Days)
-                </label>
-                <select
-                  value={nights}
-                  onChange={(e) => setNights(Number(e.target.value))}
-                  className="w-full bg-white px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-800 outline-none cursor-pointer"
-                >
-                  <option value={3}>3 Nights / 4 Days (Short Escape)</option>
-                  <option value={5}>5 Nights / 6 Days (Essential)</option>
-                  <option value={7}>7 Nights / 8 Days (1 Week Classic)</option>
-                  <option value={10}>10 Nights / 11 Days (Deep Explorer)</option>
-                  <option value={14}>14 Nights / 15 Days (2 Weeks Grand)</option>
-                  <option value={21}>21 Nights / 22 Days (3 Weeks Voyage)</option>
-                  <option value={28}>28 Nights / 29 Days (1-Month Grand Europe)</option>
-                  <option value={30}>30 Nights / 31 Days (1-Month Grand India)</option>
-                </select>
-                <span className="block text-[10px] text-slate-400 mt-1">
-                  {nights >= 28 ? '★ 1 Full Month Odyssey' : `${nights} Nights & ${nights + 1} Days`}
-                </span>
-              </div>
-
-              <div>
-                <label className="block text-[10px] font-semibold uppercase text-slate-500 mb-1 flex items-center gap-1">
-                  <span>Travelers</span>
+                <label className="block text-[10px] font-semibold uppercase text-slate-500 mb-1">
+                  Travelers / Guests
                 </label>
                 <select
                   value={travelers}
@@ -583,169 +804,316 @@ export const CustomPackageBuilder: React.FC = () => {
                   <option value={2}>2 Guests (Couple / Pair)</option>
                   <option value={3}>3 Guests (Family)</option>
                   <option value={4}>4 Guests (Family Suite)</option>
-                  <option value={6}>6 Guests (Private Group)</option>
+                  <option value={6}>6+ Guests (Private Group)</option>
                 </select>
-                <span className="block text-[10px] text-slate-400 mt-1">
+                <span className="block text-[10px] text-slate-400 mt-1.5">
                   Private tailored rooming
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Step 2: Accommodation Selection (Matching Country & City) */}
-          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
-            <div className="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
-                <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
-                  2
-                </span>
-                Verified 5-Star Accommodation ({nights} Nights in {currentDest.country})
-              </h3>
-              <span className="text-[11px] text-slate-500">
-                {availableHotels.length} luxury propert{availableHotels.length === 1 ? 'y' : 'ies'} in {currentDest.country}
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {availableHotels.map((hotel) => {
-                const isSelected = selectedHotelId === hotel.id;
-                return (
-                  <div
-                    key={hotel.id}
-                    onClick={() => setSelectedHotelId(hotel.id)}
-                    className={`p-3 rounded-xl border cursor-pointer transition-all flex gap-3 ${
-                      isSelected
-                        ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
-                        : 'border-slate-200 hover:border-slate-300 bg-white'
-                    }`}
-                  >
-                    <img
-                      src={hotel.featuredImage}
-                      alt={hotel.name}
-                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-cover shrink-0"
-                    />
-                    <div className="flex-1 flex flex-col justify-between min-w-0">
-                      <div>
-                        <div className="flex items-center justify-between gap-1">
-                          <span className="text-[10px] uppercase font-semibold text-slate-500 truncate">
-                            {hotel.propertyType} • {hotel.destination}
-                          </span>
-                          {isSelected && <Check className="w-3.5 h-3.5 text-slate-900 shrink-0" />}
-                        </div>
-                        <h4 className="font-semibold text-xs text-slate-900 line-clamp-1 mt-0.5">
-                          {hotel.name}
-                        </h4>
-                        <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
-                          ★ {hotel.rating} ({hotel.reviewsCount} reviews) • {hotel.highlight}
-                        </p>
-                      </div>
-
-                      <div className="font-bold text-xs text-slate-900 mt-2 flex items-baseline justify-between">
-                        <span>{formatPrice(hotel.pricePerNightUSD, currency)} <span className="text-[10px] font-normal text-slate-500">/ night</span></span>
-                        <span className="text-[10px] text-slate-500 font-normal">
-                          Total: {formatPrice(hotel.pricePerNightUSD * nights, currency)}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Step 3: Reserved Fine Dining (Matching Selected Destination/Country) */}
+          {/* STEP 3: HOTEL CATEGORY (3★, 4★, 5★) */}
           <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
             <div className="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
                 <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
                   3
                 </span>
-                Reserved Table at Renowned Culinary Restaurant
+                Choose Accommodation Star Tier ({nightsCount} Nights)
               </h3>
-              <span className="text-[11px] text-slate-500">Optional inclusion</span>
+              <span className="text-[11px] font-semibold text-slate-600">
+                Selected: {selectedStarTier}-Star Stays
+              </span>
             </div>
 
-            <div className="space-y-2.5">
-              {/* Option to skip dining */}
-              <div
-                onClick={() => setSelectedRestaurantId(null)}
-                className={`p-2.5 rounded-xl border cursor-pointer transition-colors flex items-center justify-between ${
-                  selectedRestaurantId === null
-                    ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
-                    : 'border-slate-200 hover:border-slate-300 bg-white'
-                }`}
-              >
-                <div>
-                  <h4 className="font-semibold text-xs text-slate-900">
-                    No Table Pre-Booking (Explore Dining Independently)
-                  </h4>
-                  <p className="text-[11px] text-slate-500">
-                    You can decide meals on-site or request concierge reservations later.
-                  </p>
-                </div>
-                {selectedRestaurantId === null && <Check className="w-3.5 h-3.5 text-slate-900" />}
-              </div>
-
-              {/* Available destination restaurants */}
-              {availableRestaurants.map((rest) => {
-                const isSelected = selectedRestaurantId === rest.id;
+            {/* Star Tier Selector Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-4">
+              {[
+                {
+                  tier: 3,
+                  label: '3★ Budget & Cozy',
+                  tag: 'Smart Economy',
+                  desc: 'Clean boutique stays, mountain chalets & havelis with breakfast.',
+                  badgeColor: 'text-amber-500',
+                },
+                {
+                  tier: 4,
+                  label: '4★ Premium Comfort',
+                  tag: 'Most Popular',
+                  desc: 'Scenic resorts with pool, spa, lavish breakfast & balcony views.',
+                  badgeColor: 'text-amber-500',
+                },
+                {
+                  tier: 5,
+                  label: '5★ Luxury Palace & Spa',
+                  tag: 'Ultra Luxury',
+                  desc: 'World-renowned 5-star properties, private villas & butler service.',
+                  badgeColor: 'text-amber-500',
+                },
+              ].map((item) => {
+                const isSelected = selectedStarTier === item.tier;
                 return (
                   <div
-                    key={rest.id}
-                    onClick={() => setSelectedRestaurantId(rest.id)}
-                    className={`p-3 rounded-xl border cursor-pointer transition-all flex gap-3 ${
+                    key={item.tier}
+                    onClick={() => {
+                      setSelectedStarTier(item.tier as any);
+                      const matching = matchingHotelsForDest.find((h) => h.starRating === item.tier);
+                      if (matching) setSelectedHotelId(matching.id);
+                    }}
+                    className={`p-3 rounded-xl border cursor-pointer transition-all flex flex-col justify-between ${
                       isSelected
-                        ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
+                        ? 'border-slate-900 bg-slate-50 ring-2 ring-slate-900 shadow-sm'
                         : 'border-slate-200 hover:border-slate-300 bg-white'
                     }`}
                   >
-                    <img
-                      src={rest.featuredImage}
-                      alt={rest.name}
-                      className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg object-cover shrink-0"
-                    />
-                    <div className="flex-1 flex flex-col justify-between min-w-0">
-                      <div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-[10px] uppercase font-semibold text-slate-500">
-                            {rest.ambience} • {rest.destination}
-                          </span>
-                          {isSelected && <Check className="w-3.5 h-3.5 text-slate-900" />}
-                        </div>
-                        <h4 className="font-semibold text-xs text-slate-900 line-clamp-1">
-                          {rest.name}
-                        </h4>
-                        <p className="text-[11px] text-slate-500 line-clamp-1">
-                          {rest.cuisine.join(' • ')}
-                        </p>
-                      </div>
-
-                      <div className="font-bold text-xs text-slate-900 mt-1 flex items-center justify-between">
-                        <span>{formatPrice(rest.avgCostPerPersonUSD, currency)} <span className="text-[10px] font-normal text-slate-500">/ guest</span></span>
-                        <span className="text-[10px] text-slate-500 font-normal">
-                          For {travelers}: {formatPrice(rest.avgCostPerPersonUSD * travelers, currency)}
+                    <div>
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <span className="text-amber-500 font-bold text-xs">
+                          {'★'.repeat(item.tier)}
+                        </span>
+                        <span className="text-[9px] font-semibold uppercase tracking-wider bg-slate-200/80 px-1.5 py-0.5 rounded text-slate-700">
+                          {item.tag}
                         </span>
                       </div>
+                      <h4 className="font-bold text-xs text-slate-900">{item.label}</h4>
+                      <p className="text-[10px] text-slate-500 mt-1 leading-snug">{item.desc}</p>
+                    </div>
+
+                    <div className="mt-2.5 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                      <span className="text-[10px] font-medium text-slate-600">
+                        {isSelected ? '✓ Selected' : 'Choose Tier'}
+                      </span>
+                      {isSelected && <Check className="w-3.5 h-3.5 text-slate-900" />}
                     </div>
                   </div>
                 );
               })}
             </div>
+
+            {/* Matching Hotels in that Star Tier */}
+            <div className="space-y-2">
+              <label className="block text-[10px] font-semibold uppercase text-slate-500">
+                Recommended Stays in {activeDestinationTitle} ({selectedStarTier}-Star):
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {matchingHotelsForDest.map((hotel) => {
+                  const isSelected = selectedHotelId === hotel.id;
+                  return (
+                    <div
+                      key={hotel.id}
+                      onClick={() => setSelectedHotelId(hotel.id)}
+                      className={`p-2.5 rounded-xl border cursor-pointer transition-all flex gap-2.5 ${
+                        isSelected
+                          ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
+                          : 'border-slate-200 hover:border-slate-300 bg-white'
+                      }`}
+                    >
+                      <img
+                        src={hotel.featuredImage}
+                        alt={hotel.name}
+                        className="w-14 h-14 rounded-lg object-cover shrink-0"
+                      />
+                      <div className="flex-1 min-w-0 flex flex-col justify-between">
+                        <div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-[9px] uppercase font-bold text-slate-500">
+                              {'★'.repeat(hotel.starRating)} {hotel.propertyType}
+                            </span>
+                            {isSelected && <Check className="w-3.5 h-3.5 text-slate-900" />}
+                          </div>
+                          <h5 className="font-semibold text-xs text-slate-900 truncate">
+                            {hotel.name}
+                          </h5>
+                          <p className="text-[10px] text-slate-500 truncate">{hotel.destination}</p>
+                        </div>
+                        <div className="text-[11px] font-bold text-slate-900 mt-1">
+                          {formatPrice(hotel.pricePerNightUSD, currency)} <span className="text-[9px] font-normal text-slate-500">/ night</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
-          {/* Step 4: Trip Add-ons (Guided tours, private transfers, photography) */}
+          {/* STEP 4: MEAL PLAN & CAFE RESERVATIONS */}
           <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
-            <div className="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
-                <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
-                  4
-                </span>
-                Bespoke Experiences & VIP Add-ons
-              </h3>
-              <span className="text-[11px] text-slate-500">{selectedAddons.length} selected</span>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center gap-2">
+              <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
+                4
+              </span>
+              Food Plan & Mountain Cafes
+            </h3>
+
+            {/* Meal Plan Options */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+              {[
+                {
+                  id: 'half_board',
+                  label: 'Breakfast & Dinner',
+                  tag: 'Most Popular',
+                  desc: 'Daily morning buffet + hot evening dinner at stay',
+                },
+                {
+                  id: 'all_inclusive',
+                  label: 'All Meals (B + L + D)',
+                  tag: 'Full Comfort',
+                  desc: 'All 3 daily meals included with local cuisines',
+                },
+                {
+                  id: 'breakfast',
+                  label: 'Breakfast Only',
+                  tag: 'Flexible Day',
+                  desc: 'Complimentary morning breakfast; explore cafes freely',
+                },
+                {
+                  id: 'none',
+                  label: 'Self-Dining',
+                  tag: 'Independent',
+                  desc: 'Explore street food, cafes & dhabas on your own',
+                },
+              ].map((plan) => {
+                const isSelected = selectedMealPlan === plan.id;
+                return (
+                  <div
+                    key={plan.id}
+                    onClick={() => setSelectedMealPlan(plan.id as any)}
+                    className={`p-2.5 rounded-xl border cursor-pointer transition-all flex flex-col justify-between ${
+                      isSelected
+                        ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
+                        : 'border-slate-200 hover:border-slate-300 bg-white'
+                    }`}
+                  >
+                    <div>
+                      <span className="text-[9px] font-bold uppercase text-slate-500 block mb-0.5">
+                        {plan.tag}
+                      </span>
+                      <h4 className="font-semibold text-xs text-slate-900">{plan.label}</h4>
+                      <p className="text-[10px] text-slate-500 mt-1 leading-snug">{plan.desc}</p>
+                    </div>
+                    <div className="mt-2 text-right">
+                      {isSelected ? (
+                        <span className="text-[10px] font-bold text-slate-900">✓ Chosen</span>
+                      ) : (
+                        <span className="text-[10px] text-slate-400">Select</span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
+            {/* Optional Specific Restaurant / Cafe Booking */}
+            <div>
+              <label className="block text-[10px] font-semibold uppercase text-slate-500 mb-1.5 flex items-center gap-1">
+                <Coffee className="w-3.5 h-3.5 text-slate-400" />
+                Add Reserved Table at Top Local Cafe / Restaurant:
+              </label>
+              <div className="space-y-2">
+                <div
+                  onClick={() => setSelectedRestaurantId(null)}
+                  className={`p-2 rounded-lg border text-xs cursor-pointer flex items-center justify-between ${
+                    selectedRestaurantId === null
+                      ? 'border-slate-900 bg-slate-50 font-semibold text-slate-900'
+                      : 'border-slate-200 text-slate-600 hover:border-slate-300'
+                  }`}
+                >
+                  <span>No Special Table Reservation (Standard Dining Only)</span>
+                  {selectedRestaurantId === null && <Check className="w-3.5 h-3.5 text-slate-900" />}
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {matchingRestaurantsForDest.slice(0, 4).map((rest) => {
+                    const isSelected = selectedRestaurantId === rest.id;
+                    return (
+                      <div
+                        key={rest.id}
+                        onClick={() => setSelectedRestaurantId(rest.id)}
+                        className={`p-2 rounded-lg border cursor-pointer flex items-center justify-between gap-2 ${
+                          isSelected
+                            ? 'border-slate-900 bg-slate-50'
+                            : 'border-slate-200 hover:border-slate-300 bg-white'
+                        }`}
+                      >
+                        <div className="truncate">
+                          <h5 className="font-semibold text-xs text-slate-900 truncate">{rest.name}</h5>
+                          <span className="text-[10px] text-slate-500">{rest.ambience} • {formatPrice(rest.avgCostPerPersonUSD, currency)}/guest</span>
+                        </div>
+                        {isSelected && <Check className="w-3.5 h-3.5 text-slate-900 shrink-0" />}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* STEP 5: TRANSPORTATION & SIGHTSEEING CAB */}
+          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center gap-2">
+              <span className="w-5 h-5 rounded bg-slate-900 text-white text-[11px] font-semibold flex items-center justify-center">
+                5
+              </span>
+              Transportation & Local Sightseeing Cab
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-4">
+              {[
+                {
+                  id: 'cab_ac',
+                  label: 'Dedicated Private AC Cab / SUV',
+                  tag: 'Most Recommended',
+                  desc: 'Dedicated chauffeur for all daily excursions, scenic viewpoints, and transfers.',
+                },
+                {
+                  id: 'self_drive',
+                  label: 'Self-Drive Vehicle Assist',
+                  tag: 'Independent',
+                  desc: 'Hassle-free sanitized SUV/Sedan delivery at airport/station with full insurance.',
+                },
+                {
+                  id: 'transfers_only',
+                  label: 'Station / Airport Transfers Only',
+                  tag: 'Economy',
+                  desc: 'Pick and drop transfers only; explore local towns on foot or local cabs.',
+                },
+              ].map((trans) => {
+                const isSelected = selectedTransport === trans.id;
+                return (
+                  <div
+                    key={trans.id}
+                    onClick={() => setSelectedTransport(trans.id as any)}
+                    className={`p-3 rounded-xl border cursor-pointer transition-all flex flex-col justify-between ${
+                      isSelected
+                        ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
+                        : 'border-slate-200 hover:border-slate-300 bg-white'
+                    }`}
+                  >
+                    <div>
+                      <span className="text-[9px] font-bold uppercase text-slate-500 block mb-0.5">
+                        {trans.tag}
+                      </span>
+                      <h4 className="font-semibold text-xs text-slate-900">{trans.label}</h4>
+                      <p className="text-[10px] text-slate-500 mt-1 leading-snug">{trans.desc}</p>
+                    </div>
+                    <div className="mt-2.5 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                      <span className="text-[10px] font-medium text-slate-600">
+                        {isSelected ? '✓ Chosen' : 'Select'}
+                      </span>
+                      {isSelected && <Check className="w-3.5 h-3.5 text-slate-900" />}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Excursions & VIP Activities */}
             <div className="space-y-2">
+              <label className="block text-[10px] font-semibold uppercase text-slate-500">
+                Add Signature Experiences & Guides:
+              </label>
               {activityAddons.map((addon) => {
                 const isSelected = selectedAddons.includes(addon.id);
                 const Icon = addon.icon;
@@ -753,33 +1121,26 @@ export const CustomPackageBuilder: React.FC = () => {
                   <div
                     key={addon.id}
                     onClick={() => toggleAddon(addon.id)}
-                    className={`p-3 rounded-xl border cursor-pointer transition-all flex items-center justify-between gap-3 ${
+                    className={`p-2.5 sm:p-3 rounded-xl border cursor-pointer transition-all flex items-center justify-between gap-3 ${
                       isSelected
                         ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
                         : 'border-slate-200 hover:border-slate-300 bg-white'
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isSelected ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600'}`}>
-                        <Icon className="w-4 h-4" />
+                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${isSelected ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600'}`}>
+                        <Icon className="w-3.5 h-3.5" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-xs text-slate-900">
-                          {addon.title}
-                        </h4>
-                        <p className="text-[11px] text-slate-500">{addon.description}</p>
+                        <h5 className="font-semibold text-xs text-slate-900">{addon.title}</h5>
+                        <p className="text-[10px] text-slate-500">{addon.description}</p>
                       </div>
                     </div>
-
-                    <div className="flex items-center gap-2.5 shrink-0">
+                    <div className="flex items-center gap-2 shrink-0">
                       <span className="font-bold text-xs text-slate-900">
                         +{formatPrice(addon.priceUSD, currency)}
                       </span>
-                      <div
-                        className={`w-4 h-4 rounded flex items-center justify-center ${
-                          isSelected ? 'bg-slate-900 text-white' : 'border border-slate-300'
-                        }`}
-                      >
+                      <div className={`w-4 h-4 rounded flex items-center justify-center ${isSelected ? 'bg-slate-900 text-white' : 'border border-slate-300'}`}>
                         {isSelected && <Check className="w-3 h-3" />}
                       </div>
                     </div>
@@ -790,18 +1151,18 @@ export const CustomPackageBuilder: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Live Summary & Price Calculation Card */}
+        {/* Right Column: Live Package Bill & Confirmation Card */}
         <div className="lg:sticky lg:top-24 bg-slate-900 text-white p-4 sm:p-5 rounded-2xl border border-slate-800 space-y-4 shadow-xl">
           <div className="border-b border-slate-800 pb-3">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 block mb-0.5">
               Custom Package Summary
             </span>
-            <h4 className="text-base sm:text-lg font-bold leading-tight">
-              {currentDest.name}
+            <h4 className="text-base sm:text-lg font-bold leading-tight truncate">
+              {activeDestinationTitle}
             </h4>
             <div className="flex items-center gap-2 mt-1.5 text-[11px] text-slate-300">
               <span className="bg-slate-800 px-2 py-0.5 rounded font-mono">
-                {nights} Nights / {nights + 1} Days
+                {daysCount} Days / {nightsCount} Nights
               </span>
               <span>•</span>
               <span>{travelers} Guest{travelers > 1 ? 's' : ''}</span>
@@ -812,59 +1173,96 @@ export const CustomPackageBuilder: React.FC = () => {
             </div>
           </div>
 
-          {/* Breakdown Items */}
+          {/* Itemized Breakdown */}
           <div className="space-y-2.5 text-xs">
-            {/* Hotel Item */}
+            {/* Stay Item */}
             <div className="flex justify-between items-start gap-2">
               <div className="min-w-0">
                 <span className="font-medium text-slate-200 flex items-center gap-1.5 truncate">
                   <Hotel className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                  <span className="truncate">{chosenHotel?.name || 'Hotel Stay'}</span>
+                  <span className="truncate">{chosenHotel.name}</span>
                 </span>
                 <span className="text-[10px] text-slate-400 block ml-5">
-                  {nights} Nights × {formatPrice(chosenHotel?.pricePerNightUSD || 0, currency)}
+                  {'★'.repeat(selectedStarTier)} {selectedStarTier}-Star • {nightsCount} Nights
                 </span>
               </div>
               <span className="font-semibold text-slate-200 shrink-0">
-                {formatPrice(hotelTotalUSD, currency)}
+                {formatPrice(totalHotelUSD, currency)}
               </span>
             </div>
 
-            {/* Dining Item */}
-            {chosenRestaurant && (
+            {/* Meal Plan Item */}
+            {totalMealUSD > 0 && (
               <div className="flex justify-between items-start gap-2">
                 <div className="min-w-0">
                   <span className="font-medium text-slate-200 flex items-center gap-1.5 truncate">
                     <UtensilsCrossed className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                    <span className="truncate">{chosenRestaurant.name}</span>
+                    <span>Food Plan ({selectedMealPlan.replace('_', ' ').toUpperCase()})</span>
                   </span>
                   <span className="text-[10px] text-slate-400 block ml-5">
-                    Reserved table for {travelers} guests
+                    {daysCount} Days for {travelers} Guests
                   </span>
                 </div>
                 <span className="font-semibold text-slate-200 shrink-0">
-                  {formatPrice(restaurantTotalUSD, currency)}
+                  {formatPrice(totalMealUSD, currency)}
                 </span>
               </div>
             )}
 
-            {/* Add-ons Item */}
-            {addonsTotalUSD > 0 && (
+            {/* Transport Item */}
+            <div className="flex justify-between items-start gap-2">
+              <div className="min-w-0">
+                <span className="font-medium text-slate-200 flex items-center gap-1.5 truncate">
+                  <Car className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <span className="truncate">
+                    {selectedTransport === 'cab_ac' ? 'Private AC Cab + Sightseeing' :
+                     selectedTransport === 'self_drive' ? 'Self-Drive Vehicle' : 'Transfers Only'}
+                  </span>
+                </span>
+                <span className="text-[10px] text-slate-400 block ml-5">
+                  {daysCount} Days coverage
+                </span>
+              </div>
+              <span className="font-semibold text-slate-200 shrink-0">
+                {formatPrice(totalTransportUSD, currency)}
+              </span>
+            </div>
+
+            {/* Reserved Restaurant (if picked) */}
+            {chosenRestaurant && (
+              <div className="flex justify-between items-start gap-2">
+                <div className="min-w-0">
+                  <span className="font-medium text-slate-200 flex items-center gap-1.5 truncate">
+                    <Coffee className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                    <span className="truncate">{chosenRestaurant.name}</span>
+                  </span>
+                  <span className="text-[10px] text-slate-400 block ml-5">
+                    Reserved table for {travelers}
+                  </span>
+                </div>
+                <span className="font-semibold text-slate-200 shrink-0">
+                  {formatPrice(totalSpecificRestUSD, currency)}
+                </span>
+              </div>
+            )}
+
+            {/* Excursions */}
+            {totalAddonsUSD > 0 && (
               <div className="flex justify-between items-start gap-2">
                 <div className="min-w-0">
                   <span className="font-medium text-slate-200 flex items-center gap-1.5 truncate">
                     <Sparkles className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                    <span>Experiences & VIP Add-ons ({selectedAddons.length})</span>
+                    <span>Experiences ({selectedAddons.length})</span>
                   </span>
                 </div>
                 <span className="font-semibold text-slate-200 shrink-0">
-                  {formatPrice(addonsTotalUSD, currency)}
+                  {formatPrice(totalAddonsUSD, currency)}
                 </span>
               </div>
             )}
           </div>
 
-          {/* Pricing Totals */}
+          {/* Pricing Math */}
           <div className="pt-3 border-t border-slate-800 space-y-1.5 text-xs">
             <div className="flex justify-between text-slate-400">
               <span>Standard Combined Rate:</span>
@@ -876,8 +1274,8 @@ export const CustomPackageBuilder: React.FC = () => {
             </div>
             <div className="flex justify-between text-base font-bold text-white pt-2 border-t border-slate-800 items-baseline">
               <div>
-                <span>Total Package Price:</span>
-                <span className="block text-[10px] font-normal text-slate-400">Taxes & fees included</span>
+                <span>Custom Package Total:</span>
+                <span className="block text-[10px] font-normal text-slate-400">All taxes & permits included</span>
               </div>
               <span className="text-xl sm:text-2xl font-bold text-white">
                 {formatPrice(finalPriceUSD, currency)}
@@ -887,16 +1285,16 @@ export const CustomPackageBuilder: React.FC = () => {
 
           {/* Booking CTA Button */}
           <button
-            onClick={handleBookCustomBundle}
+            onClick={handleBookCustomPackage}
             className="w-full bg-white hover:bg-slate-100 text-slate-900 font-semibold text-xs sm:text-sm py-3 rounded-xl transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
           >
             <ShoppingBag className="w-4 h-4" />
-            <span>Book Custom Bundle ({formatPrice(finalPriceUSD, currency)})</span>
+            <span>Book Custom Package ({formatPrice(finalPriceUSD, currency)})</span>
           </button>
 
           <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400 text-center">
             <ShieldCheck className="w-3.5 h-3.5 text-slate-500" />
-            <span>Verified Stays • Price Match Guarantee • Concierge Support</span>
+            <span>Best price guarantee • Free cancellation up to 48h</span>
           </div>
         </div>
       </div>

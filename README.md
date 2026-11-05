@@ -305,6 +305,43 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
+### [v1.6.0] - Unlimited Places, 3-Star to 5-Star Stays, Mountain Cafes & Full Custom Package Studio
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Unlimited Places & Custom Route Input**:
+    * User feedback ("limitated jage dikhayi ja rahi he ... place me sare place add karo limitade nahi") ke mutabiq destination selection ko unrestricted banaya gaya:
+      * **Catalog Expansion**: Manali, Shimla, Dharamshala, Spiti Valley, Kashmir, Gulmarg, Pahalgam, Leh Ladakh, Rishikesh, Mussoorie, Kerala Backwaters, Munnar, Goa (North & South), Udaipur, Jaipur, Jaisalmer, Agra, Andaman, Ooty, Darjeeling, Swiss Alps (Interlaken, Zermatt), Paris, Rome, Venice, Amalfi, London, Barcelona, Tokyo, Kyoto, Phuket, Bangkok, Bali, Dubai, Abu Dhabi, Maldives, Singapore, Cappadocia, New York, California, Serengeti, Cape Town, Queenstown, etc.
+      * **"✏️ Type Custom Route" Feature**: Customer ab koi bhi custom destination ya multi-city circuit (jaise "Manali - Kasol - Jibhi - Tirthan Valley" ya "Delhi - Agra - Jaipur - Udaipur") free-text input me type karke package design kar sakta hai.
+  * **3-Star, 4-Star & 5-Star Accommodations (Expanded to 47 Stays)**:
+    * Platform par sirf 5-star nahi, balki har destination ke liye 3★, 4★, aur 5★ verified stays integrate kiye gaye:
+      * **3★ Cozy & Budget Stays ($38 - $75 / ₹3,000 - ₹6,000)**: Clean mountain chalets, heritage havelis, plantation cottages, aur boutique stays with complimentary breakfast (e.g., *Apple Country Pine Resort Manali*, *Cedar Heights Shimla*, *Green Woods Munnar*, *Casa De Goa*, *Pine Spring Pahalgam*, *Udai Haveli Udaipur*, *Ganga Kinare Rishikesh*, *Hotel Bernerhof Interlaken*, *Rove Downtown Dubai*).
+      * **4★ Premium Comfort ($95 - $165 / ₹8,000 - ₹14,000)**: Resorts with swimming pool, wellness spas, valley-view suites & lavish breakfast (e.g., *Manu Allaya Manali*, *The Clarkes Shimla*, *Fragrant Nature Kerala*, *Heritage Village Goa*, *Nedou's Gulmarg*, *Alsisar Haveli Jaipur*, *Aloha On The Ganges Rishikesh*, *Boutique Hotel Bellevue Swiss Alps*, *Vida Downtown Dubai*).
+      * **5★ Ultra-Luxury Palaces & Resorts ($280 - $650+)**: World-class palace suites, overwater villas, and five-star luxury (e.g., *The Himalayan Manali*, *Kumarakom Lake Resort*, *Taj Exotica Goa*, *The Khyber Gulmarg*, *The Oberoi Udaivilas*, *The Chedi Andermatt*, *Hôtel Plaza Athénée Paris*, *Atlantis The Royal Dubai*).
+    * **Interactive Star Rating Filter in Stays Section (`HotelList.tsx`)**:
+      * Filter buttons: `All Stays (47)`, `5★ Luxury`, `4★ Premium`, `3★ Cozy & Budget`.
+      * Golden star badges (`★★★`, `★★★★`, `★★★★★`) on all cards.
+  * **Mountain Cafes, Beach Shacks & Tea Salons (Expanded to 32 Venues)**:
+    * High-end dining ke sath budget-friendly aur iconic local spots add kiye gaye:
+      * *Cafe 1947 & Riverside Acoustic Lounge* (Old Manali) — Wood-fired pizzas & trout.
+      * *Wake & Bake Cafe The Ridge* (Shimla) — French savory crepes & specialty coffee.
+      * *Kashi Art Cafe & Heritage Courtyard* (Fort Kochi, Kerala) — Artisan bakery & organic cafe.
+      * *Curlies Beach Shack & Sunset Bar* (Anjuna Beach, Goa) — Fresh Arabian sea catch & beach vibes.
+      * *Chai Jaai Tea Room & Heritage Bakery* (Srinagar, Kashmir) — Saffron Kahwa & Noon Chai.
+      * *Tapri The Tea House Central Park* (Jaipur) — Masala Kulhad Chai & street food delicacies.
+      * *The Little Buddha Cafe & River Treehouse* (Rishikesh) — Mountain health bowls & wood-fired pizza.
+      * *Cafe de Paris & Alpine Bakery* (Interlaken, Swiss Alps) — Swiss cheese fondue & hot chocolate.
+      * *Arabian Tea House* (Al Fahidi, Dubai) — Authentic Emirati breakfast & karak chai.
+  * **Full Custom Package Studio (`CustomPackageBuilder.tsx`)**:
+    * Customer ab step-by-step complete freedom ke sath apna package create kar sakta hai:
+      1. **Destination**: Catalog me se choose karein ya "Type Custom Route" me apni marzi ka place dalein.
+      2. **Days & Nights**: Exact number of Days (1 se 60 days) with `+` / `-` steppers aur direct number input + Departure Date calendar with auto-calculated Return Date.
+      3. **Hotel Star Tier**: 3★ Budget, 4★ Premium, ya 5★ Luxury choose karein, aur matching verified local hotels me se pasand karein.
+      4. **Food & Meal Plan**: Daily Breakfast & Dinner (Half Board), All Meals (B+L+D), Breakfast Only, ya Independent / Street Food explorer.
+      5. **Transport Mode**: Private Dedicated AC Cab / SUV with Chauffeur, Self-Drive Assist, ya Transfers Only.
+      6. **Signature Excursions**: Dedicated Local Guide, Vacation Photography Session, Scenic/Adventure Passes.
+      7. **Live Pricing**: Customer ki chosen currency (`₹ INR`, `$ USD`, etc.) me itemized math aur automatic **15% bundle discount** calculation.
+      8. **1-Click Booking**: "Book Custom Package" button se complete itinerary bag me add hokar instant checkout open hota hai.
+
 ### [v1.5.1] - Minimalist Hero Cleanup (Removed Featured Keyword Pills)
 * **Date**: November 2026
 * **Changes & Key Highlights**:

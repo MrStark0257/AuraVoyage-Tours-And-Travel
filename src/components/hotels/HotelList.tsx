@@ -10,6 +10,7 @@ export const HotelList: React.FC = () => {
   const { searchQuery, selectedDestinationFilter, addToCart, setIsCartOpen } = useTravel();
 
   const [selectedType, setSelectedType] = useState('All');
+  const [selectedStarRating, setSelectedStarRating] = useState<number | 'All'>('All');
   const [sortBy, setSortBy] = useState<'featured' | 'priceAsc' | 'priceDesc' | 'rating'>('featured');
   const [activeHotelModal, setActiveHotelModal] = useState<Hotel | null>(null);
 
@@ -23,6 +24,9 @@ export const HotelList: React.FC = () => {
 
   const filteredHotels = useMemo(() => {
     return HOTELS_DATA.filter((hotel) => {
+      if (selectedStarRating !== 'All' && hotel.starRating !== selectedStarRating) {
+        return false;
+      }
       if (selectedType !== 'All' && hotel.propertyType !== selectedType) {
         return false;
       }
@@ -60,7 +64,7 @@ export const HotelList: React.FC = () => {
       if (sortBy === 'rating') return b.rating - a.rating;
       return 0;
     });
-  }, [selectedType, selectedDestinationFilter, searchQuery, sortBy]);
+  }, [selectedStarRating, selectedType, selectedDestinationFilter, searchQuery, sortBy]);
 
   const handleConfirmBooking = (
     hotel: Hotel,
@@ -98,10 +102,10 @@ export const HotelList: React.FC = () => {
             Stays & Resorts
           </span>
           <h2 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-            Hotels, Resorts & Villas
+            Hotels, Resorts & Stays (3★ to 5★)
           </h2>
           <p className="text-slate-500 text-xs sm:text-sm mt-0.5 max-w-xl">
-            Inspected 5-star properties, cliffside suites, and private villas with instant confirmation.
+            Inspected 3-star cozy boutique stays, 4-star premium comfort, and 5-star world-class palace resorts.
           </p>
         </div>
 
@@ -122,22 +126,48 @@ export const HotelList: React.FC = () => {
         </div>
       </div>
 
-      {/* Property Type Filter Chips */}
-      <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-        <span className="text-xs text-slate-500 mr-1 font-medium">Type:</span>
-        {propertyTypes.map((type) => (
-          <button
-            key={type}
-            onClick={() => setSelectedType(type)}
-            className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
-              selectedType === type
-                ? 'bg-slate-900 text-white'
-                : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
-            }`}
-          >
-            {type}
-          </button>
-        ))}
+      {/* Filter Matrix: Star Rating & Property Types */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 mb-6 bg-slate-50 p-2.5 sm:p-3 rounded-xl border border-slate-200">
+        {/* Star Rating Filter */}
+        <div className="flex flex-wrap items-center gap-1 sm:gap-1.5">
+          <span className="text-xs text-slate-500 mr-1 font-semibold">Tier:</span>
+          {[
+            { label: 'All Stays', value: 'All' },
+            { label: '5★ Luxury', value: 5 },
+            { label: '4★ Premium', value: 4 },
+            { label: '3★ Cozy & Budget', value: 3 },
+          ].map((star) => (
+            <button
+              key={star.label}
+              onClick={() => setSelectedStarRating(star.value as any)}
+              className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+                selectedStarRating === star.value
+                  ? 'bg-slate-900 text-white shadow-sm'
+                  : 'bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300'
+              }`}
+            >
+              {star.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Property Type Filter */}
+        <div className="flex flex-wrap items-center gap-1 sm:gap-1.5">
+          <span className="text-xs text-slate-500 mr-1 font-semibold">Type:</span>
+          {propertyTypes.map((type) => (
+            <button
+              key={type}
+              onClick={() => setSelectedType(type)}
+              className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+                selectedType === type
+                  ? 'bg-slate-800 text-white'
+                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
+              }`}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Hotels Grid */}

@@ -43,11 +43,12 @@ export const HotelCard: React.FC<HotelCardProps> = ({ hotel, onOpenBooking }) =>
 
         {/* Minimalist Badges */}
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-          <span className="bg-slate-900/85 backdrop-blur-sm text-white text-[10px] font-medium px-2 py-0.5 rounded">
-            {hotel.starRating}-Star
+          <span className="bg-slate-900/90 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded flex items-center gap-1">
+            <span className="text-amber-400">{'★'.repeat(hotel.starRating)}</span>
+            <span>{hotel.starRating}-Star</span>
           </span>
           {discount > 0 && (
-            <span className="bg-white text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded">
+            <span className="bg-white text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
               {discount}% off
             </span>
           )}

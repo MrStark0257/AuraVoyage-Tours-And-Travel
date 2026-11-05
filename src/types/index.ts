@@ -72,12 +72,21 @@ export interface Restaurant {
   destination: string;
   country: string;
   cuisine: string[];
-  priceBracket: '$$' | '$$$' | '$$$$';
+  priceBracket: '$' | '$$' | '$$$' | '$$$$';
   rating: number;
   reviewsCount: number;
   featuredImage: string;
   galleryImages: string[];
-  ambience: 'Rooftop Lounge' | 'Oceanfront Sunset' | 'Michelin Fine Dining' | 'Historic Bistro' | 'Garden Terrace';
+  ambience:
+    | 'Rooftop Lounge'
+    | 'Oceanfront Sunset'
+    | 'Michelin Fine Dining'
+    | 'Historic Bistro'
+    | 'Garden Terrace'
+    | 'Riverside Cafe'
+    | 'Mountain Cafe'
+    | 'Beach Shack'
+    | 'Heritage Tea Salon';
   signatureDishes: string[];
   openingHours: string;
   address: string;
