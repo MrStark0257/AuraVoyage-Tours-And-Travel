@@ -55,7 +55,7 @@ export const RefreshmentList: React.FC = () => {
   }, [filterType, selectedDestinationFilter, searchQuery, sortBy]);
 
   return (
-    <section id="refreshments" className="container mx-auto px-4 lg:px-8 py-8 sm:py-10 border-t border-slate-200">
+    <section id="refreshments" className="container mx-auto px-4 lg:px-8 py-8 sm:py-10 border-t border-slate-200 scroll-mt-20 sm:scroll-mt-24">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 gap-3">
         <div>

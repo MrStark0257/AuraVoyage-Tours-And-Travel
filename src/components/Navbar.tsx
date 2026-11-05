@@ -24,7 +24,7 @@ export const Navbar: React.FC = () => {
     currency,
     setCurrency,
     activeCategory,
-    setActiveCategory,
+    navigateToCategory,
     wishlist,
     cartTotalCount,
     bookings,
@@ -49,13 +49,8 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const handleNavClick = (category: CategoryType) => {
-    setActiveCategory(category);
     setIsMobileMenuOpen(false);
-
-    const sectionElement = document.getElementById(category === 'all' ? 'hero' : category);
-    if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigateToCategory(category);
   };
 
   const navItems: { label: string; category: CategoryType; icon: React.ElementType }[] = [

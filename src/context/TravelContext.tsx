@@ -13,6 +13,7 @@ interface TravelContextType {
   setCurrency: (c: Currency) => void;
   activeCategory: CategoryType;
   setActiveCategory: (cat: CategoryType) => void;
+  navigateToCategory: (cat: CategoryType) => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   selectedDestinationFilter: string;
@@ -222,6 +223,39 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const cartTotalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
+  const navigateToCategory = (cat: CategoryType) => {
+    setActiveCategory(cat);
+
+    if (cat === 'all') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // Wait for React 19 state update and DOM commit of the target section
+    setTimeout(() => {
+      const targetElement = document.getElementById(cat);
+      if (targetElement) {
+        const navOffset = 85;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = Math.max(0, elementPosition - navOffset);
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      } else {
+        const catalogElem = document.getElementById('catalog-section');
+        if (catalogElem) {
+          const navOffset = 85;
+          const elementPosition = catalogElem.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: Math.max(0, elementPosition - navOffset),
+            behavior: 'smooth',
+          });
+        }
+      }
+    }, 70);
+  };
+
   return (
     <TravelContext.Provider
       value={{
@@ -229,6 +263,7 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         setCurrency,
         activeCategory,
         setActiveCategory,
+        navigateToCategory,
         searchQuery,
         setSearchQuery,
         selectedDestinationFilter,

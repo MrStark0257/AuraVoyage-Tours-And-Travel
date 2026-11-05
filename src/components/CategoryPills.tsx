@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 export const CategoryPills: React.FC = () => {
-  const { activeCategory, setActiveCategory } = useTravel();
+  const { activeCategory, navigateToCategory } = useTravel();
 
   const categories: {
     id: CategoryType;
@@ -58,7 +58,7 @@ export const CategoryPills: React.FC = () => {
     ];
 
   return (
-    <section id="catalog-section" className="container mx-auto px-4 lg:px-8 pt-6 sm:pt-8 pb-3 sm:pb-4">
+    <section id="catalog-section" className="container mx-auto px-4 lg:px-8 pt-6 sm:pt-8 pb-3 sm:pb-4 scroll-mt-20 sm:scroll-mt-24">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-5 gap-1.5 sm:gap-2 border-b border-slate-200/80 pb-3 sm:pb-4">
         <div>
           <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
@@ -78,11 +78,7 @@ export const CategoryPills: React.FC = () => {
           return (
             <button
               key={cat.id}
-              onClick={() => {
-                setActiveCategory(cat.id);
-                const elem = document.getElementById(cat.id === 'all' ? 'catalog-section' : cat.id);
-                if (elem) elem.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={() => navigateToCategory(cat.id)}
               className={`flex flex-col items-start text-left p-2.5 sm:p-3.5 rounded-xl border transition-colors ${isSelected
                   ? 'bg-slate-900 text-white border-slate-900'
                   : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50/80'

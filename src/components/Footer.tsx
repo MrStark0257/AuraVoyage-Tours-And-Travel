@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const { setActiveCategory, setSelectedDestinationFilter, addToast } = useTravel();
+  const { navigateToCategory, setSelectedDestinationFilter, addToast } = useTravel();
   const [newsletterEmail, setNewsletterEmail] = useState('');
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -90,55 +90,40 @@ export const Footer: React.FC = () => {
             <ul className="space-y-1.5 text-xs">
               <li>
                 <button
-                  onClick={() => {
-                    setActiveCategory('tours');
-                    document.getElementById('tours')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="hover:text-white transition-colors"
+                  onClick={() => navigateToCategory('tours')}
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
                   Tour Packages
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => {
-                    setActiveCategory('hotels');
-                    document.getElementById('hotels')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="hover:text-white transition-colors"
+                  onClick={() => navigateToCategory('hotels')}
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
                   Hotels & Resorts
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => {
-                    setActiveCategory('restaurants');
-                    document.getElementById('restaurants')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="hover:text-white transition-colors"
+                  onClick={() => navigateToCategory('restaurants')}
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
                   Fine Dining Tables
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => {
-                    setActiveCategory('refreshments');
-                    document.getElementById('refreshments')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="hover:text-white transition-colors"
+                  onClick={() => navigateToCategory('refreshments')}
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
                   Refreshments & Cafes
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => {
-                    setActiveCategory('builder');
-                    document.getElementById('builder')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="hover:text-white transition-colors"
+                  onClick={() => navigateToCategory('builder')}
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
                   Custom Configurator
                 </button>
@@ -172,9 +157,7 @@ export const Footer: React.FC = () => {
                   key={item.name}
                   onClick={() => {
                     setSelectedDestinationFilter(item.name);
-                    setActiveCategory('tours');
-                    const el = document.getElementById('catalog-section');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    navigateToCategory('tours');
                   }}
                   className="text-left hover:text-white transition-colors truncate cursor-pointer"
                 >

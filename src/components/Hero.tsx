@@ -129,12 +129,19 @@ export const Hero: React.FC = () => {
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSearchQuery(localSearch.trim());
-    const targetElement = document.getElementById(
-      activeCategory === 'all' ? 'catalog-section' : activeCategory
-    );
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
+    setTimeout(() => {
+      const targetElement = document.getElementById(
+        activeCategory === 'all' ? 'catalog-section' : activeCategory
+      );
+      if (targetElement) {
+        const navOffset = 85;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: Math.max(0, elementPosition - navOffset),
+          behavior: 'smooth',
+        });
+      }
+    }, 60);
   };
 
   const tabs: { label: string; category: CategoryType; icon: React.ElementType }[] = [
