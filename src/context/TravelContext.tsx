@@ -231,7 +231,9 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       return;
     }
 
-    const targetElement = document.getElementById(cat);
+    // When clicking Cafes ('refreshments'), navigate directly to 'Curated Restaurants & Scenic Cafes' (#restaurants)
+    const targetId = cat === 'refreshments' ? 'restaurants' : cat;
+    const targetElement = document.getElementById(targetId);
     if (targetElement) {
       const navOffset = 75;
       const rect = targetElement.getBoundingClientRect();

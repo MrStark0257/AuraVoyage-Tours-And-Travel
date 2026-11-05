@@ -398,6 +398,17 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
+### [v1.6.7] - Aligned Cafe Navigation Directly to "Curated Restaurants & Scenic Cafes"
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Direct Cafe Navigation to Gastronomy & Scenic Cafes**:
+    * User feedback with mobile phone screenshot (*"cafe buttion pe click kar ne pe ye ana chahiye jo nahi aa raha he"*):
+      * **Issue Identified**: Pehle Navbar, Category Pills, Hero Tabs aur Footer me "Cafes" button `navigateToCategory('refreshments')` ko trigger karta tha, jo user ko "Curated Restaurants & Scenic Cafes" ke bajaye niche "Packs & Pit-Stops" hamper guide par le ja raha tha.
+      * **Exact Target Resolution**: `TravelContext.tsx` me navigation target ko update kiya gaya: jab bhi customer "Cafes" (`refreshments`) click karta hai, system automatically target ko `#restaurants` par map karta hai.
+      * **Pixel-Perfect Alignment**: Ab "Cafes" par click karte hi page direct **"GASTRONOMY — Curated Restaurants & Scenic Cafes"** section header, ambience selector chips (`Mountain Cafe`, `Riverside Cafe`, etc.) aur Positano / Manali cliffside cafes par smoothly land karta hai — exactly as requested in the user's mobile screenshot.
+  * **Mobile Drawer Height Clearance**:
+    * `Navbar.tsx` me drawer unmounting ke time 20ms animation buffer diya gaya taaki mobile view me collapsed 64px header ke against exact offset calculate ho aur section heading screen ke theek top par clean visual space ke sath display ho.
+
 ### [v1.6.6] - Permanent Architecture Fix for Mobile & Responsive Button Navigation
 * **Date**: November 2026
 * **Changes & Key Highlights**:
