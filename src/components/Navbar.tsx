@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
     { label: 'Tours', category: 'tours', icon: Palmtree },
     { label: 'Hotels', category: 'hotels', icon: Hotel },
     { label: 'Dining', category: 'restaurants', icon: UtensilsCrossed },
-    { label: 'Refreshments', category: 'refreshments', icon: Coffee },
+    { label: 'Cafes', category: 'refreshments', icon: Coffee },
     { label: 'Custom Trip', category: 'builder', icon: Layers },
   ];
 
@@ -121,11 +121,10 @@ export const Navbar: React.FC = () => {
               <button
                 key={item.category}
                 onClick={() => handleNavClick(item.category)}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                  isActive
-                    ? 'bg-slate-900 text-white'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                }`}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${isActive
+                  ? 'bg-slate-900 text-white'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  }`}
               >
                 <Icon className="w-3.5 h-3.5 opacity-70" />
                 <span>{item.label}</span>
@@ -240,9 +239,8 @@ export const Navbar: React.FC = () => {
               <button
                 key={item.category}
                 onClick={() => handleNavClick(item.category)}
-                className={`flex items-center gap-2.5 w-full px-3 py-2.5 rounded-lg text-xs font-medium transition-colors ${
-                  isActive ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50'
-                }`}
+                className={`flex items-center gap-2.5 w-full px-3 py-2.5 rounded-lg text-xs font-medium transition-colors ${isActive ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50'
+                  }`}
               >
                 <Icon className="w-4 h-4" />
                 <span>{item.label}</span>

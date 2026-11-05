@@ -95,41 +95,12 @@ export const Hero: React.FC = () => {
     }
   };
 
-  const handleFeaturedClick = (keyword: string) => {
-    setLocalSearch(keyword);
-    setSearchQuery(keyword);
-    if (keyword === '1-Month Tours') {
-      setSelectedDurationFilter('month');
-    } else {
-      setSelectedDestinationFilter(keyword);
-    }
-    const targetElement = document.getElementById(
-      activeCategory === 'all' ? 'catalog-section' : activeCategory
-    );
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const tabs: { label: string; category: CategoryType; icon: React.ElementType }[] = [
     { label: 'All', category: 'all', icon: Compass },
     { label: 'Tours', category: 'tours', icon: Palmtree },
     { label: 'Hotels', category: 'hotels', icon: Hotel },
     { label: 'Dining', category: 'restaurants', icon: UtensilsCrossed },
-    { label: 'Refreshments', category: 'refreshments', icon: Coffee },
-  ];
-
-  const featuredKeywords = [
-    'Kullu Manali',
-    'Kerala',
-    'Kashmir',
-    'Goa',
-    'Swiss Alps',
-    'Paris',
-    'Kyoto',
-    'Dubai',
-    'Bali',
-    '1-Month Tours',
+    { label: 'Cafes & Spots', category: 'refreshments', icon: Coffee },
   ];
 
   return (
@@ -172,11 +143,10 @@ export const Hero: React.FC = () => {
                 <button
                   key={tab.category}
                   onClick={() => setActiveCategory(tab.category)}
-                  className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-medium whitespace-nowrap transition-colors shrink-0 ${
-                    isSelected
-                      ? 'bg-slate-900 text-white'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-medium whitespace-nowrap transition-colors shrink-0 ${isSelected
+                    ? 'bg-slate-900 text-white'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
                 >
                   <Icon className="w-3.5 h-3.5 opacity-80" />
                   <span>{tab.label}</span>
@@ -301,21 +271,6 @@ export const Hero: React.FC = () => {
               </button>
             </div>
           </form>
-
-          {/* Quick Keywords */}
-          <div className="mt-2.5 pt-2 text-[10px] sm:text-[11px] text-slate-500 flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 border-t border-slate-100">
-            <span className="text-slate-400 font-medium">Featured:</span>
-            {featuredKeywords.map((keyword) => (
-              <button
-                key={keyword}
-                type="button"
-                onClick={() => handleFeaturedClick(keyword)}
-                className="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors text-[10px] sm:text-[11px] cursor-pointer"
-              >
-                {keyword}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Trust Badges */}

@@ -305,6 +305,12 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
+### [v1.5.1] - Minimalist Hero Cleanup (Removed Featured Keyword Pills)
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Removed Redundant Featured Pills**: Hero unified search bar ke neeche se `Featured: Kullu Manali | Kerala | Kashmir | ...` quick pills row ko completely remove kiya gaya hai.
+  * **Clean & Decluttered Hero Interface**: Search form ab ultra-minimalist aur sleek look provide karta hai, jisme traveler directly search input, duration filter, ya departure month select karke search kar sakta hai.
+
 ### [v1.5.0] - Comprehensive Indian & Worldwide Destinations, 1-Month Tours, Duration Filters & Navbar Currency Switcher
 * **Date**: November 2026
 * **Changes & Key Highlights**:
