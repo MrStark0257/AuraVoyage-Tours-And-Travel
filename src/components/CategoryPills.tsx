@@ -76,10 +76,14 @@ export const CategoryPills: React.FC = () => {
           const isSelected = activeCategory === cat.id;
 
           return (
-            <button
+            <a
               key={cat.id}
-              onClick={() => navigateToCategory(cat.id)}
-              className={`flex flex-col items-start text-left p-2.5 sm:p-3.5 rounded-xl border transition-colors min-w-0 ${isSelected
+              href={`#${cat.id === 'all' ? 'catalog-section' : cat.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToCategory(cat.id);
+              }}
+              className={`flex flex-col items-start text-left p-2.5 sm:p-3.5 rounded-xl border transition-colors min-w-0 cursor-pointer ${isSelected
                   ? 'bg-slate-900 text-white border-slate-900'
                   : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50/80'
                 }`}
@@ -98,7 +102,7 @@ export const CategoryPills: React.FC = () => {
               >
                 {cat.description}
               </span>
-            </button>
+            </a>
           );
         })}
       </div>

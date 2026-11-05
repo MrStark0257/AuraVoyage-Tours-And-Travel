@@ -179,17 +179,21 @@ export const Hero: React.FC = () => {
               const Icon = tab.icon;
               const isSelected = activeCategory === tab.category;
               return (
-                <button
+                <a
                   key={tab.category}
-                  onClick={() => navigateToCategory(tab.category)}
-                  className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-medium whitespace-nowrap transition-colors shrink-0 ${isSelected
+                  href={`#${tab.category === 'all' ? 'catalog-section' : tab.category}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToCategory(tab.category);
+                  }}
+                  className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-medium whitespace-nowrap transition-colors shrink-0 cursor-pointer ${isSelected
                     ? 'bg-slate-900 text-white'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                     }`}
                 >
                   <Icon className="w-3.5 h-3.5 opacity-80" />
                   <span>{tab.label}</span>
-                </button>
+                </a>
               );
             })}
           </div>

@@ -113,17 +113,21 @@ export const Navbar: React.FC = () => {
             const Icon = item.icon;
             const isActive = activeCategory === item.category;
             return (
-              <button
+              <a
                 key={item.category}
-                onClick={() => handleNavClick(item.category)}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${isActive
+                href={`#${item.category}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.category);
+                }}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${isActive
                   ? 'bg-slate-900 text-white'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                   }`}
               >
                 <Icon className="w-3.5 h-3.5 opacity-70" />
                 <span>{item.label}</span>
-              </button>
+              </a>
             );
           })}
         </div>
@@ -239,15 +243,19 @@ export const Navbar: React.FC = () => {
               const Icon = item.icon;
               const isActive = activeCategory === item.category;
               return (
-                <button
+                <a
                   key={item.category}
-                  onClick={() => handleNavClick(item.category)}
-                  className={`flex items-center gap-2.5 w-full px-3 py-2.5 rounded-lg text-xs font-medium transition-colors ${isActive ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50'
+                  href={`#${item.category}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.category);
+                  }}
+                  className={`flex items-center gap-2.5 w-full px-3 py-2.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${isActive ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50'
                     }`}
                 >
                   <Icon className="w-4 h-4" />
                   <span>{item.label}</span>
-                </button>
+                </a>
               );
             })}
 

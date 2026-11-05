@@ -228,6 +228,9 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
     if (cat === 'all') {
       window.scrollTo({ top: 0, behavior: 'instant' });
+      if (window.location.hash) {
+        window.history.pushState(null, '', window.location.pathname);
+      }
       return;
     }
 
@@ -240,11 +243,14 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     const targetId = cat;
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'instant', block: 'start' });
+      targetElement.scrollIntoView({ block: 'start' });
+      if (window.location.hash !== `#${targetId}`) {
+        window.history.pushState(null, '', `#${targetId}`);
+      }
     } else {
       const catalogElem = document.getElementById('catalog-section');
       if (catalogElem) {
-        catalogElem.scrollIntoView({ behavior: 'instant', block: 'start' });
+        catalogElem.scrollIntoView({ block: 'start' });
       }
     }
   };

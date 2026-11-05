@@ -398,6 +398,27 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
+### [v1.7.1] - Native Hyperlink Architecture & `overflow-x: clip` (Permanent Fix for Mobile Simulator Glitch)
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Root Cause Diagnosis of Android/Simulator Revert (*"no its not matching"*)**:
+    * **Touch Release Focus & Scroll Reset**:
+      * Mobile drawer me links `<button>` tags the jinpe `onClick` se `setIsMobileMenuOpen(false)` unmount hota tha. Mobile browsers me jab active touch container unmount hota hai, browser scroll container ko previous scroll position par revert karne ki koshish karta hai (jaise Soneva Fushi / Hotel #10).
+    * **`body { overflow-x: hidden }` Scroll Root Collision**:
+      * `body` par `overflow-x: hidden` hone se browser `body` ko secondary scroll container bana deta tha, jisse `window.scrollY` aur `scrollIntoView` ke bich coordinate desynchronization ho raha tha.
+  * **Native Hyperlink Infrastructure (`<a href="#id">`)**:
+    * Navbar (desktop & mobile drawer), Category Pills, aur Hero tabs sabhi buttons ko native `<a>` anchor tags me convert kiya gaya with valid semantic targets:
+      * `Dining` -> `href="#restaurants"`
+      * `Cafes` -> `href="#refreshments"`
+      * `Hotels` -> `href="#hotels"`
+      * `Tours` -> `href="#tours"`
+      * `Custom Trip` -> `href="#builder"`
+    * **URL Hash State Synchronization**: `navigateToCategory` ab `window.history.pushState(null, '', '#' + targetId)` maintain karta hai, jisse URL aur browser history rock-solid rehti hai aur touch abort ke baad browser scroll position revert nahi kar sakta.
+  * **Replaced `overflow-x: hidden` with `overflow-x: clip`**:
+    * `src/index.css` me `html, body { overflow-x: clip; }` integrate kiya gaya, jo bina kisi secondary scroll container context create kiye horizontal overflow ko eliminate karta hai.
+  * **Clean `scrollIntoView({ block: 'start' })` Compatibility**:
+    * Non-standard `'instant'` enum ko standard `{ block: 'start' }` par replace kiya gaya, jo 100% web engines (Blink, WebKit, Gecko) me native C++ level par instant alignment execute karta hai.
+
 ### [v1.7.0] - Native `scrollIntoView` Architecture (Eliminated Simulator Transform & Coordinate Scaling Glitch)
 * **Date**: November 2026
 * **Changes & Key Highlights**:
