@@ -29,11 +29,21 @@ export const HotelList: React.FC = () => {
       if (
         selectedDestinationFilter &&
         selectedDestinationFilter !== 'All' &&
-        selectedDestinationFilter !== 'All Destinations' &&
-        !hotel.destination.toLowerCase().includes(selectedDestinationFilter.toLowerCase()) &&
-        !hotel.country.toLowerCase().includes(selectedDestinationFilter.toLowerCase())
+        selectedDestinationFilter !== 'All Destinations'
       ) {
-        return false;
+        const filterStr = selectedDestinationFilter.toLowerCase().trim();
+        const tokens = filterStr.split(/[\s,]+/).filter((t) => t.length > 2);
+        const matches =
+          hotel.destination.toLowerCase().includes(filterStr) ||
+          hotel.country.toLowerCase().includes(filterStr) ||
+          tokens.some(
+            (token) =>
+              hotel.destination.toLowerCase().includes(token) ||
+              hotel.country.toLowerCase().includes(token)
+          );
+        if (!matches) {
+          return false;
+        }
       }
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();

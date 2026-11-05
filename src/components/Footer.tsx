@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const { setActiveCategory, addToast } = useTravel();
+  const { setActiveCategory, setSelectedDestinationFilter, addToast } = useTravel();
   const [newsletterEmail, setNewsletterEmail] = useState('');
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -146,19 +146,40 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Top Destinations */}
+          {/* Column 3: Top Worldwide Destinations */}
           <div className="space-y-2">
             <h4 className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-white">
-              Destinations
+              Worldwide Destinations
             </h4>
-            <ul className="space-y-1.5 text-xs text-slate-400">
-              <li>Bali, Indonesia</li>
-              <li>Swiss Alps, Switzerland</li>
-              <li>Amalfi Coast, Italy</li>
-              <li>Kyoto, Japan</li>
-              <li>Dubai, UAE</li>
-              <li>Serengeti, Tanzania</li>
-            </ul>
+            <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-slate-400">
+              {[
+                { name: 'Paris', label: 'Paris, France' },
+                { name: 'Swiss Alps', label: 'Swiss Alps' },
+                { name: 'Amalfi', label: 'Amalfi Coast' },
+                { name: 'Kyoto', label: 'Kyoto, Japan' },
+                { name: 'Bali', label: 'Bali, Indonesia' },
+                { name: 'Rajasthan', label: 'Rajasthan, India' },
+                { name: 'Maldives', label: 'Maldives' },
+                { name: 'Dubai', label: 'Dubai, UAE' },
+                { name: 'Iceland', label: 'Iceland' },
+                { name: 'Serengeti', label: 'Serengeti, Tanzania' },
+                { name: 'New York', label: 'New York, USA' },
+                { name: 'Peru', label: 'Machu Picchu' },
+              ].map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    setSelectedDestinationFilter(item.name);
+                    setActiveCategory('tours');
+                    const el = document.getElementById('catalog-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="text-left hover:text-white transition-colors truncate cursor-pointer"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Column 4: Trust & Support */}

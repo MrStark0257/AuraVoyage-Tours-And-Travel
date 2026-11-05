@@ -50,28 +50,54 @@ npm run build
 ## 🌟 Key Features & Modules (Sari Details)
 
 ### 1. 🌴 Curated Multi-Day Tour Packages (Tour Packages)
-* **Global Destinations**:
-  * *Bali Island Serenity & Sacred Waterfalls* (7D/6N)
-  * *Swiss Alps Glacier Express & Alpine Lakes* (8D/7N)
-  * *Amalfi Coast & Capri Private Yacht Odyssey* (6D/5N)
-  * *Kyoto Zen, Mount Fuji & Tokyo Lights* (9D/8N)
-  * *Dubai & Arabian Dunes Ultra-Luxury Escape* (5D/4N)
-  * *Serengeti Big Five Safari & Zanzibar Turquoise Sands* (10D/9N)
+* **Worldwide Global Destinations Across 6 Continents**:
+  * **Europe**:
+    * *Paris Romance & French Riviera Glamour* (8D/7N) - France
+    * *Swiss Alps Glacier Express & Alpine Lakes* (8D/7N) - Switzerland
+    * *Amalfi Coast & Capri Private Yacht Odyssey* (6D/5N) - Italy
+    * *Santorini & Cycladic Islands Sunset Sailing* (7D/6N) - Greece
+    * *Iceland Northern Lights, Volcanic Lagoons & Glaciers* (6D/5N) - Iceland
+  * **Asia**:
+    * *Bali Island Serenity & Sacred Waterfalls* (7D/6N) - Indonesia
+    * *Kyoto Zen Gardens, Mount Fuji & Tokyo Lights* (9D/8N) - Japan
+    * *Royal Rajasthan Fortresses, Palaces & Taj Mahal* (8D/7N) - India
+    * *Maldives Private Island Overwater Sanctuary* (6D/5N) - Maldives
+  * **Middle East**:
+    * *Dubai & Arabian Dunes Ultra-Luxury Escape* (5D/4N) - UAE
+    * *Cappadocia Hot Air Balloons & Istanbul Grand Bazaars* (7D/6N) - Turkey
+  * **Africa**:
+    * *Serengeti Big Five Safari & Zanzibar Sands* (10D/9N) - Tanzania
+    * *Cape Town, Table Mountain & Garden Route Drive* (8D/7N) - South Africa
+  * **Americas**:
+    * *New York Skyline to Grand Canyon Natural Wonders* (9D/8N) - United States
+    * *Machu Picchu Incan Trail & Sacred Valley Heritage* (7D/6N) - Peru
+  * **Oceania**:
+    * *New Zealand Southern Alps & Milford Sound Fjords* (10D/9N) - New Zealand
 * **Day-by-Day Master Itinerary**: Har din ka schedule, lunch/dinner information aur hotel stay.
 * **Inclusions & Exclusions**: Clear list of what is included (private SUV, spa sessions, entry passes, rail passes) aur exclusions.
-* **Filter & Sort**: Theme ke basis pe (Cultural, Adventure, Honeymoon, Luxury, Wildlife), Region ke basis pe (Europe, Asia, Middle East, Africa) aur Price/Rating ke basis pe sorting.
+* **Filter & Sort**: Theme ke basis pe (Cultural, Adventure, Honeymoon, Luxury, Wildlife), Region ke basis pe (Europe, Asia, Middle East, Africa, Americas, Oceania) aur Price/Rating ke basis pe sorting.
 * **Instant Departure Dates & Travelers Counter**: Live total price calculation.
 
 ---
 
 ### 2. 🏨 Hotel, Luxury Resort & Villa Booking (Hotels)
-* **Curated 5-Star Accommodations**:
-  * *Four Seasons Resort Bali at Sayan* (Ubud, Bali)
-  * *The Chedi Andermatt* (Switzerland)
+* **16 Curated 5-Star Accommodations Across the World**:
+  * *Hôtel Plaza Athénée* (Avenue Montaigne, Paris, France)
+  * *The Retreat at Blue Lagoon* (Grindavík, Iceland)
+  * *The Oberoi Udaivilas* (Lake Pichola, Udaipur, India)
+  * *Soneva Fushi Overwater Reserve* (Baa Atoll, Maldives)
+  * *Four Seasons Resort Bali at Sayan* (Ubud, Bali, Indonesia)
+  * *The Chedi Andermatt* (Andermatt, Switzerland)
   * *Le Sirenuse Positano* (Amalfi Coast, Italy)
-  * *Atlantis The Royal* (Palm Jumeirah, Dubai)
+  * *Atlantis The Royal* (Palm Jumeirah, Dubai, UAE)
   * *Hoshinoya Kyoto* (Kyoto, Japan)
   * *Grace Hotel, Auberge Resorts Collection* (Santorini, Greece)
+  * *Museum Hotel Cappadocia* (Uchisar, Cappadocia, Turkey)
+  * *Four Seasons Safari Lodge Serengeti* (Serengeti, Tanzania)
+  * *The Silo Hotel* (V&A Waterfront, Cape Town, South Africa)
+  * *The Plaza Hotel* (Fifth Avenue, New York, USA)
+  * *Belmond Sanctuary Lodge* (Machu Picchu Citadel, Peru)
+  * *Blanket Bay Luxury Lodge* (Lake Wakatipu, Queenstown, New Zealand)
 * **Room Tiers & Multipliers**:
   * Deluxe Suites, One-Bedroom Pool Villas, Royal Penthouse Suites.
 * **Dynamic Stay Calculator**:
@@ -82,15 +108,25 @@ npm run build
 ---
 
 ### 3. 🍽️ Restaurants & Fine Dining (Dining Reservations)
-* **Handpicked Gastronomy Destinations**:
+* **16 Handpicked Gastronomy Destinations Worldwide**:
+  * *Le Jules Verne Eiffel Tower* (Paris, France) - Michelin Fine Dining
+  * *Moss Restaurant Blue Lagoon* (Grindavík, Iceland) - Michelin Fine Dining
+  * *Sheesh Mahal Lake Pichola* (Udaipur, India) - Royal Indian Terrace
+  * *Ithaa Undersea Restaurant* (Rangali Island, Maldives) - Ocean Floor Dining
   * *Il San Pietro Cliffside Terrace* (Positano, Italy)
   * *Locavore NXT Ubud* (Bali, Indonesia)
   * *The Japanese Restaurant at Chedi Andermatt* (Switzerland)
   * *Pierchic Over-Water Dining* (Dubai, UAE)
   * *Kikunoi Roan 2-Star Kaiseki* (Kyoto, Japan)
   * *Ambrosia Sunset Restaurant & Caldera Wine Bar* (Santorini, Greece)
+  * *Seki Restaurant & Cave Cellar* (Cappadocia, Turkey)
+  * *Serengeti Boma Bush Barbecue* (Serengeti, Tanzania)
+  * *FYN Restaurant Cape Town* (Cape Town, South Africa)
+  * *Le Bernardin by Eric Ripert* (Midtown Manhattan, New York, USA)
+  * *Mil Centro & Sacred Valley Gastronomy* (Cusco, Peru)
+  * *Rātā Queenstown* (Queenstown, New Zealand)
 * **Interactive Table Reserve Modal**:
-  * Date aur Time slot selector (`12:30 PM`, `1:30 PM`, `7:00 PM`, `8:15 PM`, `9:30 PM`).
+  * Date aur Time slot selector (`12:00 PM`, `1:30 PM`, `7:00 PM`, `8:15 PM`, `9:30 PM`).
   * Party size (Guests: 1 to 10 guests).
   * Seating Atmosphere Preference: *Terrace / Sunset View, Candlelit Romantic Corner, Main Dining Hall, Private VIP Booth*.
   * Dietary and special request notes (Anniversary, Birthday, Vegan, Nut Allergy).
@@ -100,22 +136,31 @@ npm run build
 
 ### 4. ☕ Travel Refreshments, Cafes & Highway Pit Stops (Refreshments)
 * **A. Curated Travel Snack Packs & Hampers** (Direct hotel concierge ya chauffeur delivery):
+  * **Parisian Macaron & Champagne Hamper**: Ladurée macarons, Billecart-Salmon Brut Rosé Champagne, Comté cheese, baguette.
+  * **Arctic Geothermal Berry & Mineral Kit**: Thermal insulated flask with herbal birch tea, Skyr berry bites, Arctic spring water.
+  * **Royal Rajasthan Saffron & Chai Box**: Authentic brass flask with royal saffron masala chai, Udaipur Ghewar sweets, dry fruits.
   * **Alpine Trekker Gourmet Snack Box**: Swiss Grand Cru chocolates, air-dried Bündnerfleisch beef, aged Gruyère cheese, electrolyte spritzers.
   * **Mediterranean Sunset Picnic Hamper**: Wicker basket with chilled Prosecco DOCG, buffalo mozzarella, olives, lemon delizia pastries.
   * **Tropical Bali Vitality Cooler Bag**: Chilled young drinking coconuts, tropical fruit skewers, cold-pressed turmeric Jamu tonics.
   * **Kyoto Ceremonial Matcha & Wagashi Box**: Seasonal handmade bean-paste confections, cold-whisked Uji matcha, cedar keepsake box.
+  * **Manhattan Central Park Bagel & Cold Brew Kit**: Hand-rolled kettle bagels, Brooklyn smoked salmon, nitro cold brew.
 * **B. Scenic Highway Pit Stops & Cafes**:
-  * *Lake Como Bellagio Waterfront Espresso Bar*
-  * *Swiss Gotthard Pass Panorama Bakery & Dairy* (2,106m altitude)
-  * *Arabian Dunes Royal Karak Chai & Dates Lounge*
-  * *Santorini Cliffside Pomegranate & Frozen Yogurt Bar*
+  * *Cappadocia Sunrise Balloon Panorama Cafe & Baklava Lounge* (Turkey)
+  * *Serengeti Kopje Morning Espresso & Biltong Outpost* (Tanzania)
+  * *Cape Point Cliffs Fynbos Herbal Tea & Cold Brew Bar* (South Africa)
+  * *Lake Wakatipu Artisan Bakery & Manuka Honey Station* (New Zealand)
+  * *Sacred Valley Organic Cacao & Quinoa Smoothie Bar* (Peru)
+  * *Lake Como Bellagio Waterfront Espresso Bar* (Italy)
+  * *Swiss Gotthard Pass Panorama Bakery & Dairy* (Switzerland, 2,106m altitude)
+  * *Arabian Dunes Royal Karak Chai & Dates Lounge* (Dubai, UAE)
+  * *Santorini Cliffside Pomegranate & Frozen Yogurt Bar* (Greece)
 * Quantity counter (+ / -) ke sath instant trip bag me add karne ki facility.
 
 ---
 
 ### 5. 🎒 "Build Your Own Custom Travel Package" (Configurator)
 Users apna complete customized tour bundle khud design kar sakte hain:
-* **Step 1**: Destination choose karein (*Bali, Switzerland, Amalfi Coast, Kyoto, Dubai, Santorini*).
+* **Step 1**: Destination choose karein (*Bali, Switzerland, Amalfi Coast, Kyoto, Dubai, Santorini, Paris, Iceland, India, Maldives, Cappadocia, Serengeti, Cape Town, New York, Peru, New Zealand*).
 * **Step 2**: Hotel choose karein aur kitne nights rukna hai set karein.
 * **Step 3**: Optional dinner tasting experience add karein.
 * **Step 4**: Refreshment hampers aur pit-stop vouchers select karein.
@@ -260,6 +305,26 @@ d:\Tours&travel/
 ## 📝 Changelog & Update Log (Har Update Ka Record)
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
+
+### [v1.3.0] - Worldwide Global Destinations Expansion (All Continents Included)
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Worldwide Continents Coverage**: Platform ko 6 specific destinations se expand karke pura global ecosystem banaya gaya hai jisme Europe, Asia, Middle East, Africa, Americas aur Oceania sabhi shamil hain.
+  * **16 Curated Multi-Day Tour Packages**:
+    * Naye world-renowned tour itineraries add kiye gaye: *Paris & French Riviera (France)*, *Iceland Northern Lights & Glaciers (Iceland)*, *Royal Rajasthan Fortresses & Taj Mahal (India)*, *Maldives Private Island Sanctuary (Maldives)*, *Cappadocia Hot Air Balloons & Istanbul Bazaars (Turkey)*, *Serengeti Big Five Safari (Tanzania)*, *Cape Town & Garden Route (South Africa)*, *New York Skyline to Grand Canyon (USA)*, *Machu Picchu Incan Trail (Peru)*, aur *New Zealand Southern Alps & Milford Sound (Oceania)*.
+  * **16 World-Class Luxury Hotels & Resorts**:
+    * Har region ka top 5-star heritage/resort property integrate kiya gaya, including *Hôtel Plaza Athénée Paris*, *The Retreat at Blue Lagoon Iceland*, *The Oberoi Udaivilas Udaipur*, *Soneva Fushi Maldives*, *Museum Hotel Cappadocia*, *Four Seasons Serengeti Lodge*, *The Silo Hotel Cape Town*, *The Plaza Hotel New York*, *Belmond Sanctuary Lodge Machu Picchu*, aur *Blanket Bay Lodge New Zealand*.
+  * **16 Michelin & Iconic Restaurants**:
+    * Handpicked fine dining tables: *Le Jules Verne Eiffel Tower*, *Moss Restaurant Blue Lagoon*, *Sheesh Mahal Lake Pichola*, *Ithaa Undersea Restaurant Maldives*, *Seki Cave Cellar Cappadocia*, *FYN Cape Town*, *Le Bernardin by Eric Ripert NYC*, *Mil Centro Sacred Valley Peru*, aur *Rātā Queenstown*.
+  * **17 Curated Travel Refreshment Hampers & Highway Pit-Stops**:
+    * Global picnic packs aur scenic road trip stops add kiye gaye: *Parisian Macaron & Champagne Hamper*, *Arctic Geothermal Berry Hydration Kit*, *Royal Rajasthani Saffron & Chai Box*, *Manhattan Bagel & Cold Brew Kit*, *Cappadocia Balloon Vista Cafe*, *Serengeti Kopje Morning Espresso*, *Cape Point Ocean Cliffs Cold Brew*, *Sacred Valley High-Altitude Cacao Bar*, aur *Lake Wakatipu Artisan Bakery*.
+  * **Hero Unified Search & Substring Token Matching**:
+    * Hero destination dropdown me 17 worldwide options integrate kiye gaye.
+    * Filtering engine (`TourList`, `HotelList`, `RestaurantList`, `RefreshmentList`) ko multi-token smart substring matching ke sath enhance kiya gaya, jisse "Paris, France" ya "Rajasthan, India" choose karne par destination aur country dono seamlessly filter hote hain.
+  * **Interactive Custom Package Builder Sync**:
+    * 16 worldwide destination pills add kiye gaye jo 1 click par accommodation, dining table aur refreshment packs ko dynamically switch aur bundle discount me include karte hain.
+  * **Footer Worldwide Directory**:
+    * Footer me click karne yogya 12+ international destination quick-links jisse user 1 tap me directly filtered tours section par navigate kar sakta hai.
 
 ### [v1.2.0] - Comprehensive Mobile, Tablet & Desktop Responsive Polish
 * **Date**: November 2026

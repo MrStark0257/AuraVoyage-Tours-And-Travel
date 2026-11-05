@@ -17,11 +17,21 @@ export const RefreshmentList: React.FC = () => {
       if (
         selectedDestinationFilter &&
         selectedDestinationFilter !== 'All' &&
-        selectedDestinationFilter !== 'All Destinations' &&
-        !item.destination.toLowerCase().includes(selectedDestinationFilter.toLowerCase()) &&
-        !item.country.toLowerCase().includes(selectedDestinationFilter.toLowerCase())
+        selectedDestinationFilter !== 'All Destinations'
       ) {
-        return false;
+        const filterStr = selectedDestinationFilter.toLowerCase().trim();
+        const tokens = filterStr.split(/[\s,]+/).filter((t) => t.length > 2);
+        const matches =
+          item.destination.toLowerCase().includes(filterStr) ||
+          item.country.toLowerCase().includes(filterStr) ||
+          tokens.some(
+            (token) =>
+              item.destination.toLowerCase().includes(token) ||
+              item.country.toLowerCase().includes(token)
+          );
+        if (!matches) {
+          return false;
+        }
       }
 
       if (searchQuery.trim()) {

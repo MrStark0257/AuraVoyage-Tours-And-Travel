@@ -31,13 +31,22 @@ export const Hero: React.FC = () => {
 
   const destinationOptions = [
     'All Destinations',
-    'Bali',
-    'Switzerland',
-    'Amalfi Coast',
-    'Kyoto',
-    'Dubai',
-    'Santorini',
-    'Zanzibar',
+    'Paris, France',
+    'Swiss Alps, Switzerland',
+    'Amalfi Coast, Italy',
+    'Santorini, Greece',
+    'Reykjavík, Iceland',
+    'Kyoto & Tokyo, Japan',
+    'Bali, Indonesia',
+    'Rajasthan, India',
+    'Maldives',
+    'Dubai, UAE',
+    'Cappadocia, Turkey',
+    'Serengeti, Tanzania',
+    'Cape Town, South Africa',
+    'New York, USA',
+    'Cusco & Machu Picchu, Peru',
+    'Queenstown, New Zealand',
   ];
 
   const handleSearchSubmit = (e: React.FormEvent) => {

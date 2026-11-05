@@ -17,20 +17,42 @@ import {
 export const CustomPackageBuilder: React.FC = () => {
   const { currency, addToCart, setIsCartOpen } = useTravel();
 
-  const destinations = ['Bali', 'Switzerland', 'Amalfi Coast', 'Kyoto', 'Dubai', 'Santorini'];
+  const destinations = [
+    'Bali',
+    'Switzerland',
+    'Amalfi Coast',
+    'Kyoto',
+    'Dubai',
+    'Santorini',
+    'Paris',
+    'Iceland',
+    'India',
+    'Maldives',
+    'Cappadocia',
+    'Serengeti',
+    'Cape Town',
+    'New York',
+    'Peru',
+    'New Zealand',
+  ];
   const [selectedDest, setSelectedDest] = useState('Bali');
   const [travelers, setTravelers] = useState(2);
   const [nights, setNights] = useState(4);
   const [startDate, setStartDate] = useState('2026-11-25');
 
+  const isDestMatch = (dest: string, country: string, target: string) => {
+    const t = target.toLowerCase();
+    return dest.toLowerCase().includes(t) || country.toLowerCase().includes(t);
+  };
+
   const availableHotels = HOTELS_DATA.filter((h) =>
-    h.destination.toLowerCase().includes(selectedDest.toLowerCase())
+    isDestMatch(h.destination, h.country, selectedDest)
   );
   const availableRestaurants = RESTAURANTS_DATA.filter((r) =>
-    r.destination.toLowerCase().includes(selectedDest.toLowerCase())
+    isDestMatch(r.destination, r.country, selectedDest)
   );
   const availableRefreshments = REFRESHMENTS_DATA.filter((rf) =>
-    rf.destination.toLowerCase().includes(selectedDest.toLowerCase())
+    isDestMatch(rf.destination, rf.country, selectedDest)
   );
 
   const [selectedHotelId, setSelectedHotelId] = useState<string>(
@@ -42,6 +64,24 @@ export const CustomPackageBuilder: React.FC = () => {
   const [selectedRefreshmentIds, setSelectedRefreshmentIds] = useState<string[]>([
     availableRefreshments[0]?.id || REFRESHMENTS_DATA[0].id,
   ]);
+
+  const handleDestinationSelect = (dest: string) => {
+    setSelectedDest(dest);
+    const matchingHotels = HOTELS_DATA.filter((h) => isDestMatch(h.destination, h.country, dest));
+    if (matchingHotels.length > 0) {
+      setSelectedHotelId(matchingHotels[0].id);
+    }
+    const matchingRestaurants = RESTAURANTS_DATA.filter((r) => isDestMatch(r.destination, r.country, dest));
+    if (matchingRestaurants.length > 0) {
+      setSelectedRestaurantId(matchingRestaurants[0].id);
+    } else {
+      setSelectedRestaurantId(null);
+    }
+    const matchingRefreshments = REFRESHMENTS_DATA.filter((rf) => isDestMatch(rf.destination, rf.country, dest));
+    if (matchingRefreshments.length > 0) {
+      setSelectedRefreshmentIds([matchingRefreshments[0].id]);
+    }
+  };
 
   const [selectedAddons, setSelectedAddons] = useState<string[]>(['addon-guide']);
 
@@ -151,22 +191,17 @@ export const CustomPackageBuilder: React.FC = () => {
             </h3>
 
             {/* Destination Pills */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-1.5 mb-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-1.5 mb-3">
               {destinations.map((dest) => (
                 <button
                   key={dest}
-                  onClick={() => {
-                    setSelectedDest(dest);
-                    const matchingH = HOTELS_DATA.find((h) =>
-                      h.destination.toLowerCase().includes(dest.toLowerCase())
-                    );
-                    if (matchingH) setSelectedHotelId(matchingH.id);
-                  }}
-                  className={`py-1.5 px-2 rounded-lg text-xs font-medium border transition-colors ${
+                  onClick={() => handleDestinationSelect(dest)}
+                  className={`py-1.5 px-2 rounded-lg text-xs font-medium border transition-colors truncate ${
                     selectedDest === dest
                       ? 'bg-slate-900 text-white border-slate-900'
                       : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'
                   }`}
+                  title={dest}
                 >
                   {dest}
                 </button>
@@ -337,7 +372,7 @@ export const CustomPackageBuilder: React.FC = () => {
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
-              {REFRESHMENTS_DATA.slice(0, 4).map((refr) => {
+              {(availableRefreshments.length > 0 ? availableRefreshments : REFRESHMENTS_DATA.slice(0, 4)).map((refr) => {
                 const isSelected = selectedRefreshmentIds.includes(refr.id);
                 return (
                   <div

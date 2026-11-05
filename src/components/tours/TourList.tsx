@@ -28,11 +28,21 @@ export const TourList: React.FC = () => {
       if (
         selectedDestinationFilter &&
         selectedDestinationFilter !== 'All' &&
-        selectedDestinationFilter !== 'All Destinations' &&
-        !tour.destination.toLowerCase().includes(selectedDestinationFilter.toLowerCase()) &&
-        !tour.country.toLowerCase().includes(selectedDestinationFilter.toLowerCase())
+        selectedDestinationFilter !== 'All Destinations'
       ) {
-        return false;
+        const filterStr = selectedDestinationFilter.toLowerCase().trim();
+        const tokens = filterStr.split(/[\s,]+/).filter((t) => t.length > 2);
+        const matches =
+          tour.destination.toLowerCase().includes(filterStr) ||
+          tour.country.toLowerCase().includes(filterStr) ||
+          tokens.some(
+            (token) =>
+              tour.destination.toLowerCase().includes(token) ||
+              tour.country.toLowerCase().includes(token)
+          );
+        if (!matches) {
+          return false;
+        }
       }
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
