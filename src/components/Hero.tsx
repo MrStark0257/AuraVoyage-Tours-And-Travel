@@ -20,6 +20,7 @@ export const Hero: React.FC = () => {
   const {
     activeCategory,
     setActiveCategory,
+    navigateToCategory,
     searchQuery,
     setSearchQuery,
     selectedDestinationFilter,
@@ -129,19 +130,8 @@ export const Hero: React.FC = () => {
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSearchQuery(localSearch.trim());
-    setTimeout(() => {
-      const targetElement = document.getElementById(
-        activeCategory === 'all' ? 'catalog-section' : activeCategory
-      );
-      if (targetElement) {
-        const navOffset = 85;
-        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        window.scrollTo({
-          top: Math.max(0, elementPosition - navOffset),
-          behavior: 'smooth',
-        });
-      }
-    }, 60);
+    const targetId = activeCategory === 'all' ? 'catalog-section' : activeCategory;
+    navigateToCategory(targetId as any);
   };
 
   const tabs: { label: string; category: CategoryType; icon: React.ElementType }[] = [
@@ -191,7 +181,7 @@ export const Hero: React.FC = () => {
               return (
                 <button
                   key={tab.category}
-                  onClick={() => setActiveCategory(tab.category)}
+                  onClick={() => navigateToCategory(tab.category)}
                   className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-medium whitespace-nowrap transition-colors shrink-0 ${isSelected
                     ? 'bg-slate-900 text-white'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'

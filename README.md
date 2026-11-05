@@ -398,6 +398,19 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
+### [v1.6.6] - Permanent Architecture Fix for Mobile & Responsive Button Navigation
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Permanent Single-Page Stability (Eliminated DOM Unmounting & Height Collapse)**:
+    * User reported persistent mobile glitch (*"responsive me issue he wahi jo buttion ka glitch he wo thik karo"*):
+      * **Core Flaw Identified**: Pehle category change hone par `App.tsx` baaki 4 sections ko unmount kar deta tha. Isse page ki height 8,000px se girkar 1,500px ho jati thi aur mobile touch devices par browser ka smooth-scroll engine layout shift aur negative offsets ke chalte confuse hokar page ko aakhri me footer tak fenk deta tha.
+      * **Permanent Stable Layout**: Sabhi 5 primary sections (`#tours`, `#hotels`, `#restaurants`, `#refreshments`, `#builder`) ab DOM me permanent sequence me mounted rehte hain. Koi section unmount nahi hota aur page height 100% constant rehti hai.
+    * **Zero-Delay Deterministic Smooth Scroll**:
+      * `TravelContext.tsx` me artificial `setTimeout` delay ko hata diya gaya. Kyunki sections hamesha mounted hain, `targetElement.getBoundingClientRect().top + window.pageYOffset` har device aur responsive viewport par 100% exact vertical coordinate deta hai.
+      * Sticky navbar ke liye 75px clean offset ke sath browser bina kisi race condition ke direct Dining, Cafes, Hotels, Tours ya Custom Trip par smoothly glide karta hai.
+    * **Hero Tabs Synchronization**:
+      * Hero search bar ke category tabs (`All`, `Tours`, `Hotels`, `Dining`, `Cafes & Spots`) ko direct `navigateToCategory` se connect kiya gaya taaki search bar me click karte hi mobile aur desktop dono par page seedha usi section par land kare.
+
 ### [v1.6.5] - Comprehensive Mobile, Tablet & Desktop Responsive Optimization
 * **Date**: November 2026
 * **Changes & Key Highlights**:

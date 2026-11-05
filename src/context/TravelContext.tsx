@@ -231,29 +231,28 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       return;
     }
 
-    // Wait for React 19 state update and DOM commit of the target section
-    setTimeout(() => {
-      const targetElement = document.getElementById(cat);
-      if (targetElement) {
-        const navOffset = 85;
-        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = Math.max(0, elementPosition - navOffset);
+    const targetElement = document.getElementById(cat);
+    if (targetElement) {
+      const navOffset = 75;
+      const rect = targetElement.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const targetY = Math.max(0, rect.top + scrollTop - navOffset);
+
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth',
+      });
+    } else {
+      const catalogElem = document.getElementById('catalog-section');
+      if (catalogElem) {
+        const rect = catalogElem.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         window.scrollTo({
-          top: offsetPosition,
+          top: Math.max(0, rect.top + scrollTop - 75),
           behavior: 'smooth',
         });
-      } else {
-        const catalogElem = document.getElementById('catalog-section');
-        if (catalogElem) {
-          const navOffset = 85;
-          const elementPosition = catalogElem.getBoundingClientRect().top + window.pageYOffset;
-          window.scrollTo({
-            top: Math.max(0, elementPosition - navOffset),
-            behavior: 'smooth',
-          });
-        }
       }
-    }, 70);
+    }
   };
 
   return (

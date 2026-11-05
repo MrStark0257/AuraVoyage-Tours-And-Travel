@@ -36,21 +36,11 @@ const MainContent: React.FC = () => {
 
       {/* Main Sections */}
       <main className="flex-1">
-        {activeCategory === 'all' && (
-          <>
-            <TourList />
-            <HotelList />
-            <RestaurantList />
-            <RefreshmentList />
-            <CustomPackageBuilder />
-          </>
-        )}
-
-        {activeCategory === 'tours' && <TourList />}
-        {activeCategory === 'hotels' && <HotelList />}
-        {activeCategory === 'restaurants' && <RestaurantList />}
-        {activeCategory === 'refreshments' && <RefreshmentList />}
-        {activeCategory === 'builder' && <CustomPackageBuilder />}
+        <TourList />
+        <HotelList />
+        <RestaurantList />
+        <RefreshmentList />
+        <CustomPackageBuilder />
 
         {/* Traveler Testimonials & Reviews */}
         <TestimonialsSection />
