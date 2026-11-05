@@ -79,7 +79,7 @@ export const CategoryPills: React.FC = () => {
             <button
               key={cat.id}
               onClick={() => navigateToCategory(cat.id)}
-              className={`flex flex-col items-start text-left p-2.5 sm:p-3.5 rounded-xl border transition-colors ${isSelected
+              className={`flex flex-col items-start text-left p-2.5 sm:p-3.5 rounded-xl border transition-colors min-w-0 ${isSelected
                   ? 'bg-slate-900 text-white border-slate-900'
                   : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50/80'
                 }`}

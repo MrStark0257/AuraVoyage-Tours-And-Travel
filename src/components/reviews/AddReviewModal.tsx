@@ -44,8 +44,8 @@ export const AddReviewModal: React.FC<AddReviewModalProps> = ({ isOpen, onClose 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden my-auto border border-slate-200">
-        <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col border border-slate-200">
+        <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50 shrink-0">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center">
               <MessageSquare className="w-3.5 h-3.5" />
@@ -67,7 +67,7 @@ export const AddReviewModal: React.FC<AddReviewModalProps> = ({ isOpen, onClose 
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-5 space-y-3.5">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-5 space-y-3.5 overflow-y-auto flex-1">
           <div className="grid grid-cols-2 gap-2.5">
             <div>
               <label className="block text-xs font-medium text-slate-700 mb-1">Your Name *</label>

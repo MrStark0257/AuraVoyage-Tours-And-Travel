@@ -77,7 +77,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3 sm:gap-5 text-slate-400 shrink-0">
-            <div className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer text-[11px]">
+            <div className="hidden md:flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer text-[11px]">
               <PhoneCall className="w-3 h-3 text-slate-400" />
               <span>+1 (800) 792-VOYAGE</span>
             </div>
@@ -242,6 +242,30 @@ export const Navbar: React.FC = () => {
               </button>
             );
           })}
+
+          {/* Quick Drawer Shortcuts */}
+          <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 mt-2">
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsWishlistOpen(true);
+              }}
+              className="flex items-center justify-center gap-1.5 p-2 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+            >
+              <Heart className="w-3.5 h-3.5 text-rose-500" />
+              <span>Wishlist ({wishlist.length})</span>
+            </button>
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsMyBookingsOpen(true);
+              }}
+              className="flex items-center justify-center gap-1.5 p-2 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+            >
+              <TicketCheck className="w-3.5 h-3.5 text-slate-800" />
+              <span>Bookings ({bookings.length})</span>
+            </button>
+          </div>
 
           {/* Mobile Currency Bar */}
           <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 px-1 mt-2">

@@ -151,13 +151,13 @@ export const TourCard: React.FC<TourCardProps> = ({ tour, onOpenDetails }) => {
         </div>
 
         {/* Pricing and Action Footer */}
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-          <div>
+        <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div className="min-w-0">
             <span className="block text-[10px] uppercase tracking-wider text-slate-400 font-medium">
               From
             </span>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-lg font-bold text-slate-900">
+            <div className="flex items-baseline gap-1.5 flex-wrap">
+              <span className="text-base sm:text-lg font-bold text-slate-900">
                 {formatPrice(tour.priceUSD, currency)}
               </span>
               {tour.originalPriceUSD && (
@@ -170,7 +170,7 @@ export const TourCard: React.FC<TourCardProps> = ({ tour, onOpenDetails }) => {
           </div>
 
           {/* Minimalist Action Buttons */}
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 shrink-0">
             <button
               onClick={handleQuickAdd}
               className="p-2 rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 transition-colors"

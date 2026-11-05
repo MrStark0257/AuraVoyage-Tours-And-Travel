@@ -398,6 +398,22 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
+### [v1.6.5] - Comprehensive Mobile, Tablet & Desktop Responsive Optimization
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Touch-Optimized Custom Package Studio on Mobile**:
+    * **Floating Live Tally Bar (< lg screens)**: Custom Package Builder me mobile screens ke liye sleek sticky bottom bar add kiya gaya hai jo selected days, destination, aur live price tally with instant "Book Custom Package" button display karta hai. Mobile travelers ko step 1 ya 2 se niche tak baar baar scroll karne ki zarurat nahi padti.
+    * **Balanced 5-Star Tier Grid**: Mobile viewports par 5-card grid me aakhri card (5★ Luxury Palace) ab `last:col-span-2 sm:last:col-span-1` ke sath full width span karta hai, jisse koi awkward single dangling card nahi rehta.
+  * **Enhanced Mobile Navigation Drawer**:
+    * Mobile slide-out menu me direct **"Wishlist"** aur **"My Bookings"** shortcut action buttons with dynamic badge counts add kiye gaye.
+    * Announcement header me phone helpline ko `hidden md:flex` kiya gaya taaki 320px–380px ultra-narrow screens par promo banner bina kisi text-wrapping ya crowding ke clean display ho.
+  * **Mobile Scrollbar Removal (`.no-scrollbar`)**:
+    * Global CSS me `-ms-overflow-style: none`, `scrollbar-width: none`, aur `::-webkit-scrollbar { display: none }` integrate kiya gaya, jisse mobile touch screens par horizontal swipeable category tabs aur destination pills bina kisi ugly scrollbar ke smooth swipe hote hain.
+  * **All Modals Full Responsiveness (`max-h-[92vh] flex flex-col`)**:
+    * `CafeDetailModal.tsx`, `AddReviewModal.tsx`, `TourDetailModal.tsx`, aur `HotelBookingModal.tsx` sabhi ko flex-column architecture par normalize kiya gaya hai jisme header aur footer sticky rehte hain aur body smoothly scroll hoti hai (landscape mode aur short phone screens par zero clipping).
+  * **Cards Responsive Flex-Wrap Safeguards**:
+    * `TourCard.tsx`, `HotelCard.tsx`, aur `RestaurantCard.tsx` ke pricing aur action button footers me `min-w-0`, `flex-wrap`, aur `shrink-0` safeguards add kiye gaye taaki AED, GBP ya INR jaise multi-character currency symbols ke sath narrow screens par layout break na ho.
+
 ### [v1.6.4] - Resolved Navbar Navigation, Category Switching & Smooth Scroll Glitch
 * **Date**: November 2026
 * **Changes & Key Highlights**:

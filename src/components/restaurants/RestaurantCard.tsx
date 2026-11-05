@@ -124,15 +124,15 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
         </div>
 
         {/* Footer with Reservation Button */}
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-          <div className="flex items-center gap-1 text-[11px] text-slate-500">
-            <Clock className="w-3.5 h-3.5 text-slate-400" />
+        <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1 text-[11px] text-slate-500 min-w-0">
+            <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
             <span className="line-clamp-1">{restaurant.openingHours.split(',')[0]}</span>
           </div>
 
           <button
             onClick={() => onOpenReserve(restaurant)}
-            className="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs transition-colors flex items-center gap-1"
+            className="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
           >
             <span>Reserve</span>
             <ChevronRight className="w-3 h-3" />

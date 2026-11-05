@@ -134,13 +134,13 @@ export const HotelCard: React.FC<HotelCardProps> = ({ hotel, onOpenBooking }) =>
         </div>
 
         {/* Pricing and Action Footer */}
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-          <div>
+        <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div className="min-w-0">
             <span className="block text-[10px] uppercase tracking-wider text-slate-400 font-medium">
               From
             </span>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-lg font-bold text-slate-900">
+            <div className="flex items-baseline gap-1.5 flex-wrap">
+              <span className="text-base sm:text-lg font-bold text-slate-900">
                 {formatPrice(hotel.pricePerNightUSD, currency)}
               </span>
               {hotel.originalPriceUSD && (
@@ -154,7 +154,7 @@ export const HotelCard: React.FC<HotelCardProps> = ({ hotel, onOpenBooking }) =>
 
           <button
             onClick={() => onOpenBooking(hotel)}
-            className="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs transition-colors flex items-center gap-1"
+            className="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs transition-colors flex items-center gap-1 shrink-0 cursor-pointer"
           >
             <span>Book Room</span>
             <ArrowRight className="w-3 h-3" />

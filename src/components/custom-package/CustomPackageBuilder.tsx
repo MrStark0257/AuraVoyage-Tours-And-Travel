@@ -547,7 +547,7 @@ const EXTENDED_DESTINATIONS: DestinationChoice[] = [
 ];
 
 export const CustomPackageBuilder: React.FC = () => {
-  const { currency, addToCart, setIsCartOpen } = useTravel();
+  const { currency, activeCategory, addToCart, setIsCartOpen } = useTravel();
 
   // Destination Mode: catalog vs custom free-text route
   const [isCustomRouteMode, setIsCustomRouteMode] = useState<boolean>(false);
@@ -1070,7 +1070,7 @@ export const CustomPackageBuilder: React.FC = () => {
                       const matching = matchingHotelsForDest.find((h) => h.starRating === item.tier);
                       if (matching) setSelectedHotelId(matching.id);
                     }}
-                    className={`p-2.5 sm:p-3 rounded-xl border cursor-pointer transition-all flex flex-col justify-between ${
+                    className={`p-2.5 sm:p-3 rounded-xl border cursor-pointer transition-all flex flex-col justify-between last:col-span-2 sm:last:col-span-1 ${
                       isSelected
                         ? 'border-slate-900 bg-slate-50 ring-2 ring-slate-900 shadow-sm'
                         : 'border-slate-200 hover:border-slate-300 bg-white'
@@ -1507,6 +1507,27 @@ export const CustomPackageBuilder: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Sticky Quick Tally Bar (< lg only when activeCategory === 'builder') */}
+      {activeCategory === 'builder' && (
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 p-3 z-30 shadow-2xl flex items-center justify-between gap-3 animate-in slide-in-from-bottom-2">
+          <div className="min-w-0">
+            <span className="text-[10px] uppercase font-bold text-slate-400 block truncate">
+              {daysCount}D/{nightsCount}N • {activeDestinationTitle}
+            </span>
+            <span className="text-base font-bold text-white leading-tight">
+              {formatPrice(finalPriceUSD, currency)}
+            </span>
+          </div>
+          <button
+            onClick={handleBookCustomPackage}
+            className="bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs px-4 py-2.5 rounded-xl transition-colors flex items-center gap-1.5 shrink-0 shadow-sm cursor-pointer"
+          >
+            <ShoppingBag className="w-3.5 h-3.5" />
+            <span>Book ({formatPrice(finalPriceUSD, currency)})</span>
+          </button>
+        </div>
+      )}
     </section>
   );
 };

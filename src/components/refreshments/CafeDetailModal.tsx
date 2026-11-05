@@ -36,9 +36,9 @@ export const CafeDetailModal: React.FC<CafeDetailModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200 my-6 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200 my-auto max-h-[92vh] flex flex-col animate-in fade-in zoom-in-95 duration-200">
         {/* Header Image */}
-        <div className="relative h-52 sm:h-72 w-full bg-slate-900 overflow-hidden">
+        <div className="relative h-44 sm:h-64 w-full shrink-0 bg-slate-900 overflow-hidden">
           <img
             src={item.featuredImage}
             alt={item.name}
@@ -91,7 +91,7 @@ export const CafeDetailModal: React.FC<CafeDetailModalProps> = ({
         </div>
 
         {/* Modal Body */}
-        <div className="p-4 sm:p-6 space-y-4 max-h-[60vh] overflow-y-auto">
+        <div className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-1">
           {/* Quick Stats Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs">
             <div className="flex items-center gap-2">
@@ -191,7 +191,7 @@ export const CafeDetailModal: React.FC<CafeDetailModalProps> = ({
         </div>
 
         {/* Modal Footer (Directions & Close - NO BOOKING OR BILLING) */}
-        <div className="p-4 border-t border-slate-100 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-2.5">
+        <div className="p-4 border-t border-slate-100 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-2.5 shrink-0">
           <div className="text-[11px] text-slate-500 text-center sm:text-left">
             <span>Free travel directory guide • Drop in anytime during opening hours</span>
           </div>
