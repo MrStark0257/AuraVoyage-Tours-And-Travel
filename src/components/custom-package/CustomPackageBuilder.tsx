@@ -794,7 +794,7 @@ export const CustomPackageBuilder: React.FC = () => {
   }, [selectedRegion]);
 
   return (
-    <section id="builder" className="container mx-auto px-4 lg:px-8 py-8 sm:py-12 border-t border-slate-200 scroll-mt-24 sm:scroll-mt-28">
+    <section id="builder" className="container mx-auto px-4 lg:px-8 py-8 sm:py-12 border-t border-slate-200 scroll-mt-28">
       {/* Heading */}
       <div className="text-left md:text-center max-w-3xl mx-auto mb-6 sm:mb-10">
         <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-500 block mb-1">

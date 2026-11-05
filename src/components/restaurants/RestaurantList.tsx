@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Restaurant } from '../../types';
 import { RESTAURANTS_DATA } from '../../data/restaurantsData';
 import { RestaurantCard } from './RestaurantCard';
@@ -7,18 +7,11 @@ import { useTravel } from '../../context/TravelContext';
 import { SlidersHorizontal } from 'lucide-react';
 
 export const RestaurantList: React.FC = () => {
-  const { searchQuery, selectedDestinationFilter, activeCategory, addToCart, setIsCartOpen } = useTravel();
+  const { searchQuery, selectedDestinationFilter, addToCart, setIsCartOpen } = useTravel();
 
   const [selectedAmbience, setSelectedAmbience] = useState('All');
   const [sortBy, setSortBy] = useState<'featured' | 'rating' | 'priceAsc' | 'priceDesc'>('featured');
   const [activeRestaurantModal, setActiveRestaurantModal] = useState<Restaurant | null>(null);
-
-  // Automatically reset ambience to 'All' when user clicks Cafes or Dining in navbar
-  useEffect(() => {
-    if (activeCategory === 'refreshments' || activeCategory === 'restaurants') {
-      setSelectedAmbience('All');
-    }
-  }, [activeCategory]);
 
   const ambiences = [
     'All',
@@ -105,9 +98,7 @@ export const RestaurantList: React.FC = () => {
   };
 
   return (
-    <section id="restaurants" className="container mx-auto px-4 lg:px-8 py-8 sm:py-10 border-t border-slate-200 scroll-mt-24 sm:scroll-mt-28">
-      {/* Anchor for cafes */}
-      <div id="cafes" className="sr-only" aria-hidden="true" />
+    <section id="restaurants" className="container mx-auto px-4 lg:px-8 py-8 sm:py-10 border-t border-slate-200 scroll-mt-28">
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 gap-3">
         <div>

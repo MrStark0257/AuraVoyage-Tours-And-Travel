@@ -50,9 +50,9 @@ export const Navbar: React.FC = () => {
 
   const handleNavClick = (category: CategoryType) => {
     setIsMobileMenuOpen(false);
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       navigateToCategory(category);
-    }, 40);
+    });
   };
 
   const navItems: { label: string; category: CategoryType; icon: React.ElementType }[] = [
@@ -158,9 +158,8 @@ export const Navbar: React.FC = () => {
                       setCurrency(curr);
                       setIsCurrencyDropdownOpen(false);
                     }}
-                    className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition-colors ${
-                      currency === curr ? 'font-bold text-slate-900 bg-slate-100' : 'text-slate-600'
-                    }`}
+                    className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition-colors ${currency === curr ? 'font-bold text-slate-900 bg-slate-100' : 'text-slate-600'
+                      }`}
                   >
                     <span>{curr}</span>
                     <span className="text-slate-500 font-mono text-xs">{CURRENCY_RATES[curr].symbol}</span>
@@ -245,9 +244,8 @@ export const Navbar: React.FC = () => {
                 <button
                   key={item.category}
                   onClick={() => handleNavClick(item.category)}
-                  className={`flex items-center gap-2.5 w-full px-3 py-2.5 rounded-lg text-xs font-medium transition-colors ${
-                    isActive ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50'
-                  }`}
+                  className={`flex items-center gap-2.5 w-full px-3 py-2.5 rounded-lg text-xs font-medium transition-colors ${isActive ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50'
+                    }`}
                 >
                   <Icon className="w-4 h-4" />
                   <span>{item.label}</span>
@@ -290,11 +288,10 @@ export const Navbar: React.FC = () => {
                   <button
                     key={curr}
                     onClick={() => setCurrency(curr)}
-                    className={`px-2 py-1 rounded text-xs font-semibold transition-colors ${
-                      currency === curr
+                    className={`px-2 py-1 rounded text-xs font-semibold transition-colors ${currency === curr
                         ? 'bg-slate-900 text-white'
                         : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                    }`}
+                      }`}
                   >
                     {CURRENCY_RATES[curr].symbol} {curr}
                   </button>

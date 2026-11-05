@@ -58,7 +58,7 @@ export const CategoryPills: React.FC = () => {
     ];
 
   return (
-    <section id="catalog-section" className="container mx-auto px-4 lg:px-8 pt-6 sm:pt-8 pb-3 sm:pb-4 scroll-mt-24 sm:scroll-mt-28">
+    <section id="catalog-section" className="container mx-auto px-4 lg:px-8 pt-6 sm:pt-8 pb-3 sm:pb-4 scroll-mt-28">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-5 gap-1.5 sm:gap-2 border-b border-slate-200/80 pb-3 sm:pb-4">
         <div>
           <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
