@@ -227,50 +227,24 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     setActiveCategory(cat);
 
     if (cat === 'all') {
-      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScroll > 600) {
-        window.scrollTo({ top: 60, behavior: 'instant' });
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
 
     // Direct category-to-section mapping:
     // 'restaurants' -> #restaurants ("Curated Restaurants & Scenic Cafes")
     // 'refreshments' -> #refreshments ("Travel Refreshments & Cafes")
+    // 'hotels' -> #hotels ("Hotels, Resorts & Stays")
+    // 'tours' -> #tours ("Curated Tour Packages")
+    // 'builder' -> #builder ("Custom Package Studio")
     const targetId = cat;
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      const header = document.querySelector('header');
-      const headerHeight = header ? header.getBoundingClientRect().height : 95;
-      const navOffset = headerHeight + 14;
-
-      const rect = targetElement.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const targetY = Math.max(0, rect.top + scrollTop - navOffset);
-      const distance = Math.abs(scrollTop - targetY);
-
-      if (distance > 500) {
-        // High-distance leap: instant precision arrival with zero lag or frame drops
-        window.scrollTo({ top: targetY, behavior: 'instant' });
-      } else {
-        window.scrollTo({ top: targetY, behavior: 'smooth' });
-      }
+      targetElement.scrollIntoView({ behavior: 'instant', block: 'start' });
     } else {
       const catalogElem = document.getElementById('catalog-section');
       if (catalogElem) {
-        const header = document.querySelector('header');
-        const headerHeight = header ? header.getBoundingClientRect().height : 95;
-        const rect = catalogElem.getBoundingClientRect();
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        window.scrollTo({
-          top: Math.max(0, rect.top + scrollTop - (headerHeight + 14)),
-          behavior: 'smooth',
-        });
+        catalogElem.scrollIntoView({ behavior: 'instant', block: 'start' });
       }
     }
   };

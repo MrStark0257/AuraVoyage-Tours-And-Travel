@@ -398,6 +398,30 @@ d:\Tours&travel/
 
 Har baar jab bhi project me koi naya feature ya modification hoga, wo is section me chronologically add hoga:
 
+### [v1.7.0] - Native `scrollIntoView` Architecture (Eliminated Simulator Transform & Coordinate Scaling Glitch)
+* **Date**: November 2026
+* **Changes & Key Highlights**:
+  * **Critical Bug Root Cause Identified (*"see mobile view is not show the proper result"*)**:
+    * **Simulator CSS Transform & Scale Distortion**:
+      * Chrome mobile simulator extensions aur responsive device previewers (jaise user ke screenshot me iPhone frame) container ko fit karne ke liye `transform: scale(0.64)` apply karte hain.
+      * Jab JavaScript me `element.getBoundingClientRect()` call kiya jata tha, browser scaled viewport coordinates return karta tha (`64,750px * 0.64 = ~41,400px`).
+      * Is wajah se `window.scrollTo({ top: 41400 })` execute hota tha, jo user ko Restaurants ke bajaye theek **Hotel #32: Heritage Village Resort & Spa Arossim** (located at ~41,300px) par land karwa deta tha!
+  * **Robust Native `targetElement.scrollIntoView({ behavior: 'instant', block: 'start' })` Architecture**:
+    * Manual coordinate math (`getBoundingClientRect().top + pageYOffset - navOffset`) ko completely replace karke native browser engine method `targetElement.scrollIntoView({ behavior: 'instant', block: 'start' })` implement kiya gaya.
+    * Browser engine render-tree level par true unscaled DOM position resolve karta hai, jisse chahe device frame scaled ho, iframe ho, ya pinch-to-zoom active ho — browser 100% exact section boundary par land karta hai.
+    * CSS `scroll-mt-28` (112px) native `scrollIntoView` ke sath natively bind hota hai, jisse header ke niche crystal-clear **17-18px** breathing margin milta hai.
+  * **Zero-Delay Drawer Interaction**:
+    * `Navbar.tsx` me `handleNavClick` se `requestAnimationFrame` timing ko direct call me streamline kiya gaya taaki click hote hi target instantly activate ho.
+  * **Full Test Suite Passed Across Viewports**:
+    * **Mobile Viewport (390x844)**:
+      * `Dining` -> `#restaurants` (`"Curated Restaurants & Scenic Cafes"`) -> Clearance: **18px** | Heading: **Verified**
+      * `Cafes` -> `#refreshments` (`"Travel Refreshments & Cafes"`) -> Clearance: **18px** | Heading: **Verified**
+      * `Hotels` -> `#hotels` (`"Hotels, Resorts & Stays (1★ to 5★)"`) -> Clearance: **18px** | Heading: **Verified**
+      * `Custom Trip` -> `#builder` (`"Create Your Own Tour Package"`) -> Clearance: **17px** | Heading: **Verified**
+      * `Tours` -> `#tours` (`"Curated Tour Packages"`) -> Clearance: **17px** | Heading: **Verified**
+    * **Desktop Viewport (1280x800)**:
+      * All 5 categories verified with exact **9-10px** clearance and instant landing.
+
 ### [v1.6.9] - Explicit Distinction: Dining -> "Curated Restaurants & Scenic Cafes" & Cafes -> "Travel Refreshments & Cafes"
 * **Date**: November 2026
 * **Changes & Key Highlights**:

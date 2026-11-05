@@ -50,9 +50,7 @@ export const Navbar: React.FC = () => {
 
   const handleNavClick = (category: CategoryType) => {
     setIsMobileMenuOpen(false);
-    requestAnimationFrame(() => {
-      navigateToCategory(category);
-    });
+    navigateToCategory(category);
   };
 
   const navItems: { label: string; category: CategoryType; icon: React.ElementType }[] = [
